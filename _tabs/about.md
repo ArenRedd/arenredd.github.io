@@ -99,7 +99,7 @@ input[type=submit]:hover {
                 <option value="English">English</option>
                 <option value="Tamil">Tamil</option>
             </select>
-            <textarea id="subject" name="subject" placeholder="Hi s3cur3m3, i have a question..." style="height:100px" required></textarea><br>
+            <textarea id="subject" name="subject" placeholder="Hi Anand, i have a question..." style="height:100px" required></textarea><br>
             <input type="submit" value="Submit" style="margin-bottom: 20px;">
         </div>    
     </form>
