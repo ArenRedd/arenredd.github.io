@@ -191,6 +191,9 @@ exclude:
   - node_modules
   - package*.json
 
+include:
+  - assets/js/dist
+
 jekyll-archives:
   enabled: [categories, tags]
   layouts:
