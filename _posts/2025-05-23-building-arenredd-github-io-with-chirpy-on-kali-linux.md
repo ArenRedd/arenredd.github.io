@@ -1,6 +1,6 @@
 ---
 title: "How I Built arenredd.github.io: A Developer Blog with Chirpy on Kali Linux"
-date: 2025-05-22 23:50:00 +0530
+date: 2025-05-23 23:50:00 +0530
 categories: [Dev Journal, Web Projects, Blog Setup]
 tags: [chirpy, jekyll, github-pages, kali-linux, gulp, ruby, web-dev, troubleshooting]
 pin: true
