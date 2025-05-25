@@ -3,7 +3,7 @@ title: "26th Apr Log – Solana Spawned, GRUB Resurrected"
 date: 2025-04-26 21:00:00 +0530
 categories: [Cyber Journal, Privacy, OS Tweaks]
 tags: [solana, cryptocurrency, kali-linux, dual-boot, grub, windows, linux, partitioning, live-usb, quantum-computing]
-pin: true
+pin: false
 ---
 **Journal Entry**
 
