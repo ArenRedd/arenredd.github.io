@@ -8,8 +8,6 @@ toc: true
 comments: true
 ---
 
-# How I Added Giscus Comments to My Jekyll Blog (And Fixed Every Damn Error on the Way)
-
 Adding a comment system to a Jekyll blog sounds easy — until it isn’t.
 
 I wanted something **minimal**, **privacy-respecting**, and built right into GitHub. Disqus was bloat. Utterances was limited. **Giscus**? Perfect.
@@ -70,8 +68,6 @@ GitHub hides this deep. Inspecting HTML didn’t help.
 ✅ **Fix:** Used GitHub’s [GraphQL Explorer](https://docs.github.com/en/graphql/overview/explorer) and ran this:
 
 ```graphql
-graphql
-CopyEdit
 {
   repository(owner: "ArenRedd", name: "comment-engine") {
     discussionCategories(first: 10) {
@@ -131,7 +127,6 @@ Here’s the process boiled down to a checklist:
 1. **Create a new public repo** just for comments:
     
     ```bash
-    
     arenredd/comment-engine
     ```
     
@@ -191,7 +186,7 @@ And yeah — I broke everything along the way, but I built it back up better.
 
 If you're setting up Giscus and hit roadblocks, just come back to this post. I've walked the fire path for you 🔥
 
-🗨️ Got Questions?
+## 🗨️ Got Questions?
 Scroll down to the bottom of this post — the Giscus comment box is waiting.
 
 (Yes, it's meta. You're commenting on the post about comments. Welcome to the loop.)
