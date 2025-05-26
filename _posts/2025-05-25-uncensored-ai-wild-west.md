@@ -1,6 +1,6 @@
 ---
 title: "Uncensored AI: The Wild West of Artificial Intelligence"
-date: 2025-05-26 22:00:00 +0530
+date: 2025-05-25 22:00:00 +0530
 categories: [AI Revolution, Ethics, Open Source]
 tags: [uncensored-ai, llama2, ollama, free-speech, open-source, kali-linux]
 pin: false
