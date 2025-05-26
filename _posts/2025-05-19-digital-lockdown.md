@@ -4,6 +4,7 @@ date: 2025-05-19 21:00:00 +0530
 categories: [Cyber Journal, Privacy]
 tags: [privacy, tuta, 2fa, security, email]
 pin: false
+comments: true
 ---
 **19th May Log – Digital Lockdown Initiated**
 

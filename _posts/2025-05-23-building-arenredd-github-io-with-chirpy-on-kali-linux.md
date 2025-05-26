@@ -4,6 +4,7 @@ date: 2025-05-23 23:50:00 +0530
 categories: [Dev Journal, Web Projects, Blog Setup]
 tags: [chirpy, jekyll, github-pages, kali-linux, gulp, ruby, web-dev, troubleshooting]
 pin: true
+comments: true
 ---
 # **Building My GitHub Blog with Chirpy: A Rollercoaster of Errors & Fixes**
 

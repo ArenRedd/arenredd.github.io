@@ -4,6 +4,7 @@ date: 2025-04-27 22:00:00 +0530
 categories: [Cyber Journal, Experiments, Crypto Lab]
 tags: [BeardCoin, Docker, WSL, Pinata, crypto-dev, blockchain, terminal-tweaks, hacker-journal]
 pin: false
+comments: true
 ---
 Today, I started making my own cryptocurrency using the Solana token. However, yesterday (April 26, 2025), I attempted to create my own cryptocurrency on Kali Linux. I tried to customize the coin's name and metadata, but I encountered some Docker errors. As a result, I decided to switch to Ubuntu for this task. I accessed my dual-booted Windows system and launched WSL to continue my cryptocurrency development.
 

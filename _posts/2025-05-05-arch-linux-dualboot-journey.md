@@ -1,9 +1,10 @@
 ---
-title: "5th May Log – My Arch Linux Dual-Boot Journey: Raw & Unfiltered"
+title: "My Arch Linux Dual-Boot Journey: Raw & Unfiltered"
 date: 2025-05-05 22:00:00 +0530
 categories: [Cyber Journal, Linux Life, OS Tweaks]
 tags: [arch-linux, dual-boot, kali-linux, hyprland, pacman, hacker-journal, raw-linux]
 pin: true
+comments: true
 ---
 My Arch Linux Dual-Boot Journey – Raw & Unfiltered
 

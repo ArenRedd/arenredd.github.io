@@ -1,9 +1,10 @@
 ---
-title: "22nd May Log – Exploring the Divine OS: TempleOS on Kali Linux"
+title: "Exploring the Divine OS: TempleOS on Kali Linux"
 date: 2025-05-22 21:00:00 +0530
 categories: [Cyber Journal, Fun, OS Tweaks]
 tags: [TempleOS, kali-linux, VirtualBox, cyber-experiments, DIY-OS, hacker-journal]
 pin: true
+comments: true
 ---
 # **🛕 How I Installed and Ran TempleOS on Kali Linux Using VirtualBox**
 

@@ -1,9 +1,10 @@
 ---
-title: "May 6 – Creating a Shared Partition for Dual Boot: Kali & Arch Linux"
+title: "Creating a Shared Partition for Dual Boot: Kali & Arch Linux"
 date: 2025-05-06 22:00:00 +0530
 categories: [Linux Life, Cyber Journal, Sysadmin Hacks]
 tags: [dual-boot, kali-linux, arch-linux, shared-partition, ext4, fstab, hacker-setup]
 pin: true
+comments: true
 ---
 Creating a Shared Partition for Dual Boot: Kali & Arch Linux
 Mission: Establish a shared filesystem between Kali Linux (the aggressive pentester) and Arch Linux (the minimalist powerhouse). No more juggling files between distros—just seamless data exchange.

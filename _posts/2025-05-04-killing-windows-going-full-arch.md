@@ -1,9 +1,10 @@
 ---
-title: "4th May Log – Killing Windows: Why I’m Going Full Arch Linux"
+title: "Killing Windows: Why I’m Going Full Arch Linux"
 date: 2025-05-04 23:00:00 +0530
 categories: [Cyber Journal, Linux Shift, Rant]
 tags: [arch-linux, windows-escape, linux-life, terminal-only, privacy, AUR, hacker-journal, rant]
 pin: true
+comments: true
 ---
 # **Killing Windows – Why I’m Going Full Arch Linux**
 
