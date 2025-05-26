@@ -7,7 +7,6 @@ pin: false
 toc: true
 comments: true
 ---
-# **Uncensored AI: The Wild West of Artificial Intelligence**
 
 ## **1. What the Hell is "Uncensored" AI?**
 
