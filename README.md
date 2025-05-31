@@ -1,8 +1,8 @@
 <div align="center">
 
-  # Chirpy Jekyll Theme
+  # arenredd.github.io – My GitHub Blog
 
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  Built with the Chirpy Jekyll theme on Kali Linux, and it wasn’t smooth sailing. Below is the full write-up of how I got it working, the errors I hit, and the exact fixes I used. Hope it helps someone else in the trenches.
 
   [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)](https://rubygems.org/gems/jekyll-theme-chirpy)
   [![Build Status](https://github.com/cotes2020/jekyll-theme-chirpy/workflows/build/badge.svg?branch=master&event=push)](https://github.com/cotes2020/jekyll-theme-chirpy/actions?query=branch%3Amaster+event%3Apush)
@@ -10,96 +10,213 @@
   [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
   [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
 
-  [**Live Demo →**](https://cotes2020.github.io/chirpy-demo)
+  [**Live Demo →**](https://arenredd.github.io)
 
-  [![Devices Mockup](https://raw.githubusercontent.com/cotes2020/chirpy-images/main/commons/devices-mockup.png)](https://cotes2020.github.io/chirpy-demo)
 
 </div>
 
-## Features
+# **Building My GitHub Blog with Chirpy: A Rollercoaster of Errors & Fixes**
 
-- Localized Layout
-- Dark/Light Theme Mode
-- Pinned Posts
-- Hierarchical Categories
-- Last Modified Date for Posts
-- Table of Contents
-- Auto-generated Related Posts
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagram & Flowchart
-- Disqus/Utterances/Giscus Comments
-- Search
-- Atom Feeds
-- Google Analytics
-- GA Pageviews Reporting
-- SEO & Performance Optimization
+When I decided to set up my personal blog using the **Chirpy Jekyll theme**, I expected a smooth, well-documented process. Instead, I found myself wrestling with dependency conflicts, cryptic errors, and deployment quirks—especially since I was working on **Kali Linux**, which isn’t the most common choice for Jekyll development.
 
+This post isn’t just another "how to set up a blog in 5 minutes" tutorial. Instead, it’s a **real-world troubleshooting log**—documenting the issues I faced and how I fixed them. If you're running into similar problems, hopefully, this saves you some headaches.
 
-## Quick Start
+---
 
-Before starting, please follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll`, and `Bundler`. In addition, [Git](https://git-scm.com/) is also required to be installed.
+## **🛠 My Setup & Initial Checks**
 
-### Step 1. Creating a New Site
+Before diving into the errors, here’s the environment I was working with:
 
-Create a new repository from the [**Chirpy Starter**](https://github.com/cotes2020/chirpy-starter/generate) and name it `<GH_USERNAME>.github.io`, where `GH_USERNAME` represents your GitHub username.
+- **OS:** Kali Linux
+- **Ruby:** **`3.3.8`**
+- **Bundler:** **`2.6.9`**
+- **Jekyll:** **`4.4.1`**
+- **Node.js:** **`20.19.0`**
+- **npm:** **`9.2.0`**
+- **Gulp CLI:** **`3.0.0`**
+- **Package Managers:** APT, Bundler, nvm
 
-### Step 2. Installing Dependencies
+Everything looked good at first glance—until I started running commands.
 
-Before running for the first time, go to the root directory of your site, and install dependencies as follows:
+---
 
-```console
-$ bundle
+## **🔥 Problem #1: Ruby Gem Conflicts (ffi & sassc Errors)**
+
+### **The Error:**
+
+Running **`jekyll -v`** spat out a wall of warnings:
+
+```bash
+Ignoring ffi-1.15.5 because its extensions are not built. Try: gem pristine ffi --version 1.15.5
+Ignoring sassc-2.4.0 because its extensions are not built. Try: gem pristine sassc --version 2.4.0
 ```
 
-### Step 3. Running Local Server
+*(Repeated multiple times—annoying, right?)*
 
-Run the following command in the root directory of the site:
+### **The Cause:**
 
-```console
-$ bundle exec jekyll s
+These gems (**ffi** and **sassc**) require native extensions that weren’t compiled properly. Kali Linux, being a security-focused distro, doesn’t always come with all the development tools needed for Ruby gem compilation.
+
+### **The Fix:**
+
+1. **Install missing build tools:**CopyDownload
+    
+    ```bash
+    sudo apt install build-essential libffi-dev ruby-dev
+    ```
+    
+2. **Reinstall the problematic gems with system libraries:**CopyDownload
+    
+    ```bash
+    gem install ffi -v 1.15.5 -- --use-system-libraries
+    gem pristine ffi --version 1.15.5
+    
+    gem install sassc -v 2.4.0 -- --use-system-libraries
+    gem pristine sassc --version 2.4.0
+    ```
+    
+
+After this, **`jekyll -v`** should run without those pesky warnings.
+
+---
+
+## **⚙️ Problem #2: Gulp Issues (Local Version Unknown)**
+
+### **The Error:**
+
+Running **`gulp -v`** gave:
+
+```bash
+CLI version: 3.0.0
+Local version: Unknown
 ```
 
-Or run with Docker:
+### **The Cause:**
 
-```console
-$ docker run -it --rm \
-    --volume="$PWD:/srv/jekyll" \
-    -p 4000:4000 jekyll/jekyll \
-    jekyll serve
+The **Chirpy theme** relies on **Gulp 4** for asset processing (CSS, JS optimization). The error means Gulp is installed globally, but the project doesn’t recognize a local version.
+
+### **The Fix:**
+
+1. **Install Gulp locally:**CopyDownload
+    
+    ```bash
+    npm install --save-dev gulp@4
+    ```
+    
+2. **Verify installation:**CopyDownload
+    
+    ```bash
+    npx gulp -v
+    ```
+    
+    *(Should now show both CLI and local versions.)*
+    
+3. **Run Gulp tasks:**CopyDownload
+    
+    ```bash
+    npx gulp
+    ```
+    
+    *(This builds assets before Jekyll processes the site.)*
+    
+
+---
+
+## **🕸 Problem #3: GitHub Pages Deployment Failures (Silent Build Issues)**
+
+### **The Problem:**
+
+I pushed my repo to GitHub, but my site **wouldn’t update**—no obvious errors, just a broken or outdated build.
+
+### **The Cause:**
+
+GitHub Pages **doesn’t support all Jekyll plugins** or custom build steps (like Gulp tasks). Since Chirpy relies on preprocessing, you **must build locally first** before deploying.
+
+### **The Fix:**
+
+1. **Build the site in production mode:**CopyDownload
+    
+    ```bash
+    JEKYLL_ENV=production bundle exec jekyll build
+    ```
+    
+2. **Deploy only the `_site` folder to `gh-pages`:**CopyDownload
+    
+    ```bash
+    cd _site
+    git init
+    git remote add origin https://github.com/yourusername/yourrepo.git
+    git checkout -b gh-pages
+    git add .
+    git commit -m "Deploy site"
+    git push -f origin gh-pages
+    ```
+    
+3. **In GitHub repo settings:**
+    - Go to **Settings > Pages**
+    - Set **Source** to **Deploy from `gh-pages` branch**
+
+Now, GitHub serves the pre-built site instead of trying (and failing) to build it itself.
+
+---
+
+## **🧪 Problem #4: html-proofer Complaints (Invalid Anchor Links)**
+
+### **The Error:**
+
+Running **`bundle exec jekyll build`** sometimes failed with:
+
+```bash
+linking to internal hash # that does not exist
 ```
 
-After a while, navigate to the site at <http://localhost:4000>.
+### **The Cause:**
 
-## Documentation
+Some links (like **`href="#"`**) are flagged by **html-proofer** (a built-in Chirpy tool) because they don’t point to a real anchor.
 
-For more details on usage, please refer to the tutorial on the [demo website](https://cotes2020.github.io/chirpy-demo/) / [wiki](https://github.com/cotes2020/jekyll-theme-chirpy/wiki). Note that the tutorial is based on the [latest tag](https://github.com/cotes2020/jekyll-theme-chirpy/tags), and the features of the default branch are usually ahead of the documentation.
+### **The Fix:**
 
-## Contributing
+1. **Replace `#` with a valid anchor:**CopyDownloadRun
+    
+    ```html
+    <a href="#top">Back to Top</a>
+    ```
+    
+2. **Add an anchor target somewhere on the page:**CopyDownloadRun
+    
+    ```html
+    <a id="top"></a>
+    ```
+    
 
-Welcome to report bugs, improve code quality or submit a new feature. For more information, see [contributing guidelines](.github/CONTRIBUTING.md).
+This keeps the same functionality while making **html-proofer** happy.
 
-## Credits
+---
 
-This theme is mainly built with [Jekyll](https://jekyllrb.com/) ecosystem, [Bootstrap](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/) and some other wonderful tools (their copyright information can be found in the relevant files). The avatar and favicon design come from [Clipart Max](https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/).
+## **💡 Final Thoughts & Lessons Learned**
 
-:tada: Thanks to all the volunteers who contributed to this project, their GitHub IDs are on [this list](https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors). Also, I won't forget those guys who submitted the issues or unmerged PR because they reported bugs, shared ideas, or inspired me to write more readable documentation.
+Setting up **Chirpy on Kali Linux** was **way harder** than I expected. The main issues stemmed from:
 
-Last but not least, thank [JetBrains][jb] for providing the OSS development license.
+- **Ruby gem compilation problems** (fixed with **`-use-system-libraries`**)
+- **Gulp version mismatches** (solved by local install)
+- **GitHub Pages’ limitations** (workaround: pre-build & push **`_site`**)
+- **Strict HTML validation** (fixed with proper anchor tags)
 
-## Sponsoring
+### **TL;DR – Key Takeaways**
 
-If you like this theme or find it helpful, please consider sponsoring me, because it will encourage and help me better maintain the project, I will be very grateful!
+✔ **Always check for native extension errors** in Ruby gems.
 
-[![Ko-fi](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-ff5f5f?logo=ko-fi&logoColor=white)](https://ko-fi.com/coteschung)
-[![Wechat Pay](https://img.shields.io/badge/-Tip%20Me%20on%20WeChat-brightgreen?logo=wechat&logoColor=white)][cn-donation]
-[![Alipay](https://img.shields.io/badge/-Tip%20Me%20on%20Alipay-blue?logo=alipay&logoColor=white)][cn-donation]
+✔ **Install Gulp both globally and locally** (v4 for Chirpy).
+
+✔ **Don’t rely on GitHub Pages to build**—do it yourself.
+
+✔ **Validate HTML early** to catch broken links.
+
+✔ **Avoid `href="#"`**—use real anchors instead.
+
+If you’re on **Kali Linux** (or any non-standard dev environment) and trying to use **Jekyll + Chirpy**, be prepared for some troubleshooting. But once it’s working, Chirpy is **one of the cleanest, most customizable static site themes** out there.
 
 ## License
 
 This work is published under [MIT](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE) License.
 
-<!-- ReadMe links -->
-
-[jb]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
-[cn-donation]: https://cotes.gitee.io/alipay-wechat-donation/
