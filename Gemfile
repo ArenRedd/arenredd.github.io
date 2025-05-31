@@ -6,6 +6,7 @@ gemspec
 
 gem "jekyll-tagging"
 
+
 group :test do
   gem "html-proofer", "~> 3.18"
 end
