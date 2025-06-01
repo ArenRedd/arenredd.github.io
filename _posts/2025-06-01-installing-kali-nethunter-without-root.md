@@ -7,8 +7,6 @@ pin: false
 comments: true
 ---
 
-# **How I Installed Kali NetHunter on My Android Without Rooting (And Lived to Tell the Tale)**
-
 So, you want to turn your innocent Android phone into a pocket-sized hacking machine without voiding your warranty? Good news—Kali NetHunter can now run **rootless**! No kingly root permissions needed, just Termux, some patience, and a willingness to ignore a few ominous Android warnings.
 
 Here’s how I did it (and how you can too, without summoning the wrath of Google’s security overlords).
