@@ -1,6 +1,6 @@
 ---
 title: "How I Installed Kali NetHunter on My Android Without Rooting (And Lived to Tell the Tale)"
-date: 2025-06-01 22:10:00 +0530
+date: 2025-06-01 08:00:00 +0530
 categories: [Android Hacking, Tutorials, NetHunter]
 tags: [kali-linux, nethunter, android, termux, rootless, hacking, linux-on-android]
 pin: false
