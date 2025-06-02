@@ -50,13 +50,13 @@ These gems (**ffi** and **sassc**) require native extensions that weren’t co
 
 ### **The Fix:**
 
-1. **Install missing build tools:**CopyDownload
+1. **Install missing build tools:**
     
     ```bash
     sudo apt install build-essential libffi-dev ruby-dev
     ```
     
-2. **Reinstall the problematic gems with system libraries:**CopyDownload
+2. **Reinstall the problematic gems with system libraries:**
     
     ```bash
     gem install ffi -v 1.15.5 -- --use-system-libraries
@@ -88,13 +88,13 @@ The **Chirpy theme** relies on **Gulp 4** for asset processing (CSS, JS opti
 
 ### **The Fix:**
 
-1. **Install Gulp locally:**CopyDownload
+1. **Install Gulp locally:**
     
     ```bash
     npm install --save-dev gulp@4
     ```
     
-2. **Verify installation:**CopyDownload
+2. **Verify installation:**
     
     ```bash
     npx gulp -v
@@ -102,7 +102,7 @@ The **Chirpy theme** relies on **Gulp 4** for asset processing (CSS, JS opti
     
     *(Should now show both CLI and local versions.)*
     
-3. **Run Gulp tasks:**CopyDownload
+3. **Run Gulp tasks:**
     
     ```bash
     npx gulp
@@ -125,13 +125,13 @@ GitHub Pages **doesn’t support all Jekyll plugins** or custom build steps (l
 
 ### **The Fix:**
 
-1. **Build the site in production mode:**CopyDownload
+1. **Build the site in production mode:**
     
     ```bash
     JEKYLL_ENV=production bundle exec jekyll build
     ```
     
-2. **Deploy only the `_site` folder to `gh-pages`:**CopyDownload
+2. **Deploy only the `_site` folder to `gh-pages`:**
     
     ```bash
     cd _site
@@ -167,13 +167,13 @@ Some links (like **`href="#"`**) are flagged by **html-proofer** (a built-in 
 
 ### **The Fix:**
 
-1. **Replace `#` with a valid anchor:**CopyDownloadRun
+1. **Replace `#` with a valid anchor:**
     
     ```html
     <a href="#top">Back to Top</a>
     ```
     
-2. **Add an anchor target somewhere on the page:**CopyDownloadRun
+2. **Add an anchor target somewhere on the page:**
     
     ```html
     <a id="top"></a>
