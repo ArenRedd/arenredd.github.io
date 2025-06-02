@@ -31,7 +31,7 @@ Before we begin—this is for **education and awareness only**. No illegal shen
 ## **Step 1: Summon Termux from the Digital Abyss**
 
 1. **Install Termux** (the APK you just downloaded).
-2. **Open it** and type:CopyDownload
+2. **Open it** and type:
     
     ```bash
     pkg update -y
@@ -39,7 +39,7 @@ Before we begin—this is for **education and awareness only**. No illegal shen
     
     (This is like giving Termux its morning coffee.)
     
-3. **Grant storage access** (so it doesn’t live in digital solitary confinement):CopyDownload
+3. **Grant storage access** (so it doesn’t live in digital solitary confinement):
     
     ```bash
     termux-setup-storage
@@ -93,7 +93,7 @@ Android 12+ has a nasty habit of terminating background processes (like NetHunte
 
 ## **Step 5: Launch NetHunter Like a Hacker**
 
-- **CLI Mode:**CopyDownload
+- **CLI Mode:**
     
     ```bash
     nh
@@ -101,7 +101,7 @@ Android 12+ has a nasty habit of terminating background processes (like NetHunte
     
     *(Boom. You’re in Kali Linux.)*
     
-- **GUI Mode (KeX VNC):**CopyDownload
+- **GUI Mode (KeX VNC):**
     
     ```bash
     nh kex passwd  # Set a password
