@@ -7,8 +7,6 @@ pin: false
 comments: true
 ---
 
-# 🐧 From Chaos to Cloud: Spinning Up FileCloud Like a Cyber Sorcerer
-
 > "When in doubt, docker ps it out." – Ancient Hacker Proverb
 > 
 
