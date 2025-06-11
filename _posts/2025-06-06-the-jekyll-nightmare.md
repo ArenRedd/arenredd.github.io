@@ -6,6 +6,7 @@ tags: [jekyll, sass, chirpy, terminal, blog, bugfix, developer-life, funny]
 pin: true
 toc: true
 comments: true
+permalink: /posts/the-jekyll-nightmare/
 ---
 
 > "I just wanted a blog. Instead, I summoned the Sass Kraken." – Every Dev, Eventually

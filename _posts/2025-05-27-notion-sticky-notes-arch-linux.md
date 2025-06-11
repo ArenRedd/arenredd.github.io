@@ -6,6 +6,7 @@ tags: [arch-linux, kali-linux, notion-api, python, venv, terminal-tools, product
 pin: false
 toc: true
 comments: true
+permalink: /posts/notion-sticky-notes-arch-linux/
 ---
 
 *"First rule of Arch Linux: nothing works out of the box. Second rule: that's why we love it."*

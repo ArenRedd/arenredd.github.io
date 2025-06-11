@@ -9,6 +9,7 @@ categories: [Cybersecurity, Privacy]
 tags: [TAILS, Linux, Tor, Anonymous Browsing, Hacker Tools, USB OS]
 pin: false
 comments: true
+permalink: /posts/tails-os-ghost-mode/
 image:
   path: /assets/img/tails-header.jpg
   alt: "Cyberpunk hacker with TAILS OS"

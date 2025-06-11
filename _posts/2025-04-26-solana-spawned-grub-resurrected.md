@@ -5,6 +5,7 @@ categories: [Cyber Journal, Privacy, OS Tweaks]
 tags: [solana, cryptocurrency, kali-linux, dual-boot, grub, windows, linux, partitioning, live-usb, quantum-computing]
 pin: false
 comments: true
+permalink: /posts/solana-spawned-grub-resurrected/
 ---
 **Journal Entry**
 

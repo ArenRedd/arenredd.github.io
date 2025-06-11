@@ -5,6 +5,7 @@ categories: [Cyber Journal, Privacy]
 tags: [privacy, tuta, 2fa, security, email]
 pin: false
 comments: true
+permalink: /posts/digital-lockdown/
 ---
 **19th May Log – Digital Lockdown Initiated**
 

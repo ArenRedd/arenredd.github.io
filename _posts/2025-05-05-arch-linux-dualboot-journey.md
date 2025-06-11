@@ -5,6 +5,7 @@ categories: [Cyber Journal, Linux Life, OS Tweaks]
 tags: [arch-linux, dual-boot, kali-linux, hyprland, pacman, hacker-journal, raw-linux]
 pin: true
 comments: true
+permalink: /posts/arch-linux-dualboot-journey/
 ---
 My Arch Linux Dual-Boot Journey – Raw & Unfiltered
 

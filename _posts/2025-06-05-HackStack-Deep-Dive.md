@@ -5,6 +5,7 @@ categories: [Cybersecurity, HackStack, Dev Journal]
 tags: [password attacks, bruteforce, hashcat, network hacking, mitm, cheat sheets, linux, osint, tools]
 pin: true
 comments: true
+permalink: /posts/hackstack-deep-dive/
 ---
 
 # 🧠 The Ultimate Hacker’s Folder Structure & How to Lock It Down Like a Pro

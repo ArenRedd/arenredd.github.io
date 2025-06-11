@@ -6,6 +6,7 @@ categories: ["Linux", "System Customization", "Troubleshooting"]
 pin: false
 toc: true
 comments: true
+permalink: /posts/arch-linux-cli-and-grub-fixes/
 ---
 
 ## 🧭 A Lazy Day Turned Linux Journey

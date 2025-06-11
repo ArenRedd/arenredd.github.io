@@ -5,6 +5,7 @@ categories: [Android Hacking, Tutorials, NetHunter]
 tags: [kali-linux, nethunter, android, termux, rootless, hacking, linux-on-android]
 pin: false
 comments: true
+permalink: /posts/kali-nethunter-no-root/
 ---
 
 So, you want to turn your innocent Android phone into a pocket-sized hacking machine without voiding your warranty? Good news—Kali NetHunter can now run **rootless**! No kingly root permissions needed, just Termux, some patience, and a willingness to ignore a few ominous Android warnings.

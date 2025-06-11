@@ -5,6 +5,7 @@ categories: [Cyber Journal, Docker Lab, Linux Tweaks]
 tags: [Docker, kali-linux, ubuntu, containers, bind-mount, linux-hacks, hacker-journal, WSL]
 pin: false
 comments: true
+permalink: /posts/docker-ubuntu-container-on-kali/
 ---
 Today, I Just Ran the update command in Kali Linux, but hit a wall with Docker's repository. Turns out, Docker doesn't provide a repo for kali-rolling, so I was greeted with a 404 error. Quick fix: swapped it out with the Debian bookworm repo — works like a charm with Kali. After that, I ran `sudo docker run hello-world` and got the classic Docker greeting: "Hello from Docker!"
 

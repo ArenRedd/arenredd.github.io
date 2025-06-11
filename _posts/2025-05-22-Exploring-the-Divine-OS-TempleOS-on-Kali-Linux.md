@@ -5,6 +5,7 @@ categories: [Cyber Journal, Fun, OS Tweaks]
 tags: [TempleOS, kali-linux, VirtualBox, cyber-experiments, DIY-OS, hacker-journal]
 pin: true
 comments: true
+permalink: /posts/exploring-templeos-on-kali-linux/
 ---
 # **🛕 How I Installed and Ran TempleOS on Kali Linux Using VirtualBox**
 

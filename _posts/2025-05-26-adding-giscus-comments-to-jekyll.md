@@ -6,6 +6,7 @@ tags: [chirpy, giscus, jekyll, comments, github-pages]
 pin: false
 toc: true
 comments: true
+permalink: /posts/adding-giscus-comments-to-jekyll/
 ---
 
 Adding a comment system to a Jekyll blog sounds easy — until it isn’t.

@@ -6,6 +6,7 @@ tags: [mobile hacking, ethical hacking, android, ios, burp suite, frida, apktool
 pin: true
 toc: true
 comments: true
+permalink: /posts/mobile-hacking-tools-2025/
 ---
 
 > “Ever wondered how hackers get under the hood of your favorite apps? You’re about to find out. Let’s pop the hood on mobile hacking.”

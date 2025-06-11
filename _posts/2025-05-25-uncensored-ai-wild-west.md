@@ -6,6 +6,7 @@ tags: [uncensored-ai, llama2, ollama, free-speech, open-source, kali-linux]
 pin: false
 toc: true
 comments: true
+permalink: /posts/uncensored-ai-wild-west/
 ---
 
 ## **1. What the Hell is "Uncensored" AI?**

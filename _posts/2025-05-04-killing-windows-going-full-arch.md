@@ -5,6 +5,7 @@ categories: [Cyber Journal, Linux Shift, Rant]
 tags: [arch-linux, windows-escape, linux-life, terminal-only, privacy, AUR, hacker-journal, rant]
 pin: true
 comments: true
+permalink: /posts/killing-windows-going-full-arch/
 ---
 # **Killing Windows – Why I’m Going Full Arch Linux**
 

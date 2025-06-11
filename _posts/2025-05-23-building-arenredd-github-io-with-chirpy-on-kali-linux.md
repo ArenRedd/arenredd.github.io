@@ -5,6 +5,7 @@ categories: [Dev Journal, Web Projects, Blog Setup]
 tags: [chirpy, jekyll, github-pages, kali-linux, gulp, ruby, web-dev, troubleshooting]
 pin: true
 comments: true
+permalink: /posts/building-github-blog-on-kali/
 ---
 # **Building My GitHub Blog with Chirpy: A Rollercoaster of Errors & Fixes**
 
