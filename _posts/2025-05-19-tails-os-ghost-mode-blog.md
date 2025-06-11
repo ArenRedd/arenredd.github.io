@@ -1,6 +1,6 @@
 ---
 title: "Boot, Bounce, Vanish: How I Disappeared with a $5 USB and TAILS OS"
-date: 2025-05-19 08:10:12 +0530
+date: 2025-06-11 08:10:12 +0530
 categories: [Cybersecurity, Privacy]
 tags: [TAILS, Linux, Tor, Anonymous Browsing, Hacker Tools, USB OS]
 pin: false
