@@ -5,6 +5,7 @@ categories: [Dev Journal, Self-Hosting, Docker Projects]
 tags: [filecloud, docker, self-hosting, storage, linux, sysadmin, devops]
 pin: false
 comments: true
+permalink: /posts/spinning-up-filecloud/
 ---
 
 > "When in doubt, docker ps it out." – Ancient Hacker Proverb
