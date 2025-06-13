@@ -1,9 +1,9 @@
 ---
 title: "📱 13 Mobile Hacking Tools Every Ethical Hacker Should Master in 2025"
-date: 2025-06-06 20:00:00 +0530
+date: 2025-06-07 20:00:00 +0530
 categories: [Cybersecurity, Hacking Guides]
 tags: [mobile hacking, ethical hacking, android, ios, burp suite, frida, apktool, cybersecurity 2025, tools, reverse engineering, hacker-tools]
-pin: true
+pin: false
 toc: true
 comments: true
 permalink: /posts/mobile-hacking-tools-2025/

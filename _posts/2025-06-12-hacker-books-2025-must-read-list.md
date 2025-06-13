@@ -1,9 +1,9 @@
 ---
 title: "13 Hacker Books Every Cyber Warrior Should Read in 2025"
-date: 2025-05-19 10:00:00 +0000
+date: 2025-06-12 10:00:00 +0000
 categories: [Cybersecurity, Hacking]
 tags: [Hacker Books, Bug Bounty, Ethical Hacking, Pentesting, API Security, Python, InfoSec, Web Security]
-pin: true
+pin: false
 comments: true
 permalink: /posts/hacker-books-2025-must-read-list/
 image:

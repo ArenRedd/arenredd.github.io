@@ -3,7 +3,7 @@ title: "🧨 The Jekyll Nightmare: How I Fought Sass Errors and Won (Kinda)"
 date: 2025-06-06 16:00:00 +0530
 categories: [Debugging, DevLogs]
 tags: [jekyll, sass, chirpy, terminal, blog, bugfix, developer-life, funny]
-pin: true
+pin: false
 toc: true
 comments: true
 permalink: /posts/the-jekyll-nightmare/
