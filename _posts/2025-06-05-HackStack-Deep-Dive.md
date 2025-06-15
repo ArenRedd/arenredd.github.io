@@ -5,7 +5,7 @@ categories: [Cybersecurity, HackStack, Dev Journal]
 tags: [password attacks, bruteforce, hashcat, network hacking, mitm, cheat sheets, linux, osint, tools]
 pin: true
 comments: true
-permalink: /posts/hackstack-deep-dive/
+permalink: _posts/2025-06-15-kernel-kung-fu-os-brain-hack.md
 ---
 
 # 🧠 The Ultimate Hacker’s Folder Structure & How to Lock It Down Like a Pro
