@@ -1,7 +1,7 @@
 ---
 title: "Uncensored AI: The Wild West of Artificial Intelligence"
 date: 2025-05-25 22:00:00 +0530
-categories: [AI Revolution, Ethics, Open Source]
+categories: [ai-revolution, ethics, Open Source]
 tags: [uncensored-ai, llama2, ollama, free-speech, open-source, kali-linux]
 pin: false
 toc: true
@@ -13,7 +13,7 @@ permalink: /posts/uncensored-ai-wild-west/
 
 Forget ChatGPT’s corporate-approved, sanitized responses. Uncensored AI is the rogue cousin—unfiltered, unapologetic, and untamed. These models don’t give a damn about "ethical guidelines" or "safety protocols." They spit out whatever you ask, no matter how dark, controversial, or illegal it might be.
 
-Built by indie devs, open-source rebels, and underground tinkerers, these AIs thrive on platforms like Hugging Face and GitHub. No Big Tech overlords, no hidden agendas—just raw, unfiltered machine intelligence.
+Built by indie devs, open-source rebels, and underground tinkerers, these AIs thrive on platforms like Hugging Face and github. No Big Tech overlords, no hidden agendas—just raw, unfiltered machine intelligence.
 
 ## **2. Why Would Anyone Want This?**
 
@@ -39,7 +39,7 @@ Should an AI be allowed to:
 
 **Pro-free speech crowd:** *"Let people decide! Censorship is just control in disguise."*
 
-**Ethics police:** *"Unchecked AI will be weaponized in seconds."*
+**ethics police:** *"Unchecked AI will be weaponized in seconds."*
 
 There’s no easy answer. Decentralized AI means no rules—just pure, unfiltered potential. And potential can be beautiful… or horrifying.
 
@@ -57,7 +57,7 @@ Right now, the law doesn’t know. And that’s terrifying.
 
 ## **5. Is Open-Source, Uncensored AI the Future?**
 
-Look at Linux in the '90s. Started as a nerdy hobby, now it **runs the world.**
+Look at linux in the '90s. Started as a nerdy hobby, now it **runs the world.**
 
 Uncensored AI is following the same path. Projects like **Mistral, LLaMA Uncensored, and GPT4All** are gaining traction. They’re not as polished as ChatGPT, but they’re **free, open, and uncontrollable.**
 
@@ -76,11 +76,11 @@ Even "free" AI has biases. The difference? **You get to decide if you care.**
 
 ## **🔥 BONUS: How I Ran LLaMA 2 Uncensored on Kali (Because Why Not?)**
 
-Want to play with fire? Here’s how I got **LLaMA 2 Uncensored** running on Kali Linux using **Ollama.**
+Want to play with fire? Here’s how I got **LLaMA 2 Uncensored** running on kali-linux using **Ollama.**
 
 ### **What You Need:**
 
-- Kali Linux (or any Linux distro)
+- kali-linux (or any linux distro)
 - At least **8GB RAM** (for the 7B model)
 - Ollama installed
 
@@ -112,7 +112,7 @@ Now you’ve got an unfiltered AI at your fingertips. **Use it wisely. Or don’
 
 ---
 
-## **Final Thought: The Uncensored AI Revolution**
+## **Final Thought: The Uncensored ai-revolution**
 
 This isn’t just about AI—it’s about **control.**
 

@@ -1,8 +1,9 @@
 ---
 title: "Kernel Kung Fu: How Your OS's Secret Brain Controls Everything (And How to Hack It)"
-date: 2025-06-14 08:00:00 +0800
-categories: [Operating Systems, Cybersecurity]
-tags: [kernel, linux, windows, exploits, low-level]
+date: 2025-06-15 00:00:00 +0530
+permalink: /posts/kernel-kung-fu-os-brain-hack/
+categories: [operating-systems, cybersecurity]
+tags: [kernel, low-level, exploits, windows]
 image:
   path: /assets/img/kernel-hack.jpg
   alt: "Hacker staring at kernel panic screen"
@@ -10,8 +11,6 @@ image:
   height: 630
 pin: false  
 comments: true
-permalink: /posts/kernel-os-secret-brain-hack-guide
-
 ---
 # **Kernel Panic 101: Why Your OS’s Brain is the Ultimate Hackers’ Playground**
 
@@ -50,7 +49,7 @@ Accidentally **`fork()`** bombed your system? **Kernel sends SIGKILL with ext
 
 Your CPU is a single-threaded drama queen. The kernel? **Its personal scheduler.** It decides which process gets CPU time, for how long, and in what order.
 
-Ever wondered how your system runs 100 Chrome tabs, a Python script, and **`yes > /dev/null`** at the same time? **Black kernel magic.**
+Ever wondered how your system runs 100 Chrome tabs, a python script, and **`yes > /dev/null`** at the same time? **Black kernel magic.**
 
 ### **2. Memory Management: The Gatekeeper of RAM**
 
@@ -78,7 +77,7 @@ Keyboard press? Network packet? **Hardware screams for attention.** The kernel
 
 ## **Monolithic vs. Microkernels: The Eternal Flame War**
 
-### **Monolithic Kernel (Linux, Windows)**
+### **Monolithic Kernel (linux, Windows)**
 
 - **"Everything is in the kernel, because SPEED."**
 - Drivers, filesystem, networking—all run in **kernel space**.
@@ -93,7 +92,7 @@ Keyboard press? Network packet? **Hardware screams for attention.** The kernel
 - **Pros:** More stable. Crash a driver? Just restart it.
 - **Cons:** Slower (more syscalls = more overhead).
 
-**Real talk?** Most modern kernels are hybrids. **Linux has modules. Windows has HAL. macOS is a Frankenstein mix.**
+**Real talk?** Most modern kernels are hybrids. **linux has modules. Windows has HAL. macOS is a Frankenstein mix.**
 
 ---
 

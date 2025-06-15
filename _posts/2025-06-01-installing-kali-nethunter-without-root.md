@@ -24,8 +24,8 @@ Before we begin—this is for **education and awareness only**. No illegal shen
 
 - **An Android phone (Android 12+ works, but it’s feisty)**
     - Android 12+ has a habit of murdering background processes like a overzealous task manager. We’ll tame it later.
-- **Termux (the magic portal to Linux on Android)**
-    - Get it from [F-Droid](https://f-droid.org/packages/com.termux/) or [GitHub](https://github.com/termux/termux-app/releases). **Avoid the Play Store version—it’s ancient.**
+- **Termux (the magic portal to linux on Android)**
+    - Get it from [F-Droid](https://f-droid.org/packages/com.termux/) or [github](https://github.com/termux/termux-app/releases). **Avoid the Play Store version—it’s ancient.**
 
 ---
 
@@ -100,7 +100,7 @@ Android 12+ has a nasty habit of terminating background processes (like NetHunte
     nh
     ```
     
-    *(Boom. You’re in Kali Linux.)*
+    *(Boom. You’re in kali-linux.)*
     
 - **GUI Mode (KeX VNC):**
     
@@ -143,6 +143,6 @@ Android 12+ has a nasty habit of terminating background processes (like NetHunte
 
 ### **Final Warning**
 
-Android may occasionally side-eye you for running a full Linux distro in the background. If NetHunter gets killed, just restart it and shake your fist at the sky.
+Android may occasionally side-eye you for running a full linux distro in the background. If NetHunter gets killed, just restart it and shake your fist at the sky.
 
 Happy (ethical) hacking! 🚀🔒

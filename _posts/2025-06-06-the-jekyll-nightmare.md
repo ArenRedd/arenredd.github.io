@@ -1,7 +1,7 @@
 ---
-title: "🧨 The Jekyll Nightmare: How I Fought Sass Errors and Won (Kinda)"
+title: "🧨 The jekyll Nightmare: How I Fought Sass Errors and Won (Kinda)"
 date: 2025-06-06 16:00:00 +0530
-categories: [Debugging, DevLogs]
+categories: [debugging, DevLogs]
 tags: [jekyll, sass, chirpy, terminal, blog, bugfix, developer-life, funny]
 pin: false
 toc: true
@@ -16,7 +16,7 @@ permalink: /posts/the-jekyll-nightmare/
 
 ## 💻 Prologue: The Command That Opened Hell
 
-There I was. Dim-lit terminal. Cold coffee. Full Linux power.
+There I was. Dim-lit terminal. Cold coffee. Full linux power.
 
 ```bash
 bundle exec jekyll serve
@@ -64,7 +64,7 @@ Me: “Oh, you gotta be kidding me.”
 
 ### 🧠 The Enlightenment:
 
-Turns out, Jekyll treats SCSS paths like riddles. I had to do this:
+Turns out, jekyll treats SCSS paths like riddles. I had to do this:
 
 ```scss
 @use "addon/module" as module;
@@ -162,7 +162,7 @@ Location? `_sass/addon/variables.scss`
 
 ### Issue?
 
-**Jekyll wasn’t importing it.**
+**jekyll wasn’t importing it.**
 
 I was screaming at my terminal like it was a disobedient dog.
 
@@ -186,7 +186,7 @@ After:
 
 **It. Finally. Worked.**
 
-My Jekyll blog built without errors.
+My jekyll blog built without errors.
 
 I stared at the terminal like Frodo after throwing the ring into Mount Doom.
 
@@ -215,7 +215,7 @@ rm -rf .jekyll-cache && reboot life
 
 ## 🧬 Final Thought
 
-If Jekyll and Sass were a movie, it’d be a **horror-comedy**—you’re both the victim *and* the punchline. But hey, if my suffering makes your path easier, I’ve done my job.
+If jekyll and Sass were a movie, it’d be a **horror-comedy**—you’re both the victim *and* the punchline. But hey, if my suffering makes your path easier, I’ve done my job.
 
 ### 🚀 Until the next `gem update` breaks everything...
 
@@ -237,4 +237,4 @@ Follow me for more chaotic debugging sagas, cyber tricks, and terminal therapy.
 
 **arenredd.github.io**
 
-Your favorite cybersecurity dev with *just enough patience* to survive Jekyll.
+Your favorite cybersecurity dev with *just enough patience* to survive jekyll.

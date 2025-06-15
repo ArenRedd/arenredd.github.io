@@ -1,15 +1,15 @@
 ---
-title: "How I Built arenredd.github.io: A Developer Blog with Chirpy on Kali Linux"
+title: "How I Built arenredd.github.io: A Developer Blog with Chirpy on kali-linux"
 date: 2025-05-23 23:50:00 +0530
-categories: [Dev Journal, Web Projects, Blog Setup]
+categories: [dev-journal, web-projects, Blog Setup]
 tags: [chirpy, jekyll, github-pages, kali-linux, gulp, ruby, web-dev, troubleshooting]
 pin: true
 comments: true
 permalink: /posts/building-github-blog-on-kali/
 ---
-# **Building My GitHub Blog with Chirpy: A Rollercoaster of Errors & Fixes**
+# **Building My github Blog with Chirpy: A Rollercoaster of Errors & Fixes**
 
-When I decided to set up my personal blog using the **Chirpy Jekyll theme**, I expected a smooth, well-documented process. Instead, I found myself wrestling with dependency conflicts, cryptic errors, and deployment quirks—especially since I was working on **Kali Linux**, which isn’t the most common choice for Jekyll development.
+When I decided to set up my personal blog using the **Chirpy jekyll theme**, I expected a smooth, well-documented process. Instead, I found myself wrestling with dependency conflicts, cryptic errors, and deployment quirks—especially since I was working on **kali-linux**, which isn’t the most common choice for jekyll development.
 
 This post isn’t just another "how to set up a blog in 5 minutes" tutorial. Instead, it’s a **real-world troubleshooting log**—documenting the issues I faced and how I fixed them. If you're running into similar problems, hopefully, this saves you some headaches.
 
@@ -19,10 +19,10 @@ This post isn’t just another "how to set up a blog in 5 minutes" tutorial. Ins
 
 Before diving into the errors, here’s the environment I was working with:
 
-- **OS:** Kali Linux
+- **OS:** kali-linux
 - **Ruby:** **`3.3.8`**
 - **Bundler:** **`2.6.9`**
-- **Jekyll:** **`4.4.1`**
+- **jekyll:** **`4.4.1`**
 - **Node.js:** **`20.19.0`**
 - **npm:** **`9.2.0`**
 - **Gulp CLI:** **`3.0.0`**
@@ -47,7 +47,7 @@ Ignoring sassc-2.4.0 because its extensions are not built. Try: gem pristine sas
 
 ### **The Cause:**
 
-These gems (**ffi** and **sassc**) require native extensions that weren’t compiled properly. Kali Linux, being a security-focused distro, doesn’t always come with all the development tools needed for Ruby gem compilation.
+These gems (**ffi** and **sassc**) require native extensions that weren’t compiled properly. kali-linux, being a security-focused distro, doesn’t always come with all the development tools needed for Ruby gem compilation.
 
 ### **The Fix:**
 
@@ -109,20 +109,20 @@ The **Chirpy theme** relies on **Gulp 4** for asset processing (CSS, JS opti
     npx gulp
     ```
     
-    *(This builds assets before Jekyll processes the site.)*
+    *(This builds assets before jekyll processes the site.)*
     
 
 ---
 
-## **🕸 Problem #3: GitHub Pages Deployment Failures (Silent Build Issues)**
+## **🕸 Problem #3: github Pages Deployment Failures (Silent Build Issues)**
 
 ### **The Problem:**
 
-I pushed my repo to GitHub, but my site **wouldn’t update**—no obvious errors, just a broken or outdated build.
+I pushed my repo to github, but my site **wouldn’t update**—no obvious errors, just a broken or outdated build.
 
 ### **The Cause:**
 
-GitHub Pages **doesn’t support all Jekyll plugins** or custom build steps (like Gulp tasks). Since Chirpy relies on preprocessing, you **must build locally first** before deploying.
+github Pages **doesn’t support all jekyll plugins** or custom build steps (like Gulp tasks). Since Chirpy relies on preprocessing, you **must build locally first** before deploying.
 
 ### **The Fix:**
 
@@ -144,11 +144,11 @@ GitHub Pages **doesn’t support all Jekyll plugins** or custom build steps (l
     git push -f origin gh-pages
     ```
     
-3. **In GitHub repo settings:**
+3. **In github repo settings:**
     - Go to **Settings > Pages**
     - Set **Source** to **Deploy from `gh-pages` branch**
 
-Now, GitHub serves the pre-built site instead of trying (and failing) to build it itself.
+Now, github serves the pre-built site instead of trying (and failing) to build it itself.
 
 ---
 
@@ -187,11 +187,11 @@ This keeps the same functionality while making **html-proofer** happy.
 
 ## **💡 Final Thoughts & Lessons Learned**
 
-Setting up **Chirpy on Kali Linux** was **way harder** than I expected. The main issues stemmed from:
+Setting up **Chirpy on kali-linux** was **way harder** than I expected. The main issues stemmed from:
 
 - **Ruby gem compilation problems** (fixed with **`-use-system-libraries`**)
 - **Gulp version mismatches** (solved by local install)
-- **GitHub Pages’ limitations** (workaround: pre-build & push **`_site`**)
+- **github Pages’ limitations** (workaround: pre-build & push **`_site`**)
 - **Strict HTML validation** (fixed with proper anchor tags)
 
 ### **TL;DR – Key Takeaways**
@@ -200,10 +200,10 @@ Setting up **Chirpy on Kali Linux** was **way harder** than I expected. The 
 
 ✔ **Install Gulp both globally and locally** (v4 for Chirpy).
 
-✔ **Don’t rely on GitHub Pages to build**—do it yourself.
+✔ **Don’t rely on github Pages to build**—do it yourself.
 
 ✔ **Validate HTML early** to catch broken links.
 
 ✔ **Avoid `href="#"`**—use real anchors instead.
 
-If you’re on **Kali Linux** (or any non-standard dev environment) and trying to use **Jekyll + Chirpy**, be prepared for some troubleshooting. But once it’s working, Chirpy is **one of the cleanest, most customizable static site themes** out there.
+If you’re on **kali-linux** (or any non-standard dev environment) and trying to use **jekyll + Chirpy**, be prepared for some troubleshooting. But once it’s working, Chirpy is **one of the cleanest, most customizable static site themes** out there.

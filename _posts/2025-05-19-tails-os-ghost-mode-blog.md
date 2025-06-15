@@ -1,8 +1,8 @@
 ---
 title: "Boot, Bounce, Vanish: How I Disappeared with a $5 USB and TAILS OS"
 date: 2025-06-11 08:00:12 +0530
-categories: [Cybersecurity, Privacy]
-tags: [TAILS, Linux, Tor, Anonymous Browsing, Hacker Tools, USB OS]
+categories: [cybersecurity, Privacy]
+tags: [TAILS, linux, Tor, Anonymous Browsing, hacker-tools, USB OS]
 pin: false
 comments: true
 permalink: /posts/tails-os-ghost-mode/
@@ -22,7 +22,7 @@ Alright cyber-ghosts, let me tell you a tale—not the bedtime kind—but the ki
 
 ### 🚀 What the Heck Is TAILS?
 
-TAILS (The Amnesic Incognito Live System) is a Linux-based live operating system that runs **entirely from RAM**, leaving **zero traces** on the host machine. Think of it as the ghost mode of operating systems—no logs, no caches, no receipts.
+TAILS (The Amnesic Incognito Live System) is a linux-based live operating system that runs **entirely from RAM**, leaving **zero traces** on the host machine. Think of it as the ghost mode of operating systems—no logs, no caches, no receipts.
 
 You boot it from a USB, dive into the Tor network, and when you're done? POOF 💨 —no forensic breadcrumbs. Not even NSA interns can trace you (unless you're bragging on Instagram, then... good luck).
 

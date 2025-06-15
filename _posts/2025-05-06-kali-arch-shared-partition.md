@@ -1,14 +1,14 @@
 ---
-title: "Creating a Shared Partition for Dual Boot: Kali & Arch Linux"
+title: "Creating a Shared Partition for Dual Boot: Kali & arch-linux"
 date: 2025-05-06 22:00:00 +0530
-categories: [Linux Life, Cyber Journal, Sysadmin Hacks]
+categories: [linux Life, cyber-journal, Sysadmin Hacks]
 tags: [dual-boot, kali-linux, arch-linux, shared-partition, ext4, fstab, hacker-setup]
 pin: true
 comments: true
 permalink: /posts/kali-arch-shared-partition/
 ---
-Creating a Shared Partition for Dual Boot: Kali & Arch Linux
-Mission: Establish a shared filesystem between Kali Linux (the aggressive pentester) and Arch Linux (the minimalist powerhouse). No more juggling files between distros—just seamless data exchange.
+Creating a Shared Partition for Dual Boot: Kali & arch-linux
+Mission: Establish a shared filesystem between kali-linux (the aggressive pentester) and arch-linux (the minimalist powerhouse). No more juggling files between distros—just seamless data exchange.
 
 ### **Step 1: Carving Out Space**
 
@@ -16,7 +16,7 @@ Mission: Establish a shared filesystem between Kali Linux (the aggressive pentes
 
 Shrank the main partition, leaving unallocated space (raw, unclaimed territory).
 
-Forged a new partition (ext4), labeled "Shared"—because Linux-to-Linux communication thrives on ext4. (Windows would demand exfat, but we don’t cater to peasants here.)
+Forged a new partition (ext4), labeled "Shared"—because linux-to-linux communication thrives on ext4. (Windows would demand exfat, but we don’t cater to peasants here.)
 
 ### **Step 2: Mounting the Beast**
 
@@ -41,7 +41,7 @@ sudo nano /etc/fstab
 Added:/dev/sdXn    /mnt/shared    ext4    defaults    0    2
 ```
 
-### **Step 3: Arch Linux Joins the Party**
+### **Step 3: arch-linux Joins the Party**
 
 ****Rebooted into Arch (because why not?) and repeated the process:
 
@@ -68,7 +68,7 @@ Sharing logs, tools, loot between systems
 
 ### **Final Thought**
 
-****This is true sysadmin sorcery—two Linux distros, one shared playground. Efficiency. Elegance. Hackery.
+****This is true sysadmin sorcery—two linux distros, one shared playground. Efficiency. Elegance. Hackery.
 
 Now, go forth and dual-boot like a pro.
 

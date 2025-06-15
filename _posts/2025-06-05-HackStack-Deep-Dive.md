@@ -1,11 +1,11 @@
 ---
 title: "HackStack Deep Dive: Passwords, Networks & Resources"
 date: 2025-06-05 19:00:00 +0530
-categories: [Cybersecurity, HackStack, Dev Journal]
+categories: [cybersecurity, HackStack, dev-journal]
 tags: [password attacks, bruteforce, hashcat, network hacking, mitm, cheat sheets, linux, osint, tools]
 pin: true
 comments: true
-permalink: _posts/2025-06-15-kernel-kung-fu-os-brain-hack.md
+permalink: /posts/HackStack-Deep-Dive/
 ---
 
 # 🧠 The Ultimate Hacker’s Folder Structure & How to Lock It Down Like a Pro
@@ -48,7 +48,7 @@ HackStack/
 │   ├── File_Inclusion
 │   └── Burp_Suite_Projects
 ├── 05 - Privilege Escalation
-│   ├── Linux
+│   ├── linux
 │   ├── Windows
 │   └── Tools_Scripts
 ├── 06 - Reverse Engineering
@@ -202,4 +202,4 @@ Drop a comment or DM—next post is gonna include a `HackStack-AutoBuilder.sh`. 
 > If this helped you level up, share it, clone it, fork it, remix it—let’s make this the new standard for every cyber-warrior’s workflow.
 > 
 
-**#Cybersecurity #RedTeam #Linux #HackStack #InfoSecHumor**
+**#cybersecurity #RedTeam #linux #HackStack #InfoSecHumor**

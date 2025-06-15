@@ -1,23 +1,23 @@
 ---
-title: "Killing Windows: Why I’m Going Full Arch Linux"
+title: "Killing Windows: Why I’m Going Full arch-linux"
 date: 2025-05-04 23:00:00 +0530
-categories: [Cyber Journal, Linux Shift, Rant]
+categories: [cyber-journal, linux Shift, Rant]
 tags: [arch-linux, windows-escape, linux-life, terminal-only, privacy, AUR, hacker-journal, rant]
 pin: true
 comments: true
 permalink: /posts/killing-windows-going-full-arch/
 ---
-# **Killing Windows – Why I’m Going Full Arch Linux**
+# **Killing Windows – Why I’m Going Full arch-linux**
 
 **Date: May 4, 2025**
 
 Enough.
 
-I’ve had it with Windows—its bloated nonsense, forced updates, and the way it treats users like dumb terminals in its data-harvesting mainframe. Today, I’m wiping it from my drive and replacing it with **Arch Linux**. No more dual-boot safety net. No more "but what if I need Windows for something?"
+I’ve had it with Windows—its bloated nonsense, forced updates, and the way it treats users like dumb terminals in its data-harvesting mainframe. Today, I’m wiping it from my drive and replacing it with **arch-linux**. No more dual-boot safety net. No more "but what if I need Windows for something?"
 
 I don’t. And neither do you.
 
-### **🔥 Why Arch Linux is the Only Real Choice**
+### **🔥 Why arch-linux is the Only Real Choice**
 
 ### **Total Control – No Training Wheels**
 
@@ -46,7 +46,7 @@ Windows 11 is spyware with a desktop environment. Arch? No telemetry, no ads, no
 
 ### **Kali and Arch – The Perfect Pair**
 
-Both Linux. Both speak the same language. Swap tools, scripts, configs—no weird compatibility layers, no WSL hacks. Just **real** hacking.
+Both linux. Both speak the same language. Swap tools, scripts, configs—no weird compatibility layers, no wsl hacks. Just **real** hacking.
 
 ### **Execution: Delete Windows, Install Freedom**
 

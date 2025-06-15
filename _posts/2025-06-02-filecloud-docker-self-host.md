@@ -1,7 +1,7 @@
 ---
 title: "From Chaos to Cloud: Spinning Up FileCloud Like a Cyber Sorcerer"
 date: 2025-06-02 23:50:00 +0530
-categories: [Dev Journal, Self-Hosting, Docker Projects]
+categories: [dev-journal, self-hosting, docker Projects]
 tags: [filecloud, docker, self-hosting, storage, linux, sysadmin, devops]
 pin: false
 comments: true
@@ -15,7 +15,7 @@ It was a sunny Sunday—too peaceful, really. I needed something to break the mo
 
 ## ⚙️ Enter the Void: The First Invocation
 
-I ran the FileCloud Docker container like a true sysadmin of the arcane:
+I ran the FileCloud docker container like a true sysadmin of the arcane:
 
 ```bash
 sudo docker run --privileged -d \
@@ -40,7 +40,7 @@ As the dashboard loaded, it greeted me with a cryptic complaint:
 
 I double-checked everything. My volumes were mounted, my paths were blessed with `chmod 777`, and yet FileCloud whispered: "Try again, mortal."
 
-Turns out FileCloud wanted **a real path**, not a Docker volume abstraction. The container needed to see `/mnt/shared/cloud-server` like a physical realm, not a volume spell.
+Turns out FileCloud wanted **a real path**, not a docker volume abstraction. The container needed to see `/mnt/shared/cloud-server` like a physical realm, not a volume spell.
 
 ### 🧙‍♂️ The Hackening: Binding Shared Storage
 
@@ -91,7 +91,7 @@ No data loss. Just a clean nap and wake-up for the daemon. The volumes stay. My 
 
 ## 🎉 Conclusion: I Tamed the Cloud
 
-FileCloud now lives happily inside Docker, chilling with my shared mount point. If you're trying the same and getting hit with *"Storage path invalid"*, don’t argue with the daemon. Just feed it the path it can see.
+FileCloud now lives happily inside docker, chilling with my shared mount point. If you're trying the same and getting hit with *"Storage path invalid"*, don’t argue with the daemon. Just feed it the path it can see.
 
 **Pro tip**: Volumes are cool, but mounted folders are real enough to please the cloud gods.
 

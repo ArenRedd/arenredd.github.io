@@ -1,7 +1,7 @@
 ---
-title: "From Chaos to Control: How I Hacked My Sticky Notes into Notion (The Arch Linux Way)"
+title: "From Chaos to Control: How I Hacked My Sticky Notes into Notion (The arch-linux Way)"
 date: 2025-05-27 14:15:00 +0530
-categories: [Linux Diaries, Python Projects]
+categories: [linux Diaries, python Projects]
 tags: [arch-linux, kali-linux, notion-api, python, venv, terminal-tools, productivity, hacker-style]
 pin: false
 toc: true
@@ -9,7 +9,7 @@ comments: true
 permalink: /posts/notion-sticky-notes-arch-linux/
 ---
 
-*"First rule of Arch Linux: nothing works out of the box. Second rule: that's why we love it."*
+*"First rule of arch-linux: nothing works out of the box. Second rule: that's why we love it."*
 
 ---
 
@@ -29,7 +29,7 @@ The dream command:
 python3 sync.py add "Fix life" "Start with coffee"
 ```
 
-Simple, right? *Cue malicious laughter from the Linux gods.*
+Simple, right? *Cue malicious laughter from the linux gods.*
 
 ---
 
@@ -41,7 +41,7 @@ Phase one went suspiciously well:
 2. Grabbed my integration token (not via "Share" like a normie - *Connections* tab FTW)
 3. Extracted the database ID like a URL surgeon
 
-Then I wrote the most beautiful 3-line Python script:
+Then I wrote the most beautiful 3-line python script:
 
 ```python
 from notion_client import Client
@@ -52,7 +52,7 @@ notion = Client(auth="my_very_secret_token")
 
 ---
 
-## **Arch Linux Said "No" (With Extreme Prejudice)**
+## **arch-linux Said "No" (With Extreme Prejudice)**
 
 Ran the script. Got bitch-slapped:
 
@@ -72,7 +72,7 @@ Arch's response:
 error: externally-managed-environment
 ```
 
-Translation: *"Nice try, n00b. Your system Python is a temple - don't piss in it."*
+Translation: *"Nice try, n00b. Your system python is a temple - don't piss in it."*
 
 ---
 
@@ -94,7 +94,7 @@ Suddenly - silence. Beautiful, error-free silence. The script ran. Notion update
 
 Sure, seeing my notes appear in Notion was cool. But the real victory? Learning:
 
-- Why Arch locks down Python like Fort Knox
+- Why Arch locks down python like Fort Knox
 - How virtual environments are like condoms for your OS
 - That **`-break-system-packages`** is basically saying "hold my beer" to your distro
 

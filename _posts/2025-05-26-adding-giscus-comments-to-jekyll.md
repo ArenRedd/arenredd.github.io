@@ -1,7 +1,7 @@
 ---
-title: "How I Added Giscus Comments to My Jekyll Blog (And Fixed Every Damn Error on the Way)"
+title: "How I Added Giscus Comments to My jekyll Blog (And Fixed Every Damn Error on the Way)"
 date: 2025-05-26
-categories: [Blog Dev, Jekyll, GitHub]
+categories: [blog-dev, jekyll, github]
 tags: [chirpy, giscus, jekyll, comments, github-pages]
 pin: false
 toc: true
@@ -9,9 +9,9 @@ comments: true
 permalink: /posts/adding-giscus-comments-to-jekyll/
 ---
 
-Adding a comment system to a Jekyll blog sounds easy — until it isn’t.
+Adding a comment system to a jekyll blog sounds easy — until it isn’t.
 
-I wanted something **minimal**, **privacy-respecting**, and built right into GitHub. Disqus was bloat. Utterances was limited. **Giscus**? Perfect.
+I wanted something **minimal**, **privacy-respecting**, and built right into github. Disqus was bloat. Utterances was limited. **Giscus**? Perfect.
 
 But the road to setting it up was *chaos*. Here’s what I hit, how I fixed it, and a clean tutorial to help you avoid the same mess.
 
@@ -27,7 +27,7 @@ At first, I tried setting up Giscus with this:
 arenredd/arenredd/comment-engine
 ```
 
-🧱 **Wrong.** That’s not how GitHub repo paths work.
+🧱 **Wrong.** That’s not how github repo paths work.
 
 ✅ **Fix:** Changed it to the correct format:
 
@@ -64,9 +64,9 @@ Set it to **Announcements** type (so only maintainers can start threads).
 
 ### 4. **Couldn’t Find the `category_id`**
 
-GitHub hides this deep. Inspecting HTML didn’t help.
+github hides this deep. Inspecting HTML didn’t help.
 
-✅ **Fix:** Used GitHub’s [GraphQL Explorer](https://docs.github.com/en/graphql/overview/explorer) and ran this:
+✅ **Fix:** Used github’s [GraphQL Explorer](https://docs.github.com/en/graphql/overview/explorer) and ran this:
 
 ```graphql
 {
@@ -133,7 +133,7 @@ Here’s the process boiled down to a checklist:
     
 2. **Enable Discussions** in repo settings.
 3. **Create a Discussion Category** called `Blog Comments` (type: Announcements).
-4. **Install Giscus GitHub App**
+4. **Install Giscus github App**
     
     → https://github.com/apps/giscus
     
@@ -149,7 +149,7 @@ Here’s the process boiled down to a checklist:
     
 6. **Get your category ID**
     
-    Use GitHub's GraphQL Explorer:
+    Use github's GraphQL Explorer:
     
     ```graphql
     {
@@ -181,7 +181,7 @@ Here’s the process boiled down to a checklist:
 
 ## 🧠 Final Thoughts
 
-Now my Jekyll blog has GitHub-native comments with zero bloat. No cookies. No trackers. Just clean Markdown and community interaction.
+Now my jekyll blog has github-native comments with zero bloat. No cookies. No trackers. Just clean Markdown and community interaction.
 
 And yeah — I broke everything along the way, but I built it back up better.
 

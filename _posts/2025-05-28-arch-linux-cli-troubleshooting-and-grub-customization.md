@@ -1,23 +1,23 @@
 ---
-title: "Fixing CLI Tools & Custom GRUB – My Arch & Kali Dual Boot Ride"
+title: "Fixing CLI Tools & Custom grub – My Arch & Kali Dual Boot Ride"
 date: 2025-05-28
-tags: ["Arch Linux", "Kali Linux", "GRUB", "Customization", "Termshark", "CLI Tools", "Troubleshooting", "Linux"]
-categories: ["Linux", "System Customization", "Troubleshooting"]
+tags: [arch-linux, kali-linux, grub, customization, "Termshark", "CLI Tools", troubleshooting, linux]
+categories: [linux, "System customization", troubleshooting]
 pin: false
 toc: true
 comments: true
 permalink: /posts/arch-linux-cli-and-grub-fixes/
 ---
 
-## 🧭 A Lazy Day Turned Linux Journey
+## 🧭 A Lazy Day Turned linux Journey
 
-It started as just another lazy Sunday afternoon. You know those days when you tell yourself, "I'll just chill and maybe learn a thing or two." I was halfway through a cup of coffee and watching some random Linux videos on YouTube when a few CLI tools caught my attention — ncdu, zoxide, exa, glances, and iotop.
+It started as just another lazy Sunday afternoon. You know those days when you tell yourself, "I'll just chill and maybe learn a thing or two." I was halfway through a cup of coffee and watching some random linux videos on YouTube when a few CLI tools caught my attention — ncdu, zoxide, exa, glances, and iotop.
 
 These weren't just eye-candy tools. They looked useful. So I thought, “Why not spice up my Arch install with some of these?” I fired up my terminal on Arch and typed ncdu.
 
 Boom.
 `command not found`
-And just like that, my chill Sunday turned into a deep dive into the minimalist world of Arch Linux, AUR packages, and — later — a beautiful custom GRUB menu for my dual boot with Kali.
+And just like that, my chill Sunday turned into a deep dive into the minimalist world of arch-linux, AUR packages, and — later — a beautiful custom grub menu for my dual boot with Kali.
 
 ## 🚧 Part 1: Missing CLI Tools? Welcome to Arch.
 
@@ -53,7 +53,7 @@ Could not enumerate network interfaces: exit status 13
 
 Cue the dramatic music 🎻.
 
-I started Googling. Turns out, termshark uses tshark, which in turn needs permission to read from network interfaces. And on Linux, raw socket access is sacred ground — not just any user gets in.
+I started Googling. Turns out, termshark uses tshark, which in turn needs permission to read from network interfaces. And on linux, raw socket access is sacred ground — not just any user gets in.
 
 I had two options:
 
@@ -81,27 +81,27 @@ reboot
 
 After rebooting, termshark finally opened like a charm — no sudo needed. Clean and safe.
 
-## ⚙️ Part 3: Dual Boot + Custom GRUB Theme = Chef's Kiss
+## ⚙️ Part 3: Dual Boot + Custom grub Theme = Chef's Kiss
 
-So here’s the setup: I’m running a dual boot — Arch Linux and Kali Linux.
+So here’s the setup: I’m running a dual boot — arch-linux and kali-linux.
 
-Now, when I installed Arch after Kali, Arch’s GRUB loader took control (as expected in an EFI setup). That’s fine — Arch’s GRUB is easier for me to tweak.
+Now, when I installed Arch after Kali, Arch’s grub loader took control (as expected in an EFI setup). That’s fine — Arch’s grub is easier for me to tweak.
 
-But the default GRUB menu? Meh.
+But the default grub menu? Meh.
 It was plain, lifeless, and didn’t scream “You built this machine.”
 
 So I decided to make it mine.
 
-### 🎨 GRUB Customization – Step by Step
+### 🎨 grub customization – Step by Step
 
 Picked a Theme
 Found a slick one online and modified it slightly to suit my setup.
 
 Added Logos
 
-✅ Arch Linux logo
+✅ arch-linux logo
 
-✅ Kali Linux logo
+✅ kali-linux logo
 
 Tuned Colors & Fonts
 Gave it that dark, hacker feel — Tron vibes 🌌
@@ -110,7 +110,7 @@ Placed the Theme
 
 ```bash
 /boot/grub/themes/ArenGrub
-Edited the GRUB Config
+Edited the grub Config
 ```
 
 ```bash
@@ -122,7 +122,7 @@ Added:
 GRUB_THEME="/boot/grub/themes/ArenGrub/theme.txt"
 ```
 
-Updated GRUB
+Updated grub
 
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -131,7 +131,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 Rebooted…
 
 And there it was.
-My own custom GRUB menu, looking clean, colorful, and completely mine.
+My own custom grub menu, looking clean, colorful, and completely mine.
 
 # 🧪 Commands Recap
 
@@ -152,7 +152,7 @@ sudo chmod 750 /usr/bin/dumpcap
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap
 ```
 
-## GRUB Theme
+## grub Theme
 
 ```bash
 GRUB_THEME="/boot/grub/themes/ArenGrub/theme.txt"
@@ -163,7 +163,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 What started as a simple curiosity turned into hours of learning, fixing, and customizing.
 
-This is why I love Linux.
+This is why I love linux.
 
 It’s not just an operating system. It’s a playground for tinkerers, a battlefield for learners, and a canvas for creators. It breaks just enough to teach you. And when you fix it — it feels amazing.
 
