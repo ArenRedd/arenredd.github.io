@@ -1,6 +1,6 @@
 ---
 title: "The Real Top 50 Hacking Commands Every Cybersecurity Pro Must Master"
-date: 2025-05-19 10:00:00 +0000
+date: 2025-06-19 10:00:00 +0000
 categories: [Cybersecurity, Hacking Tools]
 tags: [ethical hacking, linux, terminal, pentesting, nmap, netcat, tshark, bash, reverse shell, firewalls]
 image:
