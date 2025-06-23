@@ -43,7 +43,7 @@ Added:/dev/sdXn    /mnt/shared    ext4    defaults    0    2
 
 ### **Step 3: arch-linux Joins the Party**
 
-****Rebooted into Arch (because why not?) and repeated the process:
+Rebooted into Arch (because why not?) and repeated the process:
 
 **Same mount point creation:**
 
@@ -56,7 +56,7 @@ Now, both distros recognize the Shared partition—a digital no-man’s-land whe
 
 ### **Why This Rocks**
 
-****No more USB shuffling or cloud middlemen.
+No more USB shuffling or cloud middlemen.
 
 Perfect for:
 
@@ -68,7 +68,7 @@ Sharing logs, tools, loot between systems
 
 ### **Final Thought**
 
-****This is true sysadmin sorcery—two linux distros, one shared playground. Efficiency. Elegance. Hackery.
+This is true sysadmin sorcery—two linux distros, one shared playground. Efficiency. Elegance. Hackery.
 
 Now, go forth and dual-boot like a pro.
 
