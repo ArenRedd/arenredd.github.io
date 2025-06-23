@@ -12,7 +12,7 @@ Mission: Establish a shared filesystem between kali-linux (the aggressive pentes
 
 ### **Step 1: Carving Out Space**
 
-**First, I needed to free up some disk real estate. Booted into Kali Live ISO, armed with GParted—the Swiss Army knife of disk partitioning.
+First, I needed to free up some disk real estate. Booted into Kali Live ISO, armed with GParted—the Swiss Army knife of disk partitioning.
 
 Shrank the main partition, leaving unallocated space (raw, unclaimed territory).
 
