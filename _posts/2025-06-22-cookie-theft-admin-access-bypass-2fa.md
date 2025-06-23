@@ -1,7 +1,7 @@
 ---
 title: "I Stole Your Admin Access with a Cookie – No Passwords Needed!"
 date: 2025-06-22 13:00:00 +0000
-permalink: /posts/cookie-theft-admin-access-bypass-2fa
+permalink: /posts/cookie-theft-admin-access-bypass-2fa/
 categories: [hacking, cybersecurity]
 tags: [cookie theft, session hijacking, 2fa bypass, mitm, red teaming, web security]
 image:
