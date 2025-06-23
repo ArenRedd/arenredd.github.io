@@ -1,6 +1,6 @@
 ---
 title: "I Stole Your Admin Access with a Cookie – No Passwords Needed!"
-date: 2025-06-23 14:00:00
+date: 2025-06-23 09:00:00
 permalink: /posts/cookie-theft-admin-access-bypass-2fa
 categories: ["Cybersecurity", "Ethical Hacking", "Browser Security"]
 tags: ["cookie theft", "2FA bypass", "session hijacking", "chrome extension exploit", "rubber ducky", "hack-browser-data", "ZTW labs",]
