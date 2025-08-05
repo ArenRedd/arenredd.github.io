@@ -1,7 +1,7 @@
 ---
 title: "How Hackers Crack Wi-Fi in 4 Seconds Using Hashcat (And Why Your Password Sucks)"
 date: 2025-07-05 14:35:00 +0530
-permalink: /posts/hashcat-crack-wifi-password-4-seconds
+permalink: /posts/hashcat-crack-wifi-password-4-seconds/
 categories: [Cybersecurity, Hacking, Wi-Fi Security]
 tags: [hashcat, wifi hacking, gpu cracking, password cracking, WPA2, WPA3, cybersecurity tools, brute force, ethical hacking]
 image: 
