@@ -46,7 +46,7 @@ After a few grilling questions, he looks at me (through the phone, lol) and says
 ---
 
 ### The Networking Slap 🖧
-(/assets/img/firewall-mistake.jpg)
+![Firewall Mistake Networking Slap](/assets/img/firewall-mistake.jpg)
 
 He asked me:
 
@@ -85,7 +85,7 @@ So here I am, 6 months deep into Linux, battled with OS installs, solved random 
 And honestly? Getting called a script kiddie hurt. But maybe that’s the hacker way — you gotta get roasted, broken, humbled, and then rise.
 
 Like they say:
-(/assets/img/cyber-jedi.jpg)
+![From Script Kiddie to Cyber Jedi](/assets/img/cyber-jedi.jpg)  
 ⚡ *Every script kiddie has the potential to become a cyber Jedi… if they don’t rage-quit halfway.*
 
 So yeah, back to my textbooks and terminals.
