@@ -9,8 +9,12 @@ image:
   alt: "image"
   width: 1200
   height: 630
-pin: true
+pin: false
 comments: false
 ---
 
+<<<<<<< HEAD
 TOtAvep4nP4ktgW6ganukUKVwDGpe0Kvwu1PmTebCZle0ECDsr36gJz1gcick/XAlcQZV/fB99U6cORi4nSBjdwd5zxiLp/8NeqNc6IY/T0=
+=======
+TOtAvep4nP4ktgW6ganukUKVwDGpe0Kvwu1PmTebCZle0ECDsr36gJz1gcick/XAlcQZV/fB99U6cORi4nSBjdwd5zxiLp/8NeqNc6IY/T0=
+>>>>>>> 87dfb8d (new blogsssssssss)
