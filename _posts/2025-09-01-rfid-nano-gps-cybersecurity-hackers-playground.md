@@ -1,7 +1,7 @@
 ---
 title: "RFID, Nano GPS & Cybersecurity: Inside the Aren's Playground 🕶️💻"
 date: 2025-09-01 00:00:00 +0530
-permalink: /_posts/rfid-nano-gps-cybersecurity-hackers-playground
+permalink: /posts/rfid-nano-gps-cybersecurity-hackers-playground
 categories: [Cybersecurity, Hacking, RFID, GPS]
 tags: [cybersecurity, hacking, rfid, nano gps, ethical hacking, cyber jedi, hacker lifestyle]
 image: /assets/img/rfid-nano-gps-hacker.jpg
