@@ -1,7 +1,7 @@
 ---
 title: "How I Resurrected a Dead ThinkPad with a BIOS Hack and Ventoy Magic"
-date: 2025-09-12 05:00:00 +0530
-permalink: /posts/thinkpad-bios-update-ventoy-windows-install-fix
+date: 2025-09-12 05:45:00 +0530
+permalink: /posts/thinkpad-bios-update-ventoy-windows-install-fix/
 categories: [Cybersecurity, Linux, Hardware Hacks]
 tags: [ThinkPad, BIOS Update, Ventoy, Kali Linux, Windows Install, Boot Fix]
 image: /assets/img/thinkpad-bios-fix.png
