@@ -1,0 +1,46 @@
+name: Deploy SIEMNLPProto to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout your repo
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      # Step 2: Setup Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Step 3: Install dependencies in your SIEM project
+      - name: Install SIEM dependencies
+        working-directory: ./SIEMNLPProto-src  # <-- path where your SIEM project lives
+        run: npm install
+
+      # Step 4: Build the SIEM frontend
+      - name: Build SIEM project
+        working-directory: ./SIEMNLPProto-src
+        run: npm run build
+
+      # Step 5: Copy build output to Pages folder
+      - name: Copy build to blog repo
+        run: |
+          rm -rf SIEMNLPProto
+          mkdir -p SIEMNLPProto
+          cp -r ./SIEMNLPProto-src/dist/public/* SIEMNLPProto/
+
+      # Step 6: Commit & push changes
+      - name: Deploy
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update SIEMNLPProto build"
+          branch: main
