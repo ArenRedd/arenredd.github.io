@@ -1,7 +1,7 @@
 ---
 title: "How I Hacked My First Hackathon: ARIFA Hackathon 2025 Journey 🚀🔥"
 date: 2025-09-29 06:00:00 +0530
-permalink: /_posts/arifa-hackathon-2025-first-hackathon-experience
+permalink:/arifa-hackathon-2025-first-hackathon-experience/
 categories: [Hackathon, Cybersecurity, Innovation]
 tags: [Hackathon, StartupTN, AIIC, Cybersecurity, Leadership, FirstExperience]
 image: /assets/img/arifa-hackathon-2025.png
