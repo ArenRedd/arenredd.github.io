@@ -4,7 +4,7 @@ date: 2025-09-29 06:00:00 +0530
 permalink: /arifa-hackathon-2025-first-hackathon-experience/
 categories: [Hackathon, Cybersecurity, Innovation]
 tags: [Hackathon, StartupTN, AIIC, Cybersecurity, Leadership, FirstExperience]
-image: /assets/img/arifa-hackathon-2025.png
+image:
 path: /assets/img/
 alt: "ARIFA Hackathon 2025 Experience"
 width: 1200
