@@ -728,9 +728,9 @@
     <category term="docker Projects" scheme="https://arenredd.github.io/categories/dev-journal/self-hosting/docker-Projects/"/>
     
     
-    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
-    
     <category term="docker" scheme="https://arenredd.github.io/tags/docker/"/>
+    
+    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
     
     <category term="filecloud" scheme="https://arenredd.github.io/tags/filecloud/"/>
     
