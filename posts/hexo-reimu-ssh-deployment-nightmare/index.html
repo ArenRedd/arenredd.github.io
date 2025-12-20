@@ -17,15 +17,15 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="If you’ve ever thought“Bro, it’s just a static blog. How hard can it be?” Congratulations.You’ve already lost. This is the story of how I tried to migrate my blog from Jekyll to Hexo using the Reimu t">
+    <meta name="description" content="December 20, 2025 —I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story If you’ve ever thought “Bro, it’s just a static blog. How hard can it be?” Congratulations. You’ve">
 <meta property="og:type" content="article">
 <meta property="og:title" content="I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story">
 <meta property="og:url" content="https://arenredd.github.io/posts/hexo-reimu-ssh-deployment-nightmare/index.html">
 <meta property="og:site_name" content="Anand&#39;s Blog">
-<meta property="og:description" content="If you’ve ever thought“Bro, it’s just a static blog. How hard can it be?” Congratulations.You’ve already lost. This is the story of how I tried to migrate my blog from Jekyll to Hexo using the Reimu t">
+<meta property="og:description" content="December 20, 2025 —I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story If you’ve ever thought “Bro, it’s just a static blog. How hard can it be?” Congratulations. You’ve">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-12-19T17:30:00.000Z">
-<meta property="article:modified_time" content="2025-12-20T12:35:41.159Z">
+<meta property="article:modified_time" content="2025-12-20T12:46:23.349Z">
 <meta property="article:author" content="Anandram Mohan">
 <meta property="article:tag" content="Web Security">
 <meta property="article:tag" content="Linux">
@@ -157,7 +157,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#December-20-2025-%E2%80%94"><span class="toc-number">1.</span> <span class="toc-text">December 20, 2025 —</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-Didn%E2%80%99t-Break-GitHub-GitHub-Broke-Me-A-Hexo-%C3%97-Reimu-%C3%97-SSH-Deployment-War-Story"><span class="toc-number">2.</span> <span class="toc-text">I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-1-The-Great-Migration"><span class="toc-number">2.0.1.</span> <span class="toc-text">Phase 1: The Great Migration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-2-The-Cover-Image-Conspiracy"><span class="toc-number">2.0.2.</span> <span class="toc-text">Phase 2: The Cover Image Conspiracy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-3-Cannot-GET-friend"><span class="toc-number">2.0.3.</span> <span class="toc-text">Phase 3: Cannot GET &#x2F;friend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-4-RSS-Is-Not-an-API-Key-But-Close"><span class="toc-number">2.0.4.</span> <span class="toc-text">Phase 4: RSS Is Not an API Key (But Close)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-5-Removing-the-Shame-Footer"><span class="toc-number">2.0.5.</span> <span class="toc-text">Phase 5: Removing the Shame Footer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-6-The-SSH-Key-Nightmare"><span class="toc-number">2.0.6.</span> <span class="toc-text">Phase 6: The SSH Key Nightmare</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-7-Victory"><span class="toc-number">2.0.7.</span> <span class="toc-text">Phase 7: Victory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Final-Thoughts"><span class="toc-number">2.0.8.</span> <span class="toc-text">Final Thoughts</span></a></li></ol></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,109 +263,181 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <p>If you’ve ever thought<br>“Bro, it’s just a static blog. How hard can it be?”</p>
-<p>Congratulations.<br>You’ve already lost.</p>
+        <h1 id="December-20-2025-—"><a href="#December-20-2025-—" class="headerlink" title="December 20, 2025 —"></a>December 20, 2025 —</h1><h1 id="I-Didn’t-Break-GitHub-GitHub-Broke-Me-A-Hexo-×-Reimu-×-SSH-Deployment-War-Story"><a href="#I-Didn’t-Break-GitHub-GitHub-Broke-Me-A-Hexo-×-Reimu-×-SSH-Deployment-War-Story" class="headerlink" title="I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story"></a><strong>I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story</strong></h1><hr>
+<p>If you’ve ever thought</p>
+<p>“Bro, it’s just a static blog. How hard can it be?”</p>
+<p>Congratulations.</p>
+<p>You’ve already lost.</p>
 <p>This is the story of how I tried to migrate my blog from Jekyll to Hexo using the Reimu theme… and accidentally speed-ran every possible deployment failure known to mankind.</p>
-<p>Phase 1: The Great Migration</p>
-<p>It started innocent enough.</p>
-<p>Jekyll was getting annoying.<br>Ruby was acting like Ruby.<br>I wanted speed, control, and hacker aesthetics.</p>
+<hr>
+<h3 id="Phase-1-The-Great-Migration"><a href="#Phase-1-The-Great-Migration" class="headerlink" title="Phase 1: The Great Migration"></a>Phase 1: The Great Migration</h3><p>It started innocent enough.</p>
+<p>Jekyll was getting annoying.</p>
+<p>Ruby was acting like Ruby.</p>
+<p>I wanted speed, control, and hacker aesthetics.</p>
 <p>So I said the magic words:</p>
+<blockquote>
 <p>“Let’s switch to Hexo.”</p>
-<p>Then I saw hexo-theme-reimu.</p>
-<p>Glassmorphism.<br>Card layouts.<br>Anime-inspired but still professional.<br>Cyberpunk energy without being cringe.</p>
-<p>I cloned it.<br>I installed it.<br>I ran hexo s.</p>
+</blockquote>
+<p>Then I saw <strong>hexo-theme-reimu</strong>.</p>
+<p>Glassmorphism.</p>
+<p>Card layouts.</p>
+<p>Anime-inspired but still professional.</p>
+<p>Cyberpunk energy without being cringe.</p>
+<p>I cloned it.</p>
+<p>I installed it.</p>
+<p>I ran <code>hexo s</code>.</p>
 <p>And immediately got slapped with:</p>
-<p>post.cover.startsWith is not a function</p>
-<p>Ah yes. JavaScript’s way of saying:<br>“Your YAML offended me.”</p>
-<p>Phase 2: The Cover Image Conspiracy</p>
-<p>Turns out Reimu is very serious about post covers.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post.cover.startsWith is not a function</span><br></pre></td></tr></table></figure>
+
+<p>Ah yes. JavaScript’s way of saying:</p>
+<p>“Your YAML offended me.”</p>
+<hr>
+<h3 id="Phase-2-The-Cover-Image-Conspiracy"><a href="#Phase-2-The-Cover-Image-Conspiracy" class="headerlink" title="Phase 2: The Cover Image Conspiracy"></a>Phase 2: The Cover Image Conspiracy</h3><p>Turns out Reimu is <em>very serious</em> about post covers.</p>
 <p>Some posts had:</p>
-<p>cover:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cover:</span><br></pre></td></tr></table></figure>
+
 <p>Some had:</p>
-<p>cover: &#x2F;assets&#x2F;img&#x2F;something.png</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cover: /assets/img/something.png</span><br></pre></td></tr></table></figure>
+
 <p>Some had… vibes.</p>
 <p>Reimu didn’t like vibes.</p>
-<p>It wanted strings, not empty fields.<br>So I hunted every post like a bug bounty target:</p>
-<p>grep -R “cover:” source&#x2F;_posts</p>
-<p>Fixed empty covers.<br>Moved images properly.<br>Watched Windows secretly inject :Zone.Identifier files like malware.</p>
-<p>Deleted them.<br>Again.<br>And again.</p>
+<p>It wanted <strong>strings</strong>, not empty fields.</p>
+<p>So I hunted every post like a bug bounty target:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -R <span class="string">&quot;cover:&quot;</span> <span class="built_in">source</span>/_posts</span><br></pre></td></tr></table></figure>
+
+<p>Fixed empty covers.</p>
+<p>Moved images properly.</p>
+<p>Watched Windows secretly inject <code>:Zone.Identifier</code> files like malware.</p>
+<p>Deleted them.</p>
+<p>Again.</p>
+<p>And again.</p>
 <p>Finally:</p>
+<blockquote>
 <p>“Yeah it works.”</p>
+</blockquote>
 <p>Famous last words.</p>
-<p>Phase 3: Cannot GET &#x2F;friend</p>
-<p>Navbar looked clean.</p>
-<p>Home.<br>Archives.<br>About.<br>Friend.</p>
-<p>Clicked Friend.</p>
-<p>Cannot GET &#x2F;friend</p>
+<hr>
+<h3 id="Phase-3-Cannot-GET-friend"><a href="#Phase-3-Cannot-GET-friend" class="headerlink" title="Phase 3: Cannot GET &#x2F;friend"></a>Phase 3: Cannot GET &#x2F;friend</h3><p>Navbar looked clean.</p>
+<p>Home.</p>
+<p>Archives.</p>
+<p>About.</p>
+<p>Friend.</p>
+<p>Clicked <strong>Friend</strong>.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot GET /friend</span><br></pre></td></tr></table></figure>
+
 <p>Classic.</p>
 <p>Turns out “friend” pages don’t magically exist just because you believe in them.</p>
 <p>So I did what any sane hacker would do:</p>
-<p>Deleted “friend”</p>
-<p>Replaced it with Portfolio</p>
-<p>Linked directly to my actual work</p>
-<p>No fake pages.<br>No broken routes.<br>No lies.</p>
-<p>Phase 4: RSS Is Not an API Key (But Close)</p>
-<p>I enabled RSS.</p>
+<ul>
+<li>Deleted “friend”</li>
+<li>Replaced it with <strong>Portfolio</strong></li>
+<li>Linked directly to my actual work</li>
+</ul>
+<p>No fake pages.</p>
+<p>No broken routes.</p>
+<p>No lies.</p>
+<hr>
+<h3 id="Phase-4-RSS-Is-Not-an-API-Key-But-Close"><a href="#Phase-4-RSS-Is-Not-an-API-Key-But-Close" class="headerlink" title="Phase 4: RSS Is Not an API Key (But Close)"></a>Phase 4: RSS Is Not an API Key (But Close)</h3><p>I enabled RSS.</p>
 <p>Clicked it.</p>
-<p>Browser downloaded atom.xml.</p>
-<p>My brain:<br>“Why is this downloading?”</p>
-<p>Reality check:<br>RSS is not for humans.<br>It’s for readers, bots, aggregators, and other digital goblins.</p>
-<p>Yes — anyone can consume your posts.<br>No — they can’t edit them.<br>No — this is not leaking your soul.</p>
-<p>RSS is good.<br>RSS is power.</p>
+<p>Browser downloaded <code>atom.xml</code>.</p>
+<p>My brain:</p>
+<p>“Why is this downloading?”</p>
+<p>Reality check:</p>
+<p>RSS is not for humans.</p>
+<p>It’s for readers, bots, aggregators, and other digital goblins.</p>
+<p>Yes — anyone <em>can</em> consume your posts.</p>
+<p>No — they can’t edit them.</p>
+<p>No — this is not leaking your soul.</p>
+<p>RSS is good.</p>
+<p>RSS is power.</p>
 <p>We keep RSS.</p>
-<p>Phase 5: Removing the Shame Footer</p>
-<p>You know the one.</p>
-<p>Powered by Hexo<br>Theme Reimu</p>
-<p>Look, respect to the devs.<br>But this is my site.</p>
+<hr>
+<h3 id="Phase-5-Removing-the-Shame-Footer"><a href="#Phase-5-Removing-the-Shame-Footer" class="headerlink" title="Phase 5: Removing the Shame Footer"></a>Phase 5: Removing the Shame Footer</h3><p>You know the one.</p>
+<blockquote>
+<p>Powered by Hexo</p>
+<p>Theme Reimu</p>
+</blockquote>
+<p>Look, respect to the devs.</p>
+<p>But this is <strong>my</strong> site.</p>
 <p>So:</p>
-<p>powered: false<br>count: false<br>busuanzi: false</p>
-<p>No fake view counters.<br>No “0 views” humiliation.<br>No unnecessary flex.</p>
-<p>Clean footer.<br>Professional energy.</p>
-<p>Phase 6: The SSH Key Nightmare</p>
-<p>Now comes the boss fight.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">powered: <span class="literal">false</span></span><br><span class="line">count: <span class="literal">false</span></span><br><span class="line">busuanzi: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>No fake view counters.</p>
+<p>No “0 views” humiliation.</p>
+<p>No unnecessary flex.</p>
+<p>Clean footer.</p>
+<p>Professional energy.</p>
+<hr>
+<h3 id="Phase-6-The-SSH-Key-Nightmare"><a href="#Phase-6-The-SSH-Key-Nightmare" class="headerlink" title="Phase 6: The SSH Key Nightmare"></a>Phase 6: The SSH Key Nightmare</h3><p>Now comes the boss fight.</p>
 <p>I run:</p>
-<p>hexo d</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
 <p>GitHub replies:</p>
-<p>Username for ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>‘:</p>
-<p>Wait.<br>Why HTTPS?<br>I already have SSH.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Username <span class="keyword">for</span> <span class="string">&#x27;https://github.com&#x27;</span>:</span><br></pre></td></tr></table></figure>
+
+<p>Wait.</p>
+<p>Why HTTPS?</p>
+<p>I already have SSH.</p>
 <p>Test SSH:</p>
-<p>ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">git@github.com</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
 <p>GitHub:</p>
+<blockquote>
 <p>Hi ArenRedd! You’ve successfully authenticated.</p>
+</blockquote>
 <p>So why is Hexo acting like it’s 2012?</p>
-<p>Answer:<br>Hexo doesn’t care about your SSH key.<br>It cares about the repo URL.</p>
+<p>Answer:</p>
+<p>Hexo doesn’t care about your SSH key.</p>
+<p>It cares about <strong>the repo URL</strong>.</p>
 <p>And mine was still:</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/username/repo.git">https://github.com/username/repo.git</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/username/repo.git</span><br></pre></td></tr></table></figure>
+
 <p>So GitHub kept asking for a password I don’t even remember.</p>
-<p>I generated keys.<br>Overwrote keys.<br>Added wrong filenames.<br>Tried to ssh-add files that didn’t exist.<br>Created keys named like homework files.</p>
+<p>I generated keys.</p>
+<p>Overwrote keys.</p>
+<p>Added wrong filenames.</p>
+<p>Tried to ssh-add files that didn’t exist.</p>
+<p>Created keys named like homework files.</p>
 <p>Chaos.</p>
 <p>Finally, the real fix:</p>
-<p>repo: <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;">git@github.com</a>:ArenRedd&#x2F;arenredd.github.io.git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo: git@github.com:ArenRedd/arenredd.github.io.git</span><br></pre></td></tr></table></figure>
+
 <p>And then the most important command of all:</p>
-<p>rm -rf .deploy_git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf .deploy_git</span><br></pre></td></tr></table></figure>
+
 <p>Hexo was caching the old HTTPS repo like trauma.</p>
-<p>Phase 7: Victory</p>
-<p>I ran:</p>
-<p>hexo clean<br>hexo g<br>hexo d</p>
-<p>No username prompt.<br>No password prompt.<br>No errors.</p>
+<hr>
+<h3 id="Phase-7-Victory"><a href="#Phase-7-Victory" class="headerlink" title="Phase 7: Victory"></a>Phase 7: Victory</h3><p>I ran:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>No username prompt.</p>
+<p>No password prompt.</p>
+<p>No errors.</p>
 <p>Just deployment.</p>
-<p>Pages generated.<br>Assets loaded.<br>Blog live.</p>
+<p>Pages generated.</p>
+<p>Assets loaded.</p>
+<p>Blog live.</p>
 <p>I didn’t break GitHub.</p>
 <p>GitHub just wanted me to understand it deeply.</p>
-<p>Final Thoughts</p>
-<p>This wasn’t “just a blog setup”.</p>
+<hr>
+<h3 id="Final-Thoughts"><a href="#Final-Thoughts" class="headerlink" title="Final Thoughts"></a>Final Thoughts</h3><p>This wasn’t “just a blog setup”.</p>
 <p>This was:</p>
-<p>Debugging YAML</p>
-<p>Fighting Windows metadata</p>
-<p>Understanding how Hexo actually deploys</p>
-<p>Learning why SSH matters</p>
-<p>Cleaning configs like a SOC analyst</p>
+<ul>
+<li>Debugging YAML</li>
+<li>Fighting Windows metadata</li>
+<li>Understanding how Hexo actually deploys</li>
+<li>Learning why SSH matters</li>
+<li>Cleaning configs like a SOC analyst</li>
+</ul>
 <p>And now?</p>
 <p>I own my pipeline.</p>
-<p>If you’re reading this while stuck at<br>“Username for <a target="_blank" rel="noopener" href="https://github.com”/">https://github.com”</a></p>
-<p>or<br>“Cannot GET &#x2F;about”</p>
+<p>If you’re reading this while stuck at</p>
+<p>“Username for <a target="_blank" rel="noopener" href="https://github.com”/">https://github.com”</a></p>
+<p>or</p>
+<p>“Cannot GET &#x2F;about”</p>
 <p>You’re not dumb.</p>
 <p>You’re just leveling up.</p>
+<hr>
 
     </div>
     <footer class="article-footer">
@@ -420,7 +492,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#December-20-2025-%E2%80%94"><span class="toc-number">1.</span> <span class="toc-text">December 20, 2025 —</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#I-Didn%E2%80%99t-Break-GitHub-GitHub-Broke-Me-A-Hexo-%C3%97-Reimu-%C3%97-SSH-Deployment-War-Story"><span class="toc-number">2.</span> <span class="toc-text">I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-1-The-Great-Migration"><span class="toc-number">2.0.1.</span> <span class="toc-text">Phase 1: The Great Migration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-2-The-Cover-Image-Conspiracy"><span class="toc-number">2.0.2.</span> <span class="toc-text">Phase 2: The Cover Image Conspiracy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-3-Cannot-GET-friend"><span class="toc-number">2.0.3.</span> <span class="toc-text">Phase 3: Cannot GET &#x2F;friend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-4-RSS-Is-Not-an-API-Key-But-Close"><span class="toc-number">2.0.4.</span> <span class="toc-text">Phase 4: RSS Is Not an API Key (But Close)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-5-Removing-the-Shame-Footer"><span class="toc-number">2.0.5.</span> <span class="toc-text">Phase 5: Removing the Shame Footer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-6-The-SSH-Key-Nightmare"><span class="toc-number">2.0.6.</span> <span class="toc-text">Phase 6: The SSH Key Nightmare</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Phase-7-Victory"><span class="toc-number">2.0.7.</span> <span class="toc-text">Phase 7: Victory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Final-Thoughts"><span class="toc-number">2.0.8.</span> <span class="toc-text">Final Thoughts</span></a></li></ol></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -571,9 +643,9 @@
           url: "https://arenredd.github.io/posts/hexo-reimu-ssh-deployment-nightmare/",
           excerpt: "",
           description: "",
-          stripContent: "If you’ve ever thought“Bro, it’s just a static blog. How hard can it be?” Congratulations.You’ve already lost. This is the story of how I tried to migrate my blog from Jekyll to Hexo using the Reimu theme… and accidentally speed-ran every possible de",
+          stripContent: "December 20, 2025 —I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story If you’ve ever thought “Bro, it’s just a static blog. How hard can it be?” Congratulations. You’ve already lost. This is the story of how I tried to ",
           date: "Fri Dec 19 2025 23:00:00 GMT+0530",
-          updated: "Sat Dec 20 2025 18:05:41 GMT+0530",
+          updated: "Sat Dec 20 2025 18:16:23 GMT+0530",
           cover: "/assets/img/hexo-hack.jpg",
         };
       </script>
