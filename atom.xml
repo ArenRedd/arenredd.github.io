@@ -6,7 +6,7 @@
   <link href="https://arenredd.github.io/atom.xml" rel="self"/>
   
   <link href="https://arenredd.github.io/"/>
-  <updated>2025-12-20T08:38:25.204Z</updated>
+  <updated>2025-12-20T12:35:41.159Z</updated>
   <id>https://arenredd.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story</title>
+    <link href="https://arenredd.github.io/posts/hexo-reimu-ssh-deployment-nightmare/"/>
+    <id>https://arenredd.github.io/posts/hexo-reimu-ssh-deployment-nightmare/</id>
+    <published>2025-12-19T17:30:00.000Z</published>
+    <updated>2025-12-20T12:35:41.159Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;If you’ve ever thought&lt;br&gt;“Bro, it’s just a static blog. How hard can it be?”&lt;/p&gt;
+&lt;p&gt;Congratulations.&lt;br&gt;You’ve already lost.&lt;/p&gt;
+&lt;p&gt;This</summary>
+      
+    
+    
+    
+    <category term="cyber-journal" scheme="https://arenredd.github.io/categories/cyber-journal/"/>
+    
+    <category term="Experiments" scheme="https://arenredd.github.io/categories/cyber-journal/Experiments/"/>
+    
+    <category term="devops-lab" scheme="https://arenredd.github.io/categories/cyber-journal/Experiments/devops-lab/"/>
+    
+    
+    <category term="Web Security" scheme="https://arenredd.github.io/tags/Web-Security/"/>
+    
+    <category term="Linux" scheme="https://arenredd.github.io/tags/Linux/"/>
+    
+    <category term="Hexo" scheme="https://arenredd.github.io/tags/Hexo/"/>
+    
+    <category term="Reimu" scheme="https://arenredd.github.io/tags/Reimu/"/>
+    
+    <category term="GitHub Pages" scheme="https://arenredd.github.io/tags/GitHub-Pages/"/>
+    
+    <category term="SSH" scheme="https://arenredd.github.io/tags/SSH/"/>
+    
+    <category term="DevOps" scheme="https://arenredd.github.io/tags/DevOps/"/>
+    
+    <category term="Terminal" scheme="https://arenredd.github.io/tags/Terminal/"/>
+    
+    <category term="Static Site" scheme="https://arenredd.github.io/tags/Static-Site/"/>
+    
+    <category term="Hacker Journal" scheme="https://arenredd.github.io/tags/Hacker-Journal/"/>
+    
+    <category term="Open Source" scheme="https://arenredd.github.io/tags/Open-Source/"/>
+    
+  </entry>
   
   <entry>
     <title>How I Accidentally Built a Master-Level Enterprise Network in Packet Tracer (This Went WAY Beyond CCNA!)</title>
@@ -741,44 +789,6 @@
     <category term="sysadmin" scheme="https://arenredd.github.io/tags/sysadmin/"/>
     
     <category term="devops" scheme="https://arenredd.github.io/tags/devops/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How I Installed Kali NetHunter on My Android Without Rooting (And Lived to Tell the Tale)</title>
-    <link href="https://arenredd.github.io/posts/kali-nethunter-no-root/"/>
-    <id>https://arenredd.github.io/posts/kali-nethunter-no-root/</id>
-    <published>2025-06-01T02:30:00.000Z</published>
-    <updated>2025-12-19T14:19:15.541Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;So, you want to turn your innocent Android phone into a pocket-sized hacking machine without voiding your warranty? Good news—Kali NetHun</summary>
-      
-    
-    
-    
-    <category term="Android Hacking" scheme="https://arenredd.github.io/categories/Android-Hacking/"/>
-    
-    <category term="Tutorials" scheme="https://arenredd.github.io/categories/Android-Hacking/Tutorials/"/>
-    
-    <category term="NetHunter" scheme="https://arenredd.github.io/categories/Android-Hacking/Tutorials/NetHunter/"/>
-    
-    
-    <category term="kali-linux" scheme="https://arenredd.github.io/tags/kali-linux/"/>
-    
-    <category term="nethunter" scheme="https://arenredd.github.io/tags/nethunter/"/>
-    
-    <category term="android" scheme="https://arenredd.github.io/tags/android/"/>
-    
-    <category term="termux" scheme="https://arenredd.github.io/tags/termux/"/>
-    
-    <category term="rootless" scheme="https://arenredd.github.io/tags/rootless/"/>
-    
-    <category term="hacking" scheme="https://arenredd.github.io/tags/hacking/"/>
-    
-    <category term="linux-on-android" scheme="https://arenredd.github.io/tags/linux-on-android/"/>
     
   </entry>
   
