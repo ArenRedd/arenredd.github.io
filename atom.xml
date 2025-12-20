@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Anand&#39;s Blog</title>
+  
+  <subtitle>Cybersecurity x Research x Development</subtitle>
+  <link href="https://arenredd.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://arenredd.github.io/"/>
+  <updated>2025-12-20T08:38:25.204Z</updated>
+  <id>https://arenredd.github.io/</id>
+  
+  <author>
+    <name>Anandram Mohan</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How I Accidentally Built a Master-Level Enterprise Network in Packet Tracer (This Went WAY Beyond CCNA!)</title>
+    <link href="https://arenredd.github.io/posts/master-level-enterprise-network-design-packet-tracer-hacker-story/"/>
+    <id>https://arenredd.github.io/posts/master-level-enterprise-network-design-packet-tracer-hacker-story/</id>
+    <published>2025-12-11T08:00:00.000Z</published>
+    <updated>2025-12-20T08:38:25.204Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;—-The-story-of-one-student-one-Cisco-Packet-Tracer-file-two-firewalls-and-a-dream&quot;&gt;&lt;a href=&quot;#—-The-story-of-one-student-one-Cisco-Pa</summary>
+      
+    
+    
+    
+    <category term="Networking" scheme="https://arenredd.github.io/categories/Networking/"/>
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Networking/Cybersecurity/"/>
+    
+    <category term="Cisco" scheme="https://arenredd.github.io/categories/Networking/Cybersecurity/Cisco/"/>
+    
+    <category term="Projects" scheme="https://arenredd.github.io/categories/Networking/Cybersecurity/Cisco/Projects/"/>
+    
+    
+    <category term="Packet Tracer" scheme="https://arenredd.github.io/tags/Packet-Tracer/"/>
+    
+    <category term="Cisco" scheme="https://arenredd.github.io/tags/Cisco/"/>
+    
+    <category term="CCNA" scheme="https://arenredd.github.io/tags/CCNA/"/>
+    
+    <category term="Enterprise Network" scheme="https://arenredd.github.io/tags/Enterprise-Network/"/>
+    
+    <category term="Firewalls" scheme="https://arenredd.github.io/tags/Firewalls/"/>
+    
+    <category term="VLAN" scheme="https://arenredd.github.io/tags/VLAN/"/>
+    
+    <category term="OSPF" scheme="https://arenredd.github.io/tags/OSPF/"/>
+    
+    <category term="HSRP" scheme="https://arenredd.github.io/tags/HSRP/"/>
+    
+    <category term="Ethical Hacking" scheme="https://arenredd.github.io/tags/Ethical-Hacking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ultimate OOPS Cheat Sheet for Last-Minute Exam Prep 🚀</title>
+    <link href="https://arenredd.github.io/oops-exam-cheat-sheet-java/"/>
+    <id>https://arenredd.github.io/oops-exam-cheat-sheet-java/</id>
+    <published>2025-11-04T12:30:00.000Z</published>
+    <updated>2025-12-20T08:14:10.136Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;OOP-Core-Concepts&quot;&gt;&lt;a href=&quot;#OOP-Core-Concepts&quot; class=&quot;headerlink&quot; title=&quot;OOP Core Concepts&quot;&gt;&lt;/a&gt;&lt;strong&gt;OOP Core Concepts&lt;/strong&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="Programming" scheme="https://arenredd.github.io/categories/Programming/"/>
+    
+    <category term="Java" scheme="https://arenredd.github.io/categories/Programming/Java/"/>
+    
+    <category term="Education" scheme="https://arenredd.github.io/categories/Programming/Java/Education/"/>
+    
+    
+    <category term="OOPS" scheme="https://arenredd.github.io/tags/OOPS/"/>
+    
+    <category term="Java" scheme="https://arenredd.github.io/tags/Java/"/>
+    
+    <category term="Cheat Sheet" scheme="https://arenredd.github.io/tags/Cheat-Sheet/"/>
+    
+    <category term="Exam Prep" scheme="https://arenredd.github.io/tags/Exam-Prep/"/>
+    
+    <category term="Data Structures" scheme="https://arenredd.github.io/tags/Data-Structures/"/>
+    
+    <category term="Algorithms" scheme="https://arenredd.github.io/tags/Algorithms/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How I Hacked My First Hackathon: ARIFA Hackathon 2025 Journey 🚀🔥</title>
+    <link href="https://arenredd.github.io/arifa-hackathon-2025-first-hackathon-experience/"/>
+    <id>https://arenredd.github.io/arifa-hackathon-2025-first-hackathon-experience/</id>
+    <published>2025-09-29T00:30:00.000Z</published>
+    <updated>2025-12-19T14:19:15.550Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;🚀-From-Noob-to-3rd-Prize-My-First-Hackathon-XP-at-ARIFA-HACKATHON-2025&quot;&gt;&lt;a href=&quot;#🚀-From-Noob-to-3rd-Prize-My-First-Hackathon-XP-a</summary>
+      
+    
+    
+    
+    <category term="Hackathon" scheme="https://arenredd.github.io/categories/Hackathon/"/>
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Hackathon/Cybersecurity/"/>
+    
+    <category term="Innovation" scheme="https://arenredd.github.io/categories/Hackathon/Cybersecurity/Innovation/"/>
+    
+    
+    <category term="Hackathon" scheme="https://arenredd.github.io/tags/Hackathon/"/>
+    
+    <category term="StartupTN" scheme="https://arenredd.github.io/tags/StartupTN/"/>
+    
+    <category term="AIIC" scheme="https://arenredd.github.io/tags/AIIC/"/>
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/tags/Cybersecurity/"/>
+    
+    <category term="Leadership" scheme="https://arenredd.github.io/tags/Leadership/"/>
+    
+    <category term="FirstExperience" scheme="https://arenredd.github.io/tags/FirstExperience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How I Resurrected a Dead ThinkPad with a BIOS Hack and Ventoy Magic</title>
+    <link href="https://arenredd.github.io/posts/thinkpad-bios-update-ventoy-windows-install-fix/"/>
+    <id>https://arenredd.github.io/posts/thinkpad-bios-update-ventoy-windows-install-fix/</id>
+    <published>2025-09-12T00:15:00.000Z</published>
+    <updated>2025-12-19T14:19:15.550Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;🚀-From-Dead-Boot-to-BIOS-Resurrection-Aren’s-Journey-with-a-ThinkPad&quot;&gt;&lt;a href=&quot;#🚀-From-Dead-Boot-to-BIOS-Resurrection-Aren’s-Journ</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Linux" scheme="https://arenredd.github.io/categories/Cybersecurity/Linux/"/>
+    
+    <category term="Hardware Hacks" scheme="https://arenredd.github.io/categories/Cybersecurity/Linux/Hardware-Hacks/"/>
+    
+    
+    <category term="ThinkPad" scheme="https://arenredd.github.io/tags/ThinkPad/"/>
+    
+    <category term="BIOS Update" scheme="https://arenredd.github.io/tags/BIOS-Update/"/>
+    
+    <category term="Ventoy" scheme="https://arenredd.github.io/tags/Ventoy/"/>
+    
+    <category term="Kali Linux" scheme="https://arenredd.github.io/tags/Kali-Linux/"/>
+    
+    <category term="Windows Install" scheme="https://arenredd.github.io/tags/Windows-Install/"/>
+    
+    <category term="Boot Fix" scheme="https://arenredd.github.io/tags/Boot-Fix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RFID, Nano GPS &amp; Cybersecurity: Inside the Aren&#39;s Playground 🕶️💻</title>
+    <link href="https://arenredd.github.io/posts/rfid-nano-gps-cybersecurity-hackers-playground/"/>
+    <id>https://arenredd.github.io/posts/rfid-nano-gps-cybersecurity-hackers-playground/</id>
+    <published>2025-08-31T18:30:00.000Z</published>
+    <updated>2025-12-19T14:19:15.550Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;🕶️-From-RFID-Tags-to-Nano-GPS-My-Hacker-Awakening-Into-Cybersecurity&quot;&gt;&lt;a href=&quot;#🕶️-From-RFID-Tags-to-Nano-GPS-My-Hacker-Awakening-</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Hacking" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking/"/>
+    
+    <category term="RFID" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking/RFID/"/>
+    
+    <category term="GPS" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking/RFID/GPS/"/>
+    
+    
+    <category term="hacking" scheme="https://arenredd.github.io/tags/hacking/"/>
+    
+    <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/tags/cybersecurity/"/>
+    
+    <category term="rfid" scheme="https://arenredd.github.io/tags/rfid/"/>
+    
+    <category term="nano gps" scheme="https://arenredd.github.io/tags/nano-gps/"/>
+    
+    <category term="cyber jedi" scheme="https://arenredd.github.io/tags/cyber-jedi/"/>
+    
+    <category term="hacker lifestyle" scheme="https://arenredd.github.io/tags/hacker-lifestyle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Script Kiddie to Cyber Jedi: My Brutal Cybersecurity Reality Check</title>
+    <link href="https://arenredd.github.io/2025/08/21/2025-08-22-script-kiddie-to-cyber-jedi/"/>
+    <id>https://arenredd.github.io/2025/08/21/2025-08-22-script-kiddie-to-cyber-jedi/</id>
+    <published>2025-08-21T18:30:00.000Z</published>
+    <updated>2025-12-20T08:38:04.158Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;From-Script-Kiddie-to-Cyber-Jedi-My-Call-with-a-Hacker-That-Roasted-Me&quot;&gt;&lt;a href=&quot;#From-Script-Kiddie-to-Cyber-Jedi-My-Call-with-a-Ha</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Hacking Journey" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking-Journey/"/>
+    
+    
+    <category term="script kiddie" scheme="https://arenredd.github.io/tags/script-kiddie/"/>
+    
+    <category term="hacker journey" scheme="https://arenredd.github.io/tags/hacker-journey/"/>
+    
+    <category term="CEH" scheme="https://arenredd.github.io/tags/CEH/"/>
+    
+    <category term="networking" scheme="https://arenredd.github.io/tags/networking/"/>
+    
+    <category term="Linux" scheme="https://arenredd.github.io/tags/Linux/"/>
+    
+    <category term="cybersecurity advice" scheme="https://arenredd.github.io/tags/cybersecurity-advice/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ArenRedd: The Bug Bounty Recon Script That Makes Targets Beg for Mercy</title>
+    <link href="https://arenredd.github.io/posts/arenredd-bug-bounty-recon-tool-automation/"/>
+    <id>https://arenredd.github.io/posts/arenredd-bug-bounty-recon-tool-automation/</id>
+    <published>2025-08-11T13:05:00.000Z</published>
+    <updated>2025-12-19T14:19:15.550Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;So… it all started with a blank terminal and too much caffeine.&lt;/p&gt;
+&lt;p&gt;I wasn’t looking to make some polished corporate scanner with a fa</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Bug Bounty" scheme="https://arenredd.github.io/categories/Cybersecurity/Bug-Bounty/"/>
+    
+    <category term="Tools" scheme="https://arenredd.github.io/categories/Cybersecurity/Bug-Bounty/Tools/"/>
+    
+    
+    <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
+    
+    <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
+    
+    <category term="bug bounty" scheme="https://arenredd.github.io/tags/bug-bounty/"/>
+    
+    <category term="recon" scheme="https://arenredd.github.io/tags/recon/"/>
+    
+    <category term="nuclei" scheme="https://arenredd.github.io/tags/nuclei/"/>
+    
+    <category term="subfinder" scheme="https://arenredd.github.io/tags/subfinder/"/>
+    
+    <category term="httpx" scheme="https://arenredd.github.io/tags/httpx/"/>
+    
+    <category term="OSINT" scheme="https://arenredd.github.io/tags/OSINT/"/>
+    
+    <category term="kali linux" scheme="https://arenredd.github.io/tags/kali-linux/"/>
+    
+    <category term="vulnerability scanning" scheme="https://arenredd.github.io/tags/vulnerability-scanning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>This is not a blog - CTF By Arenredd</title>
+    <link href="https://arenredd.github.io/posts/you-found-it/"/>
+    <id>https://arenredd.github.io/posts/you-found-it/</id>
+    <published>2025-08-09T09:05:00.000Z</published>
+    <updated>2025-12-20T08:41:38.894Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;HEAD&quot;&gt;&lt;a href=&quot;#HEAD&quot; class=&quot;headerlink&quot; title=&quot;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEADTOtAvep4nP4ktgW6ganukUKVwDGpe0Kvwu1PmTebCZle0ECDsr3</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Hacking" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking/"/>
+    
+    <category term="Wi-Fi Security" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking/Wi-Fi-Security/"/>
+    
+    
+    <category term="hashcat" scheme="https://arenredd.github.io/tags/hashcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How Hackers Crack Wi-Fi in 4 Seconds Using Hashcat (And Why Your Password Sucks)</title>
+    <link href="https://arenredd.github.io/posts/hashcat-crack-wifi-password-4-seconds/"/>
+    <id>https://arenredd.github.io/posts/hashcat-crack-wifi-password-4-seconds/</id>
+    <published>2025-07-05T09:05:00.000Z</published>
+    <updated>2025-12-20T08:36:49.046Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;How-Hashcat-Devours-Weak-Passwords-to-Help-You-Crack-Your-Wi-Fi-in-4-Seconds&quot;&gt;&lt;a href=&quot;#How-Hashcat-Devours-Weak-Passwords-to-Help-Y</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Hacking" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking/"/>
+    
+    <category term="Wi-Fi Security" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking/Wi-Fi-Security/"/>
+    
+    
+    <category term="hashcat" scheme="https://arenredd.github.io/tags/hashcat/"/>
+    
+    <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
+    
+    <category term="wifi hacking" scheme="https://arenredd.github.io/tags/wifi-hacking/"/>
+    
+    <category term="gpu cracking" scheme="https://arenredd.github.io/tags/gpu-cracking/"/>
+    
+    <category term="password cracking" scheme="https://arenredd.github.io/tags/password-cracking/"/>
+    
+    <category term="WPA2" scheme="https://arenredd.github.io/tags/WPA2/"/>
+    
+    <category term="WPA3" scheme="https://arenredd.github.io/tags/WPA3/"/>
+    
+    <category term="cybersecurity tools" scheme="https://arenredd.github.io/tags/cybersecurity-tools/"/>
+    
+    <category term="brute force" scheme="https://arenredd.github.io/tags/brute-force/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>I Stole Your Admin Access with a Cookie – No Passwords Needed!</title>
+    <link href="https://arenredd.github.io/posts/cookie-theft-admin-access-bypass-2fa/"/>
+    <id>https://arenredd.github.io/posts/cookie-theft-admin-access-bypass-2fa/</id>
+    <published>2025-06-22T07:30:00.000Z</published>
+    <updated>2025-12-20T08:36:34.323Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Oops-I-Stole-Your-Session-The-Cookie-Monster’s-Guide-to-Bypassing-2FA-Like-a-Boss&quot;&gt;&lt;a href=&quot;#Oops-I-Stole-Your-Session-The-Cookie-Mo</summary>
+      
+    
+    
+    
+    <category term="hacking" scheme="https://arenredd.github.io/categories/hacking/"/>
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/hacking/cybersecurity/"/>
+    
+    
+    <category term="mitm" scheme="https://arenredd.github.io/tags/mitm/"/>
+    
+    <category term="cookie theft" scheme="https://arenredd.github.io/tags/cookie-theft/"/>
+    
+    <category term="session hijacking" scheme="https://arenredd.github.io/tags/session-hijacking/"/>
+    
+    <category term="2fa bypass" scheme="https://arenredd.github.io/tags/2fa-bypass/"/>
+    
+    <category term="red teaming" scheme="https://arenredd.github.io/tags/red-teaming/"/>
+    
+    <category term="web security" scheme="https://arenredd.github.io/tags/web-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>The Real Top 50 Hacking Commands Every Cybersecurity Pro Must Master</title>
+    <link href="https://arenredd.github.io/posts/real-top-50-hacking-commands/"/>
+    <id>https://arenredd.github.io/posts/real-top-50-hacking-commands/</id>
+    <published>2025-06-19T04:30:00.000Z</published>
+    <updated>2025-12-20T08:36:12.367Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;50-Hacking-Commands-That’ll-Melt-Your-Terminal-and-Your-Brain&quot;&gt;&lt;a href=&quot;#50-Hacking-Commands-That’ll-Melt-Your-Terminal-and-Your-Bra</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Hacking Tools" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacking-Tools/"/>
+    
+    
+    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
+    
+    <category term="terminal" scheme="https://arenredd.github.io/tags/terminal/"/>
+    
+    <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
+    
+    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
+    
+    <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
+    
+    <category term="tshark" scheme="https://arenredd.github.io/tags/tshark/"/>
+    
+    <category term="reverse shell" scheme="https://arenredd.github.io/tags/reverse-shell/"/>
+    
+    <category term="pentesting" scheme="https://arenredd.github.io/tags/pentesting/"/>
+    
+    <category term="bash" scheme="https://arenredd.github.io/tags/bash/"/>
+    
+    <category term="firewalls" scheme="https://arenredd.github.io/tags/firewalls/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Top 10 Hacking Commands That’ll Break Firewalls and Melt Terminals</title>
+    <link href="https://arenredd.github.io/posts/top-10-hacking-commands/"/>
+    <id>https://arenredd.github.io/posts/top-10-hacking-commands/</id>
+    <published>2025-06-17T08:30:00.000Z</published>
+    <updated>2025-12-20T08:19:57.591Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;The-Real-“Top-10-Hacking-Commands”-That’ll-Turn-Your-Terminal-into-a-Weapon&quot;&gt;&lt;a href=&quot;#The-Real-“Top-10-Hacking-Commands”-That’ll-Tu</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Terminal Hacks" scheme="https://arenredd.github.io/categories/Cybersecurity/Terminal-Hacks/"/>
+    
+    
+    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
+    
+    <category term="hacking" scheme="https://arenredd.github.io/tags/hacking/"/>
+    
+    <category term="terminal" scheme="https://arenredd.github.io/tags/terminal/"/>
+    
+    <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
+    
+    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
+    
+    <category term="ping" scheme="https://arenredd.github.io/tags/ping/"/>
+    
+    <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
+    
+    <category term="tshark" scheme="https://arenredd.github.io/tags/tshark/"/>
+    
+    <category term="reverse shell" scheme="https://arenredd.github.io/tags/reverse-shell/"/>
+    
+    <category term="firewall evasion" scheme="https://arenredd.github.io/tags/firewall-evasion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kernel Kung Fu: How Your OS&#39;s Secret Brain Controls Everything (And How to Hack It)</title>
+    <link href="https://arenredd.github.io/posts/kernel-kung-fu-os-brain-hack/"/>
+    <id>https://arenredd.github.io/posts/kernel-kung-fu-os-brain-hack/</id>
+    <published>2025-06-14T18:30:00.000Z</published>
+    <updated>2025-12-20T08:35:54.562Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Kernel-Panic-101-Why-Your-OS’s-Brain-is-the-Ultimate-Hackers’-Playground&quot;&gt;&lt;a href=&quot;#Kernel-Panic-101-Why-Your-OS’s-Brain-is-the-Ulti</summary>
+      
+    
+    
+    
+    <category term="operating-systems" scheme="https://arenredd.github.io/categories/operating-systems/"/>
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/operating-systems/cybersecurity/"/>
+    
+    
+    <category term="windows" scheme="https://arenredd.github.io/tags/windows/"/>
+    
+    <category term="kernel" scheme="https://arenredd.github.io/tags/kernel/"/>
+    
+    <category term="low-level" scheme="https://arenredd.github.io/tags/low-level/"/>
+    
+    <category term="exploits" scheme="https://arenredd.github.io/tags/exploits/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>13 Hacker Books Every Cyber Warrior Should Read in 2025</title>
+    <link href="https://arenredd.github.io/posts/hacker-books-2025-must-read-list/"/>
+    <id>https://arenredd.github.io/posts/hacker-books-2025-must-read-list/</id>
+    <published>2025-06-12T04:30:00.000Z</published>
+    <updated>2025-12-20T08:35:34.728Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Hack-Like-a-Pro-The-Ultimate-Hacker’s-Reading-List-2025-Edition&quot;&gt;&lt;a href=&quot;#Hack-Like-a-Pro-The-Ultimate-Hacker’s-Reading-List-2025-E</summary>
+      
+    
+    
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/cybersecurity/"/>
+    
+    <category term="Hacking" scheme="https://arenredd.github.io/categories/cybersecurity/Hacking/"/>
+    
+    
+    <category term="python" scheme="https://arenredd.github.io/tags/python/"/>
+    
+    <category term="Hacker Books" scheme="https://arenredd.github.io/tags/Hacker-Books/"/>
+    
+    <category term="Bug Bounty" scheme="https://arenredd.github.io/tags/Bug-Bounty/"/>
+    
+    <category term="Pentesting" scheme="https://arenredd.github.io/tags/Pentesting/"/>
+    
+    <category term="API Security" scheme="https://arenredd.github.io/tags/API-Security/"/>
+    
+    <category term="InfoSec" scheme="https://arenredd.github.io/tags/InfoSec/"/>
+    
+    <category term="Web Security" scheme="https://arenredd.github.io/tags/Web-Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Boot, Bounce, Vanish: How I Disappeared with a $5 USB and TAILS OS</title>
+    <link href="https://arenredd.github.io/posts/tails-os-ghost-mode/"/>
+    <id>https://arenredd.github.io/posts/tails-os-ghost-mode/</id>
+    <published>2025-06-11T02:30:12.000Z</published>
+    <updated>2025-12-20T08:34:29.517Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;“You don’t run TAILS… you summon it.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Alright cyber-ghosts, let me tell you a tale—not the bedtime kind</summary>
+      
+    
+    
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/cybersecurity/"/>
+    
+    <category term="Privacy" scheme="https://arenredd.github.io/categories/cybersecurity/Privacy/"/>
+    
+    
+    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
+    
+    <category term="TAILS" scheme="https://arenredd.github.io/tags/TAILS/"/>
+    
+    <category term="Tor" scheme="https://arenredd.github.io/tags/Tor/"/>
+    
+    <category term="Anonymous Browsing" scheme="https://arenredd.github.io/tags/Anonymous-Browsing/"/>
+    
+    <category term="hacker-tools" scheme="https://arenredd.github.io/tags/hacker-tools/"/>
+    
+    <category term="USB OS" scheme="https://arenredd.github.io/tags/USB-OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>📱 13 Mobile Hacking Tools Every Ethical Hacker Should Master in 2025</title>
+    <link href="https://arenredd.github.io/posts/mobile-hacking-tools-2025/"/>
+    <id>https://arenredd.github.io/posts/mobile-hacking-tools-2025/</id>
+    <published>2025-06-07T14:30:00.000Z</published>
+    <updated>2025-12-19T14:19:15.545Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;“Ever wondered how hackers get under the hood of your favorite apps? You’re about to find out. Let’s pop the hood on mobile </summary>
+      
+    
+    
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/cybersecurity/"/>
+    
+    <category term="hacking-guides" scheme="https://arenredd.github.io/categories/cybersecurity/hacking-guides/"/>
+    
+    
+    <category term="hacker-tools" scheme="https://arenredd.github.io/tags/hacker-tools/"/>
+    
+    <category term="android" scheme="https://arenredd.github.io/tags/android/"/>
+    
+    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
+    
+    <category term="mobile hacking" scheme="https://arenredd.github.io/tags/mobile-hacking/"/>
+    
+    <category term="ios" scheme="https://arenredd.github.io/tags/ios/"/>
+    
+    <category term="burp suite" scheme="https://arenredd.github.io/tags/burp-suite/"/>
+    
+    <category term="frida" scheme="https://arenredd.github.io/tags/frida/"/>
+    
+    <category term="apktool" scheme="https://arenredd.github.io/tags/apktool/"/>
+    
+    <category term="cybersecurity 2025" scheme="https://arenredd.github.io/tags/cybersecurity-2025/"/>
+    
+    <category term="reverse engineering" scheme="https://arenredd.github.io/tags/reverse-engineering/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>🧨 The jekyll Nightmare: How I Fought Sass Errors and Won (Kinda)</title>
+    <link href="https://arenredd.github.io/posts/the-jekyll-nightmare/"/>
+    <id>https://arenredd.github.io/posts/the-jekyll-nightmare/</id>
+    <published>2025-06-06T10:30:00.000Z</published>
+    <updated>2025-12-19T14:19:15.545Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;“I just wanted a blog. Instead, I summoned the Sass Kraken.” – Every Dev, Eventually&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;💻-Prolo</summary>
+      
+    
+    
+    
+    <category term="debugging" scheme="https://arenredd.github.io/categories/debugging/"/>
+    
+    <category term="DevLogs" scheme="https://arenredd.github.io/categories/debugging/DevLogs/"/>
+    
+    
+    <category term="chirpy" scheme="https://arenredd.github.io/tags/chirpy/"/>
+    
+    <category term="jekyll" scheme="https://arenredd.github.io/tags/jekyll/"/>
+    
+    <category term="sass" scheme="https://arenredd.github.io/tags/sass/"/>
+    
+    <category term="terminal" scheme="https://arenredd.github.io/tags/terminal/"/>
+    
+    <category term="blog" scheme="https://arenredd.github.io/tags/blog/"/>
+    
+    <category term="bugfix" scheme="https://arenredd.github.io/tags/bugfix/"/>
+    
+    <category term="developer-life" scheme="https://arenredd.github.io/tags/developer-life/"/>
+    
+    <category term="funny" scheme="https://arenredd.github.io/tags/funny/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HackStack Deep Dive: Passwords, Networks &amp; Resources</title>
+    <link href="https://arenredd.github.io/posts/HackStack-Deep-Dive/"/>
+    <id>https://arenredd.github.io/posts/HackStack-Deep-Dive/</id>
+    <published>2025-06-05T13:30:00.000Z</published>
+    <updated>2025-12-19T14:19:15.545Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;🧠-The-Ultimate-Hacker’s-Folder-Structure-How-to-Lock-It-Down-Like-a-Pro&quot;&gt;&lt;a href=&quot;#🧠-The-Ultimate-Hacker’s-Folder-Structure-How-to</summary>
+      
+    
+    
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/cybersecurity/"/>
+    
+    <category term="HackStack" scheme="https://arenredd.github.io/categories/cybersecurity/HackStack/"/>
+    
+    <category term="dev-journal" scheme="https://arenredd.github.io/categories/cybersecurity/HackStack/dev-journal/"/>
+    
+    
+    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
+    
+    <category term="password attacks" scheme="https://arenredd.github.io/tags/password-attacks/"/>
+    
+    <category term="bruteforce" scheme="https://arenredd.github.io/tags/bruteforce/"/>
+    
+    <category term="hashcat" scheme="https://arenredd.github.io/tags/hashcat/"/>
+    
+    <category term="network hacking" scheme="https://arenredd.github.io/tags/network-hacking/"/>
+    
+    <category term="mitm" scheme="https://arenredd.github.io/tags/mitm/"/>
+    
+    <category term="cheat sheets" scheme="https://arenredd.github.io/tags/cheat-sheets/"/>
+    
+    <category term="osint" scheme="https://arenredd.github.io/tags/osint/"/>
+    
+    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>From Chaos to Cloud: Spinning Up FileCloud Like a Cyber Sorcerer</title>
+    <link href="https://arenredd.github.io/posts/spinning-up-filecloud/"/>
+    <id>https://arenredd.github.io/posts/spinning-up-filecloud/</id>
+    <published>2025-06-02T18:20:00.000Z</published>
+    <updated>2025-12-19T14:19:15.541Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;“When in doubt, docker ps it out.” – Ancient Hacker Proverb&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It was a sunny Sunday—too peaceful, really.</summary>
+      
+    
+    
+    
+    <category term="dev-journal" scheme="https://arenredd.github.io/categories/dev-journal/"/>
+    
+    <category term="self-hosting" scheme="https://arenredd.github.io/categories/dev-journal/self-hosting/"/>
+    
+    <category term="docker Projects" scheme="https://arenredd.github.io/categories/dev-journal/self-hosting/docker-Projects/"/>
+    
+    
+    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
+    
+    <category term="docker" scheme="https://arenredd.github.io/tags/docker/"/>
+    
+    <category term="filecloud" scheme="https://arenredd.github.io/tags/filecloud/"/>
+    
+    <category term="self-hosting" scheme="https://arenredd.github.io/tags/self-hosting/"/>
+    
+    <category term="storage" scheme="https://arenredd.github.io/tags/storage/"/>
+    
+    <category term="sysadmin" scheme="https://arenredd.github.io/tags/sysadmin/"/>
+    
+    <category term="devops" scheme="https://arenredd.github.io/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How I Installed Kali NetHunter on My Android Without Rooting (And Lived to Tell the Tale)</title>
+    <link href="https://arenredd.github.io/posts/kali-nethunter-no-root/"/>
+    <id>https://arenredd.github.io/posts/kali-nethunter-no-root/</id>
+    <published>2025-06-01T02:30:00.000Z</published>
+    <updated>2025-12-19T14:19:15.541Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;So, you want to turn your innocent Android phone into a pocket-sized hacking machine without voiding your warranty? Good news—Kali NetHun</summary>
+      
+    
+    
+    
+    <category term="Android Hacking" scheme="https://arenredd.github.io/categories/Android-Hacking/"/>
+    
+    <category term="Tutorials" scheme="https://arenredd.github.io/categories/Android-Hacking/Tutorials/"/>
+    
+    <category term="NetHunter" scheme="https://arenredd.github.io/categories/Android-Hacking/Tutorials/NetHunter/"/>
+    
+    
+    <category term="kali-linux" scheme="https://arenredd.github.io/tags/kali-linux/"/>
+    
+    <category term="nethunter" scheme="https://arenredd.github.io/tags/nethunter/"/>
+    
+    <category term="android" scheme="https://arenredd.github.io/tags/android/"/>
+    
+    <category term="termux" scheme="https://arenredd.github.io/tags/termux/"/>
+    
+    <category term="rootless" scheme="https://arenredd.github.io/tags/rootless/"/>
+    
+    <category term="hacking" scheme="https://arenredd.github.io/tags/hacking/"/>
+    
+    <category term="linux-on-android" scheme="https://arenredd.github.io/tags/linux-on-android/"/>
+    
+  </entry>
+  
+</feed>
