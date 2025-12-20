@@ -1,0 +1,586 @@
+  <!DOCTYPE html>
+  <html lang="en"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://arenredd.github.io';</script>
+  <title>
+    How Hackers Crack Wi-Fi in 4 Seconds Using Hashcat (And Why Your Password Sucks) | Anand&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="How Hashcat Devours Weak Passwords to Help You Crack Your Wi-Fi in 4 SecondsHello, hackers, techies, and inquisitive people! This is for you whether you’re working through the night or simply showing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Hackers Crack Wi-Fi in 4 Seconds Using Hashcat (And Why Your Password Sucks)">
+<meta property="og:url" content="https://arenredd.github.io/posts/hashcat-crack-wifi-password-4-seconds/index.html">
+<meta property="og:site_name" content="Anand&#39;s Blog">
+<meta property="og:description" content="How Hashcat Devours Weak Passwords to Help You Crack Your Wi-Fi in 4 SecondsHello, hackers, techies, and inquisitive people! This is for you whether you’re working through the night or simply showing">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-07-05T09:05:00.000Z">
+<meta property="article:modified_time" content="2025-12-20T08:36:49.046Z">
+<meta property="article:author" content="Anandram Mohan">
+<meta property="article:tag" content="hashcat">
+<meta property="article:tag" content="ethical hacking">
+<meta property="article:tag" content="wifi hacking">
+<meta property="article:tag" content="gpu cracking">
+<meta property="article:tag" content="password cracking">
+<meta property="article:tag" content="WPA2">
+<meta property="article:tag" content="WPA3">
+<meta property="article:tag" content="cybersecurity tools">
+<meta property="article:tag" content="brute force">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="cybersecurity, ethical hacking, kali linux, bug bounty, ctf, networking">
+    <link rel="alternate" href="/atom.xml" title="Anand's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Home</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/archives">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Archives</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/about">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">About</span>
+        </span>
+        <a class="main-nav-link-wrap" target="_blank" rel="noopener" href="https://anandfolio.github.io/">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Portfolio</span>
+        </span>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="/assets/img/hashcat-wifi-crack.png" alt="How Hackers Crack Wi-Fi in 4 Seconds Using Hashcat (And Why Your Password Sucks)">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">How Hackers Crack Wi-Fi in 4 Seconds Using Hashcat (And Why Your Password Sucks)</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-Hashcat-Devours-Weak-Passwords-to-Help-You-Crack-Your-Wi-Fi-in-4-Seconds"><span class="toc-number">1.</span> <span class="toc-text">How Hashcat Devours Weak Passwords to Help You Crack Your Wi-Fi in 4 Seconds</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Setup-Because-We%E2%80%99re-Nerds"><span class="toc-number">1.1.</span> <span class="toc-text">The Setup: Because We’re Nerds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hashcat%E2%80%99s-Playground"><span class="toc-number">1.2.</span> <span class="toc-text">Hashcat’s Playground</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-N%E2%80%99-Dirty-Hashcat-Highlights"><span class="toc-number">1.3.</span> <span class="toc-text">Quick N’ Dirty Hashcat Highlights</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-You-Should-Actually-Do"><span class="toc-number">1.4.</span> <span class="toc-text">What You Should Actually Do</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-This-Matters"><span class="toc-number">1.5.</span> <span class="toc-text">Why This Matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A8-Final-Thoughts"><span class="toc-number">1.6.</span> <span class="toc-text">🚨 Final Thoughts</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">33</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">69</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">181</div>
+  </div>
+</div>
+<div class="sidebar-social">
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/virumaandi001 itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2025-07-05-hashcat-crack-wifi-password-4-seconds" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-07-05T09:05:00.000Z" itemprop="datePublished">2025-07-05</time>
+    <time style="display: none;" id="post-update-time">2025-12-20</time>
+  </span>
+</div>
+
+        <div class="article-category">
+    <a class="article-category-link" href="/categories/Cybersecurity/" title="Cybersecurity">Cybersecurity</a><a class="article-category-link" href="/categories/Cybersecurity/Hacking/" title="Hacking">Hacking</a><a class="article-category-link" href="/categories/Cybersecurity/Hacking/Wi-Fi-Security/" title="Wi-Fi Security">Wi-Fi Security</a>
+  </div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="How-Hashcat-Devours-Weak-Passwords-to-Help-You-Crack-Your-Wi-Fi-in-4-Seconds"><a href="#How-Hashcat-Devours-Weak-Passwords-to-Help-You-Crack-Your-Wi-Fi-in-4-Seconds" class="headerlink" title="How Hashcat Devours Weak Passwords to Help You Crack Your Wi-Fi in 4 Seconds"></a>How Hashcat Devours Weak Passwords to Help You Crack Your Wi-Fi in 4 Seconds</h1><p>Hello, hackers, techies, and inquisitive people! This is for you whether you’re working through the night or simply showing off your cyber prowess. We’re going to reveal how tools like Hashcat can crack weak Wi-Fi passwords like they’re cereal, so grab your favorite energy drink, turn on some retro music, and get ready.</p>
+<p>Ever bragged to your buddies about your “super secure” Wi-Fi password? You know, the one that’s literally your phone number or “1234567890”? Yeah, guess what — Hashcat just laughed so hard it almost crashed.</p>
+<p>Let’s talk about <strong>Hashcat</strong>, the Chuck Norris of password cracking tools. In a recent test (that was purely educational and totally legal — don’t @ me), a 10-digit Wi-Fi password got obliterated in <em>four freakin’ seconds</em>. FOUR. That’s less time than it takes your buddy to say “Wait bro, what’s my IP again?”</p>
+<h2 id="The-Setup-Because-We’re-Nerds"><a href="#The-Setup-Because-We’re-Nerds" class="headerlink" title="The Setup: Because We’re Nerds"></a>The Setup: Because We’re Nerds</h2><p>Picture this: a jacked-up laptop with an NVIDIA RTX 4090 flexing like it’s in a Mr. Olympia contest, plus a few other hungry GPUs lurking around. Hashcat, our star player, was ready to throw haymakers at a sad 10-digit Wi-Fi pass.</p>
+<p>It looked like it would take hours (that’s what the “optimistic” progress bar said), but reality check: GPU farms chew through these weak digits faster than your mom’s blender on smoothie day.</p>
+<p>And no, this wasn’t some dark basement ritual. We only cracked our own networks (<em>insert legal disclaimer here</em>).</p>
+<h2 id="Hashcat’s-Playground"><a href="#Hashcat’s-Playground" class="headerlink" title="Hashcat’s Playground"></a>Hashcat’s Playground</h2><p>Hashcat can operate on a CPU too, but that’s like showing up to a Formula 1 race on a tricycle. You want power? You want speed? You need a GPU.</p>
+<p>The moral of the story? If your Wi-Fi password is still your birthday or “0987654321”, you might as well hang a “Free Wi-Fi, Hacker Buffet Open” sign outside your house.</p>
+<h2 id="Quick-N’-Dirty-Hashcat-Highlights"><a href="#Quick-N’-Dirty-Hashcat-Highlights" class="headerlink" title="Quick N’ Dirty Hashcat Highlights"></a>Quick N’ Dirty Hashcat Highlights</h2><ul>
+<li><strong>Hash Mode 22000</strong> is the new hotness, combining PMKIDs and EAPOLs like a spicy hacker cocktail.</li>
+<li>Older method (2500) still works but is basically legacy sauce now.</li>
+<li>You don’t even need someone actively connected to the network — you can harvest PMKIDs straight from the air if you’re a savage (again: only on your own networks, wink wink).</li>
+</ul>
+<h2 id="What-You-Should-Actually-Do"><a href="#What-You-Should-Actually-Do" class="headerlink" title="What You Should Actually Do"></a>What You Should Actually Do</h2><ol>
+<li><strong>Longer passwords</strong> — like, really long. Think 20+ characters.</li>
+<li>Use <strong>WPA3</strong> or at least enable Protected Management Frames (PMF).</li>
+<li>Avoid using digits only — toss in special chars, uppercase, lowercase. Go wild.</li>
+<li>Don’t re-use your Netflix password for your Wi-Fi. Please.</li>
+</ol>
+<h2 id="Why-This-Matters"><a href="#Why-This-Matters" class="headerlink" title="Why This Matters"></a>Why This Matters</h2><p>If you think “my neighborhood is full of grannies, no one will hack me,” think again. There are 15-year-old kids out there running Hashcat rigs that would make NASA blush.</p>
+<p>Your Wi-Fi isn’t just your internet — it’s your door to your home network, your devices, your smart fridge full of questionable leftover pizza, and your cameras. You don’t want those getting pwned.</p>
+<hr>
+<h2 id="🚨-Final-Thoughts"><a href="#🚨-Final-Thoughts" class="headerlink" title="🚨 Final Thoughts"></a>🚨 Final Thoughts</h2><p>Next time you set up your router, don’t slap in your birthday and call it a day. Hackers are lazy — they’ll always go for the low-hanging fruit. Don’t be that fruit.</p>
+<p>Stay salty, stay secure, and remember: The only good password is one even <em>you</em> struggle to remember.</p>
+
+    </div>
+    <footer class="article-footer">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/WPA2/" rel="tag" title="WPA2">WPA2</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/WPA3/" rel="tag" title="WPA3">WPA3</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/brute-force/" rel="tag" title="brute force">brute force</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/cybersecurity-tools/" rel="tag" title="cybersecurity tools">cybersecurity tools</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/ethical-hacking/" rel="tag" title="ethical hacking">ethical hacking</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/gpu-cracking/" rel="tag" title="gpu cracking">gpu cracking</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/hashcat/" rel="tag" title="hashcat">hashcat</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/password-cracking/" rel="tag" title="password cracking">password cracking</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/wifi-hacking/" rel="tag" title="wifi hacking">wifi hacking</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+          <img data-src="/assets/img/image.jpg" data-sizes="auto" alt="This is not a blog - CTF By Arenredd" class="lazyload">
+        <a href="/posts/you-found-it/" aria-label="Prev: This is not a blog - CTF By Arenredd" title="Prev: This is not a blog - CTF By Arenredd"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">
+            This is not a blog - CTF By Arenredd
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+        <img data-src="/assets/img/cookie-theft.jpg" data-sizes="auto" alt="I Stole Your Admin Access with a Cookie – No Passwords Needed!" class="lazyload">
+      <a href="/posts/cookie-theft-admin-access-bypass-2fa/" aria-label="Next: I Stole Your Admin Access with a Cookie – No Passwords Needed!"  title="Next: I Stole Your Admin Access with a Cookie – No Passwords Needed!"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          I Stole Your Admin Access with a Cookie – No Passwords Needed!
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2025
+      <span class="footer-info-sep rotate"></span>
+      Anandram Mohan
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        17.1k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        02:05
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-Hashcat-Devours-Weak-Passwords-to-Help-You-Crack-Your-Wi-Fi-in-4-Seconds"><span class="toc-number">1.</span> <span class="toc-text">How Hashcat Devours Weak Passwords to Help You Crack Your Wi-Fi in 4 Seconds</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Setup-Because-We%E2%80%99re-Nerds"><span class="toc-number">1.1.</span> <span class="toc-text">The Setup: Because We’re Nerds</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hashcat%E2%80%99s-Playground"><span class="toc-number">1.2.</span> <span class="toc-text">Hashcat’s Playground</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-N%E2%80%99-Dirty-Hashcat-Highlights"><span class="toc-number">1.3.</span> <span class="toc-text">Quick N’ Dirty Hashcat Highlights</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-You-Should-Actually-Do"><span class="toc-number">1.4.</span> <span class="toc-text">What You Should Actually Do</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-This-Matters"><span class="toc-number">1.5.</span> <span class="toc-text">Why This Matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%A8-Final-Thoughts"><span class="toc-number">1.6.</span> <span class="toc-text">🚨 Final Thoughts</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">33</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">69</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">181</div>
+  </div>
+</div>
+<div class="sidebar-social">
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/virumaandi001 itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+  <script>
+    if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+      window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+    }
+  </script>
+
+  
+<script src="https://npm.webcache.cn/theme-shokax-pjax@0.0.3/dist/index.umd.js" integrity="sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE&#x2F;jMSCxD+jAPU55x&#x2F;jj3wlf" crossorigin="anonymous"></script>
+
+  
+<script src="/js/pjax.js"></script>
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Anandram Mohan",
+          title: "How Hackers Crack Wi-Fi in 4 Seconds Using Hashcat (And Why Your Password Sucks)",
+          url: "https://arenredd.github.io/posts/hashcat-crack-wifi-password-4-seconds/",
+          excerpt: "",
+          description: "",
+          stripContent: "How Hashcat Devours Weak Passwords to Help You Crack Your Wi-Fi in 4 SecondsHello, hackers, techies, and inquisitive people! This is for you whether you’re working through the night or simply showing off your cyber prowess. We’re going to reveal how ",
+          date: "Sat Jul 05 2025 14:35:00 GMT+0530",
+          updated: "Sat Dec 20 2025 14:06:49 GMT+0530",
+          cover: "/assets/img/hashcat-wifi-crack.png",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+<script src="/js/tabs.js" data-pjax></script>
+
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+        
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.11.1' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+
+  </body>
+  </html>

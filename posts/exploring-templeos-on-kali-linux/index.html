@@ -1,0 +1,685 @@
+  <!DOCTYPE html>
+  <html lang="en"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://arenredd.github.io';</script>
+  <title>
+    Exploring the Divine OS: templeos on kali-linux | Anand&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="🛕 How I Installed and Ran templeos on kali-linux Using virtualboxA hacker’s guide to diving into Terry Davis’ divine OS—right from the kali-linux battlefield.  ⚡ Introduction: The Temple Awaitstemple">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exploring the Divine OS: templeos on kali-linux">
+<meta property="og:url" content="https://arenredd.github.io/posts/exploring-templeos-on-kali-linux/index.html">
+<meta property="og:site_name" content="Anand&#39;s Blog">
+<meta property="og:description" content="🛕 How I Installed and Ran templeos on kali-linux Using virtualboxA hacker’s guide to diving into Terry Davis’ divine OS—right from the kali-linux battlefield.  ⚡ Introduction: The Temple Awaitstemple">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-05-22T15:30:00.000Z">
+<meta property="article:modified_time" content="2025-12-19T14:19:15.541Z">
+<meta property="article:author" content="Anandram Mohan">
+<meta property="article:tag" content="kali-linux">
+<meta property="article:tag" content="hacker-journal">
+<meta property="article:tag" content="templeos">
+<meta property="article:tag" content="virtualbox">
+<meta property="article:tag" content="cyber-experiments">
+<meta property="article:tag" content="DIY-OS">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="cybersecurity, ethical hacking, kali linux, bug bounty, ctf, networking">
+    <link rel="alternate" href="/atom.xml" title="Anand's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Home</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/archives">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Archives</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/about">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">About</span>
+        </span>
+        <a class="main-nav-link-wrap" target="_blank" rel="noopener" href="https://anandfolio.github.io/">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Portfolio</span>
+        </span>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img  fetchpriority="high" src="/images/banner.webp" alt="Exploring the Divine OS: templeos on kali-linux">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Exploring the Divine OS: templeos on kali-linux</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%9B%95-How-I-Installed-and-Ran-templeos-on-kali-linux-Using-virtualbox"><span class="toc-number">1.</span> <span class="toc-text">🛕 How I Installed and Ran templeos on kali-linux Using virtualbox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A1-Introduction-The-Temple-Awaits"><span class="toc-number">1.0.1.</span> <span class="toc-text">⚡ Introduction: The Temple Awaits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%B0-What-I-Used-for-My-Setup"><span class="toc-number">1.0.2.</span> <span class="toc-text">🧰 What I Used for My Setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%96%A5%EF%B8%8F-Step-1-Check-Enable-Virtualization"><span class="toc-number">1.0.3.</span> <span class="toc-text">🖥️ Step 1: Check &amp; Enable Virtualization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%A6-Step-2-Download-the-templeos-ISO"><span class="toc-number">1.0.4.</span> <span class="toc-text">📦 Step 2: Download the templeos ISO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%99-Step-3-Create-the-Virtual-Machine"><span class="toc-number">1.0.5.</span> <span class="toc-text">🧙 Step 3: Create the Virtual Machine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%99%EF%B8%8F-Step-4-VM-Tweaks-for-a-Smooth-Ride"><span class="toc-number">1.0.6.</span> <span class="toc-text">⚙️ Step 4: VM Tweaks for a Smooth Ride</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-%E2%86%92-Processor"><span class="toc-number">1.0.7.</span> <span class="toc-text">System → Processor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-%E2%86%92-Acceleration"><span class="toc-number">1.0.8.</span> <span class="toc-text">System → Acceleration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Display"><span class="toc-number">1.0.9.</span> <span class="toc-text">Display</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boot-Order"><span class="toc-number">1.0.10.</span> <span class="toc-text">Boot Order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%BD-Step-5-Mount-the-ISO"><span class="toc-number">1.0.11.</span> <span class="toc-text">💽 Step 5: Mount the ISO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%80-Step-6-Boot-It-Up"><span class="toc-number">1.0.12.</span> <span class="toc-text">🚀 Step 6: Boot It Up</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%96%A5%EF%B8%8F-Optional-Install-to-Virtual-Hard-Disk"><span class="toc-number">1.0.13.</span> <span class="toc-text">🖥️ Optional: Install to Virtual Hard Disk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-templeos-Commands-to-Play-With"><span class="toc-number">1.0.14.</span> <span class="toc-text">🧠 templeos Commands to Play With</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%BC-Clean-Up-If-You-Must"><span class="toc-number">1.0.15.</span> <span class="toc-text">🧼 Clean Up (If You Must)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#About-the-Creator-%E2%80%94-Terry-A-Davis"><span class="toc-number">1.0.16.</span> <span class="toc-text">About the Creator — Terry A. Davis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A5-Crazy-or-Genius-Maybe-Both"><span class="toc-number">1.0.17.</span> <span class="toc-text">🔥 Crazy or Genius? Maybe Both.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%94-The-Sad-Truth"><span class="toc-number">1.0.18.</span> <span class="toc-text">💔 The Sad Truth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-Why-He-Still-Matters"><span class="toc-number">1.0.19.</span> <span class="toc-text">💡 Why He Still Matters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%9A-Final-Thoughts"><span class="toc-number">1.0.20.</span> <span class="toc-text">🔚 Final Thoughts</span></a></li></ol></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">33</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">69</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">181</div>
+  </div>
+</div>
+<div class="sidebar-social">
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/virumaandi001 itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2025-05-22-Exploring-the-Divine-OS-TempleOS-on-Kali-Linux" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-05-22T15:30:00.000Z" itemprop="datePublished">2025-05-22</time>
+    <time style="display: none;" id="post-update-time">2025-12-19</time>
+  </span>
+</div>
+
+        <div class="article-category">
+    <a class="article-category-link" href="/categories/cyber-journal/" title="cyber-journal">cyber-journal</a><a class="article-category-link" href="/categories/cyber-journal/Fun/" title="Fun">Fun</a><a class="article-category-link" href="/categories/cyber-journal/Fun/OS-Tweaks/" title="OS Tweaks">OS Tweaks</a>
+  </div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="🛕-How-I-Installed-and-Ran-templeos-on-kali-linux-Using-virtualbox"><a href="#🛕-How-I-Installed-and-Ran-templeos-on-kali-linux-Using-virtualbox" class="headerlink" title="🛕 How I Installed and Ran templeos on kali-linux Using virtualbox"></a><strong>🛕 How I Installed and Ran templeos on kali-linux Using virtualbox</strong></h1><p><em>A hacker’s guide to diving into Terry Davis’ divine OS—right from the kali-linux battlefield.</em></p>
+<hr>
+<h3 id="⚡-Introduction-The-Temple-Awaits"><a href="#⚡-Introduction-The-Temple-Awaits" class="headerlink" title="⚡ Introduction: The Temple Awaits"></a><strong>⚡ Introduction: The Temple Awaits</strong></h3><p>templeos isn’t just another OS—it’s a digital shrine, a <strong>modern-day “Third Temple”</strong> built by the late, legendary Terry A. Davis. Written entirely in <strong>HolyC</strong> (his self-made programming language), this OS runs at a <strong>retro 640x480 resolution with 16 colors</strong>, offering <strong>raw hardware access</strong> and a coding environment unlike anything else.</p>
+<p>It’s not for daily driving. It’s not for productivity. It’s <strong>a hacker’s curiosity</strong>, a <strong>programmer’s deep dive</strong>, and a <strong>digital artifact</strong> worth exploring.</p>
+<p>So, I decided to fire it up inside <strong>kali-linux</strong> using <strong>virtualbox</strong>. Here’s how it went.</p>
+<hr>
+<h3 id="🧰-What-I-Used-for-My-Setup"><a href="#🧰-What-I-Used-for-My-Setup" class="headerlink" title="🧰 What I Used for My Setup"></a>🧰 What <em>I</em> Used for My Setup</h3><p>Since I’m running kali-linux as my daily OS, here’s what I used to install templeos:</p>
+<ul>
+<li>✅ <strong>kali-linux</strong> (as my host operating system)</li>
+<li>✅ <strong>virtualbox</strong> (installed with <code>sudo apt install virtualbox</code>)</li>
+<li>✅ <strong>templeos ISO file</strong> (from <a target="_blank" rel="noopener" href="https://templeos.org/">templeos.org</a>)</li>
+<li>✅ <strong>A 64-bit capable processor</strong> with virtualization (VT-x&#x2F;AMD-V) enabled</li>
+</ul>
+<blockquote>
+<p>⚠️ Note: You can follow the same process on any linux distro or even Windows — just replace kali-linux with your own OS.</p>
+</blockquote>
+<hr>
+<h3 id="🖥️-Step-1-Check-Enable-Virtualization"><a href="#🖥️-Step-1-Check-Enable-Virtualization" class="headerlink" title="🖥️ Step 1: Check &amp; Enable Virtualization"></a><strong>🖥️ Step 1: Check &amp; Enable Virtualization</strong></h3><p>Before anything, make sure your CPU supports <strong>virtualization</strong> and it’s <strong>enabled in BIOS&#x2F;UEFI</strong>.</p>
+<p>Run this in Kali to check:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">egrep -c <span class="string">&#x27;(vmx|svm)&#x27;</span> /proc/cpuinfo</span><br></pre></td></tr></table></figure>
+
+<p>If the output is <strong>0</strong>, reboot into BIOS and <strong>enable VT-x (Intel) or AMD-V (AMD)</strong>.</p>
+<hr>
+<h3 id="📦-Step-2-Download-the-templeos-ISO"><a href="#📦-Step-2-Download-the-templeos-ISO" class="headerlink" title="📦 Step 2: Download the templeos ISO"></a><strong>📦 Step 2: Download the templeos ISO</strong></h3><p>No fancy package managers here—just a straight-up ISO download:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://templeos.org/downloads/templeos.ISO -O templeos.ISO</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="🧙-Step-3-Create-the-Virtual-Machine"><a href="#🧙-Step-3-Create-the-Virtual-Machine" class="headerlink" title="🧙 Step 3: Create the Virtual Machine"></a><strong>🧙 Step 3: Create the Virtual Machine</strong></h3><p>Fire up <strong>virtualbox</strong> and hit <strong>“New”</strong>. Configure it like this:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Setting</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Name</td>
+<td>templeos</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Other</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>Other&#x2F;Unknown (64-bit)</td>
+</tr>
+<tr>
+<td>Memory (RAM)</td>
+<td>128 MB (yes, it’s that light)</td>
+</tr>
+<tr>
+<td>Processor</td>
+<td>1 Core</td>
+</tr>
+<tr>
+<td>Video Memory</td>
+<td>16 MB</td>
+</tr>
+<tr>
+<td>Hard Disk</td>
+<td>~100 MB (Dynamically Allocated)</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="⚙️-Step-4-VM-Tweaks-for-a-Smooth-Ride"><a href="#⚙️-Step-4-VM-Tweaks-for-a-Smooth-Ride" class="headerlink" title="⚙️ Step 4: VM Tweaks for a Smooth Ride"></a><strong>⚙️ Step 4: VM Tweaks for a Smooth Ride</strong></h3><h3 id="System-→-Processor"><a href="#System-→-Processor" class="headerlink" title="System → Processor"></a><strong>System → Processor</strong></h3><ul>
+<li><strong>Enable PAE&#x2F;NX</strong></li>
+</ul>
+<h3 id="System-→-Acceleration"><a href="#System-→-Acceleration" class="headerlink" title="System → Acceleration"></a><strong>System → Acceleration</strong></h3><ul>
+<li><strong>Enable VT-x&#x2F;AMD-V</strong></li>
+<li><strong>Enable Nested Paging</strong></li>
+</ul>
+<h3 id="Display"><a href="#Display" class="headerlink" title="Display"></a><strong>Display</strong></h3><ul>
+<li><strong>Scale Factor: 100%</strong> (keeps it sharp, no blur)</li>
+</ul>
+<h3 id="Boot-Order"><a href="#Boot-Order" class="headerlink" title="Boot Order"></a><strong>Boot Order</strong></h3><ul>
+<li><strong>Optical Disk First</strong> (so it boots from the ISO)</li>
+</ul>
+<hr>
+<h3 id="💽-Step-5-Mount-the-ISO"><a href="#💽-Step-5-Mount-the-ISO" class="headerlink" title="💽 Step 5: Mount the ISO"></a><strong>💽 Step 5: Mount the ISO</strong></h3><ol>
+<li>Go to <strong>Settings → Storage</strong></li>
+<li>Under <strong>“Controller: IDE”</strong>, click the <strong>empty disk icon</strong></li>
+<li>Select <strong>templeos.ISO</strong></li>
+</ol>
+<hr>
+<h3 id="🚀-Step-6-Boot-It-Up"><a href="#🚀-Step-6-Boot-It-Up" class="headerlink" title="🚀 Step 6: Boot It Up"></a><strong>🚀 Step 6: Boot It Up</strong></h3><p>Hit <strong>Start</strong> and watch the magic unfold.</p>
+<p>If you get a <strong>“64-bit error”</strong>, double-check:</p>
+<p>✅ <strong>Virtualization is enabled in BIOS</strong></p>
+<p>✅ <strong>VM settings match the above</strong></p>
+<hr>
+<h3 id="🖥️-Optional-Install-to-Virtual-Hard-Disk"><a href="#🖥️-Optional-Install-to-Virtual-Hard-Disk" class="headerlink" title="🖥️ Optional: Install to Virtual Hard Disk"></a><strong>🖥️ Optional: Install to Virtual Hard Disk</strong></h3><p>Want persistence? Inside templeos, type:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InstallToHD</span><br></pre></td></tr></table></figure>
+
+<p>Now it’ll boot straight from the virtual disk next time.</p>
+<hr>
+<h3 id="🧠-templeos-Commands-to-Play-With"><a href="#🧠-templeos-Commands-to-Play-With" class="headerlink" title="🧠 templeos Commands to Play With"></a><strong>🧠 templeos Commands to Play With</strong></h3><ul>
+<li><strong><code>Dir</code></strong> – List files</li>
+<li><strong><code>Edit</code></strong> – Built-in text editor</li>
+<li><strong><code>Help</code></strong> – HolyC &amp; OS documentation</li>
+<li><strong><code>Docs</code></strong> – Deep dive into the system</li>
+</ul>
+<hr>
+<h3 id="🧼-Clean-Up-If-You-Must"><a href="#🧼-Clean-Up-If-You-Must" class="headerlink" title="🧼 Clean Up (If You Must)"></a><strong>🧼 Clean Up (If You Must)</strong></h3><p>To nuke the VM:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ~/virtualbox\ VMs/templeos/</span><br></pre></td></tr></table></figure>
+
+<p>Or delete it from the <strong>virtualbox UI</strong>.</p>
+<hr>
+<h3 id="About-the-Creator-—-Terry-A-Davis"><a href="#About-the-Creator-—-Terry-A-Davis" class="headerlink" title="About the Creator — Terry A. Davis"></a>About the Creator — Terry A. Davis</h3><p>Terry Davis was… different.</p>
+<p>He wasn’t part of a company. He wasn’t trying to make money. He wasn’t even building something for people, really. He was building something for God — literally.</p>
+<p>Terry was a brilliant programmer who had worked with Ticketmaster before being diagnosed with schizophrenia. After that, everything changed. He became convinced that God had given him a mission: to build the Third Temple — not with stone, but with code.</p>
+<p>That’s what became templeos — an entire operating system written from scratch by just one man. No teams. No frameworks. He built the compiler, graphics, file system, and even a programming language (HolyC) all by himself.</p>
+<h3 id="🔥-Crazy-or-Genius-Maybe-Both"><a href="#🔥-Crazy-or-Genius-Maybe-Both" class="headerlink" title="🔥 Crazy or Genius? Maybe Both."></a>🔥 Crazy or Genius? Maybe Both.</h3><p>templeos only runs at 640x480 resolution in 16 colors — because that’s what Terry said God told him to use.</p>
+<p>He made a built-in “oracle” — you could ask it a question, and it would return a Bible verse as a divine reply.</p>
+<p>He called himself “God’s Programmer.”</p>
+<p>He posted on YouTube and forums constantly — sometimes brilliant, sometimes offensive, sometimes both at once.</p>
+<p>Despite everything, the man wrote over 100,000 lines of code alone.</p>
+<h3 id="💔-The-Sad-Truth"><a href="#💔-The-Sad-Truth" class="headerlink" title="💔 The Sad Truth"></a>💔 The Sad Truth</h3><p>Terry struggled a lot. He was homeless at times. His online presence became more erratic over the years. In 2018, he died after being hit by a train. Whether it was an accident or something more intentional… no one really knows.</p>
+<h3 id="💡-Why-He-Still-Matters"><a href="#💡-Why-He-Still-Matters" class="headerlink" title="💡 Why He Still Matters"></a>💡 Why He Still Matters</h3><p>templeos isn’t useful in a practical way today. But it means something. It’s a raw, personal, completely unique creation — a look into the mind of someone who saw the world very differently.</p>
+<p>You don’t have to agree with him. But you can’t ignore what he did. It’s kind of amazing, kind of sad, and kind of inspiring — all at once.</p>
+<p>“God’s temple must be perfect.” — Terry A. Davis</p>
+<h3 id="🔚-Final-Thoughts"><a href="#🔚-Final-Thoughts" class="headerlink" title="🔚 Final Thoughts"></a><strong>🔚 Final Thoughts</strong></h3><p>templeos isn’t just software—it’s <strong>a piece of hacker history</strong>, a <strong>philosophical statement</strong>, and a <strong>technical oddity</strong> worth experiencing. Running it on Kali via virtualbox is the safest way to explore without risking your main system.</p>
+<p>If you’re into <strong>weird tech, retro computing, or OS dev</strong>, give it a shot. Who knows? You might just <strong>see the light</strong>. ⚡</p>
+<hr>
+<p><strong>✍️ By ArenRedd</strong></p>
+<p><em>Hacking the boundaries of tech.</em> 🔥</p>
+
+    </div>
+    <footer class="article-footer">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/DIY-OS/" rel="tag" title="DIY-OS">DIY-OS</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/cyber-experiments/" rel="tag" title="cyber-experiments">cyber-experiments</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/hacker-journal/" rel="tag" title="hacker-journal">hacker-journal</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/kali-linux/" rel="tag" title="kali-linux">kali-linux</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/templeos/" rel="tag" title="templeos">templeos</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/virtualbox/" rel="tag" title="virtualbox">virtualbox</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img data-src="/images/banner.webp" data-sizes="auto" alt="How I Built arenredd.github.io: A Developer Blog with Chirpy on kali-linux" class="lazyload">
+        <a href="/posts/building-github-blog-on-kali/" aria-label="Prev: How I Built arenredd.github.io: A Developer Blog with Chirpy on kali-linux" title="Prev: How I Built arenredd.github.io: A Developer Blog with Chirpy on kali-linux"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">
+            How I Built arenredd.github.io: A Developer Blog with Chirpy on kali-linux
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="19th May Log – Digital Lockdown Initiated" class="lazyload">
+      <a href="/posts/digital-lockdown/" aria-label="Next: 19th May Log – Digital Lockdown Initiated"  title="Next: 19th May Log – Digital Lockdown Initiated"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          19th May Log – Digital Lockdown Initiated
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2025
+      <span class="footer-info-sep rotate"></span>
+      Anandram Mohan
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        17.1k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        02:05
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%9B%95-How-I-Installed-and-Ran-templeos-on-kali-linux-Using-virtualbox"><span class="toc-number">1.</span> <span class="toc-text">🛕 How I Installed and Ran templeos on kali-linux Using virtualbox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%A1-Introduction-The-Temple-Awaits"><span class="toc-number">1.0.1.</span> <span class="toc-text">⚡ Introduction: The Temple Awaits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%B0-What-I-Used-for-My-Setup"><span class="toc-number">1.0.2.</span> <span class="toc-text">🧰 What I Used for My Setup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%96%A5%EF%B8%8F-Step-1-Check-Enable-Virtualization"><span class="toc-number">1.0.3.</span> <span class="toc-text">🖥️ Step 1: Check &amp; Enable Virtualization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%A6-Step-2-Download-the-templeos-ISO"><span class="toc-number">1.0.4.</span> <span class="toc-text">📦 Step 2: Download the templeos ISO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%99-Step-3-Create-the-Virtual-Machine"><span class="toc-number">1.0.5.</span> <span class="toc-text">🧙 Step 3: Create the Virtual Machine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9A%99%EF%B8%8F-Step-4-VM-Tweaks-for-a-Smooth-Ride"><span class="toc-number">1.0.6.</span> <span class="toc-text">⚙️ Step 4: VM Tweaks for a Smooth Ride</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-%E2%86%92-Processor"><span class="toc-number">1.0.7.</span> <span class="toc-text">System → Processor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-%E2%86%92-Acceleration"><span class="toc-number">1.0.8.</span> <span class="toc-text">System → Acceleration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Display"><span class="toc-number">1.0.9.</span> <span class="toc-text">Display</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Boot-Order"><span class="toc-number">1.0.10.</span> <span class="toc-text">Boot Order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%BD-Step-5-Mount-the-ISO"><span class="toc-number">1.0.11.</span> <span class="toc-text">💽 Step 5: Mount the ISO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9A%80-Step-6-Boot-It-Up"><span class="toc-number">1.0.12.</span> <span class="toc-text">🚀 Step 6: Boot It Up</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%96%A5%EF%B8%8F-Optional-Install-to-Virtual-Hard-Disk"><span class="toc-number">1.0.13.</span> <span class="toc-text">🖥️ Optional: Install to Virtual Hard Disk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-templeos-Commands-to-Play-With"><span class="toc-number">1.0.14.</span> <span class="toc-text">🧠 templeos Commands to Play With</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%BC-Clean-Up-If-You-Must"><span class="toc-number">1.0.15.</span> <span class="toc-text">🧼 Clean Up (If You Must)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#About-the-Creator-%E2%80%94-Terry-A-Davis"><span class="toc-number">1.0.16.</span> <span class="toc-text">About the Creator — Terry A. Davis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A5-Crazy-or-Genius-Maybe-Both"><span class="toc-number">1.0.17.</span> <span class="toc-text">🔥 Crazy or Genius? Maybe Both.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%94-The-Sad-Truth"><span class="toc-number">1.0.18.</span> <span class="toc-text">💔 The Sad Truth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%92%A1-Why-He-Still-Matters"><span class="toc-number">1.0.19.</span> <span class="toc-text">💡 Why He Still Matters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%9A-Final-Thoughts"><span class="toc-number">1.0.20.</span> <span class="toc-text">🔚 Final Thoughts</span></a></li></ol></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">33</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">69</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">181</div>
+  </div>
+</div>
+<div class="sidebar-social">
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/virumaandi001 itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+  <script>
+    if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+      window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+    }
+  </script>
+
+  
+<script src="https://npm.webcache.cn/theme-shokax-pjax@0.0.3/dist/index.umd.js" integrity="sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE&#x2F;jMSCxD+jAPU55x&#x2F;jj3wlf" crossorigin="anonymous"></script>
+
+  
+<script src="/js/pjax.js"></script>
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Anandram Mohan",
+          title: "Exploring the Divine OS: templeos on kali-linux",
+          url: "https://arenredd.github.io/posts/exploring-templeos-on-kali-linux/",
+          excerpt: "",
+          description: "",
+          stripContent: "🛕 How I Installed and Ran templeos on kali-linux Using virtualboxA hacker’s guide to diving into Terry Davis’ divine OS—right from the kali-linux battlefield.  ⚡ Introduction: The Temple Awaitstempleos isn’t just another OS—it’s a digital shrine, a ",
+          date: "Thu May 22 2025 21:00:00 GMT+0530",
+          updated: "Fri Dec 19 2025 19:49:15 GMT+0530",
+          cover: "/images/banner.webp",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+<script src="/js/tabs.js" data-pjax></script>
+
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+        
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.11.1' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+
+  </body>
+  </html>
