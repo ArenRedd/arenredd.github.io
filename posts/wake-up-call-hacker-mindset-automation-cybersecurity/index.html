@@ -1,0 +1,663 @@
+  <!DOCTYPE html>
+  <html lang="en"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://arenredd.github.io';</script>
+  <title>
+    A 10 AM Wake-Up Call That Rewired My Hacker Mindset: Automation, Interviews, and Real Cybersecurity | Anand&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media&#x3D;&#39;all&#39;">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Slept Like a Noob, Woke Up Like a Hacker: A Cybersecurity Day That Changed My ThinkingSome days in cybersecurity start with coffee and terminals. Some start with broken builds and cursed BIOS screens.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A 10 AM Wake-Up Call That Rewired My Hacker Mindset: Automation, Interviews, and Real Cybersecurity">
+<meta property="og:url" content="https://arenredd.github.io/posts/wake-up-call-hacker-mindset-automation-cybersecurity/index.html">
+<meta property="og:site_name" content="Anand&#39;s Blog">
+<meta property="og:description" content="Slept Like a Noob, Woke Up Like a Hacker: A Cybersecurity Day That Changed My ThinkingSome days in cybersecurity start with coffee and terminals. Some start with broken builds and cursed BIOS screens.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-12-23T04:30:00.000Z">
+<meta property="article:modified_time" content="2025-12-24T06:10:54.829Z">
+<meta property="article:author" content="Anandram Mohan">
+<meta property="article:tag" content="cybersecurity">
+<meta property="article:tag" content="ethical-hacking">
+<meta property="article:tag" content="n8n">
+<meta property="article:tag" content="automation">
+<meta property="article:tag" content="hacker-mindset">
+<meta property="article:tag" content="mentorship">
+<meta property="article:tag" content="interviews">
+<meta property="article:tag" content="hackathon">
+<meta property="article:tag" content="student-life">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="cybersecurity, ethical hacking, kali linux, bug bounty, ctf, networking">
+    <link rel="alternate" href="/atom.xml" title="Anand's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload&#x3D;null;this.rel&#x3D;&#39;stylesheet&#39;" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL&#x2F;toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx&#x2F;1oA&#x2F;0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Home</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/archives">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Archives</span>
+        </span>
+        <a class="main-nav-link-wrap" href="/about">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">About</span>
+        </span>
+        <a class="main-nav-link-wrap" target="_blank" rel="noopener" href="https://anandfolio.github.io/">
+          <div class="main-nav-icon icon rotate">
+              &#xe62b;
+          </div>
+          <span class="main-nav-link">Portfolio</span>
+        </span>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="/assets/img/hacker-wake-up-call.jpg" alt="A 10 AM Wake-Up Call That Rewired My Hacker Mindset: Automation, Interviews, and Real Cybersecurity">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">A 10 AM Wake-Up Call That Rewired My Hacker Mindset: Automation, Interviews, and Real Cybersecurity</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Slept-Like-a-Noob-Woke-Up-Like-a-Hacker-A-Cybersecurity-Day-That-Changed-My-Thinking"><span class="toc-number">1.</span> <span class="toc-text">Slept Like a Noob, Woke Up Like a Hacker: A Cybersecurity Day That Changed My Thinking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Call-That-Pulled-Me-Out-of-Sleep-Mode"><span class="toc-number">1.1.</span> <span class="toc-text">The Call That Pulled Me Out of Sleep Mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Club-Office-Conversations-Any-Classroom-Lecture"><span class="toc-number">1.2.</span> <span class="toc-text">Club Office Conversations &gt; Any Classroom Lecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#n8n-Automation-and-a-Reality-Check-I-Needed"><span class="toc-number">1.3.</span> <span class="toc-text">n8n, Automation, and a Reality Check I Needed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Worst-Interview-Stories-Are-the-Best-Lessons"><span class="toc-number">1.4.</span> <span class="toc-text">The Worst Interview Stories Are the Best Lessons</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%90-Cybersecurity-Interview-Questions-That-Actually-Matter"><span class="toc-number">1.4.1.</span> <span class="toc-text">🔐 Cybersecurity Interview Questions That Actually Matter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Infrastructure-Networks-and-How-Education-IT-Really-Works"><span class="toc-number">1.5.</span> <span class="toc-text">Infrastructure, Networks, and How Education IT Really Works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hackathons-Fake-Apps-and-the-%E2%80%9CWhy-This-Problem-Again-%E2%80%9D-Question"><span class="toc-number">1.6.</span> <span class="toc-text">Hackathons, Fake Apps, and the “Why This Problem Again?” Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Project-We-Can%E2%80%99t-Talk-About-Yet"><span class="toc-number">1.7.</span> <span class="toc-text">The Project We Can’t Talk About (Yet)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-That-Day-Actually-Taught-Me"><span class="toc-number">1.8.</span> <span class="toc-text">What That Day Actually Taught Me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Thought"><span class="toc-number">1.9.</span> <span class="toc-text">Final Thought</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">35</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">71</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">198</div>
+  </div>
+</div>
+<div class="sidebar-social">
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/virumaandi001 itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2025-12-23-wake-up-call-hacker-mindset-automation-cybersecurity" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-12-23T04:30:00.000Z" itemprop="datePublished">2025-12-23</time>
+    <time style="display: none;" id="post-update-time">2025-12-24</time>
+  </span>
+</div>
+
+        <div class="article-category">
+    <a class="article-category-link" href="/categories/Cybersecurity/" title="Cybersecurity">Cybersecurity</a><a class="article-category-link" href="/categories/Cybersecurity/Hacker-Life/" title="Hacker Life">Hacker Life</a>
+  </div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="Slept-Like-a-Noob-Woke-Up-Like-a-Hacker-A-Cybersecurity-Day-That-Changed-My-Thinking"><a href="#Slept-Like-a-Noob-Woke-Up-Like-a-Hacker-A-Cybersecurity-Day-That-Changed-My-Thinking" class="headerlink" title="Slept Like a Noob, Woke Up Like a Hacker: A Cybersecurity Day That Changed My Thinking"></a>Slept Like a Noob, Woke Up Like a Hacker: A Cybersecurity Day That Changed My Thinking</h1><p>Some days in cybersecurity start with coffee and terminals.</p>
+<p>Some start with broken builds and cursed BIOS screens.</p>
+<p>And some… start with a phone call that rewires how you think about your entire career.</p>
+<p>This one started when I was dead asleep.</p>
+<hr>
+<h2 id="The-Call-That-Pulled-Me-Out-of-Sleep-Mode"><a href="#The-Call-That-Pulled-Me-Out-of-Sleep-Mode" class="headerlink" title="The Call That Pulled Me Out of Sleep Mode"></a>The Call That Pulled Me Out of Sleep Mode</h2><p>I was comfortably hibernating when my phone rang.</p>
+<p>“Hey man, are you coming to the club office today?”</p>
+<p>It was my <strong>brother</strong>.</p>
+<p>Not brother-by-blood, but brother-by-mentorship. The guy who has seen more broken networks, failed interviews, and late-night debugging sessions than most people see Netflix episodes.</p>
+<p>I told him I wasn’t coming. Exams day. Club members busy. Chill mode.</p>
+<p>He replied casually:</p>
+<p>“Okay, I’m coming today. Just informing you.”</p>
+<p>That sentence hit harder than a failed <code>flutter run</code>.</p>
+<p>I instantly woke up.</p>
+<p>“Wait… I’m also coming.”</p>
+<p>And just like that, sleep mode was disabled.</p>
+<hr>
+<h2 id="Club-Office-Conversations-Any-Classroom-Lecture"><a href="#Club-Office-Conversations-Any-Classroom-Lecture" class="headerlink" title="Club Office Conversations &gt; Any Classroom Lecture"></a>Club Office Conversations &gt; Any Classroom Lecture</h2><p>What followed wasn’t a normal conversation. It was one of those <strong>raw, unfiltered, hacker-to-hacker discussions</strong> that never make it into textbooks.</p>
+<p>We talked about everything.</p>
+<p>Career.</p>
+<p>Clubs.</p>
+<p>Infrastructure.</p>
+<p>Interviews.</p>
+<p>Hackathons.</p>
+<p>Automation.</p>
+<p>And mistakes. Lots of mistakes.</p>
+<p>The kind you only learn from after breaking things in production.</p>
+<hr>
+<h2 id="n8n-Automation-and-a-Reality-Check-I-Needed"><a href="#n8n-Automation-and-a-Reality-Check-I-Needed" class="headerlink" title="n8n, Automation, and a Reality Check I Needed"></a>n8n, Automation, and a Reality Check I Needed</h2><p>I told him what I was working on.</p>
+<p>“I’m building an n8n automation for LinkedIn posts. Fully free. No SaaS traps. Pure workflow.”</p>
+<p>He smiled. That dangerous mentor smile.</p>
+<p>“That’s good. Really good. You’re reducing time complexity. Automating boring stuff. That mindset is solid.”</p>
+<p>Then came the <strong>but</strong>.</p>
+<p>“But listen carefully. If you’re automating only for yourself, that’s learning. If you’re automating for a club or a company, that’s career growth.”</p>
+<p>He didn’t tell me to stop.</p>
+<p>He didn’t say it was useless.</p>
+<p>He simply shifted my perspective.</p>
+<p>Automation isn’t just about saving time.</p>
+<p>It’s about <strong>solving someone else’s problem at scale</strong>.</p>
+<p>That line stayed in my head longer than any exploit chain.</p>
+<hr>
+<h2 id="The-Worst-Interview-Stories-Are-the-Best-Lessons"><a href="#The-Worst-Interview-Stories-Are-the-Best-Lessons" class="headerlink" title="The Worst Interview Stories Are the Best Lessons"></a>The Worst Interview Stories Are the Best Lessons</h2><p>Then the conversation took a darker turn.</p>
+<p>Interview war stories.</p>
+<p>He told me about his worst cybersecurity interview experience. The kind where the panel doesn’t care about buzzwords. They care about <strong>how you think when things break</strong>.</p>
+<p>No fancy certifications talk.</p>
+<p>No “what is cybersecurity” nonsense.</p>
+<p>Just brutal, practical questions.</p>
+<p>And honestly? This is gold. So here are <strong>important cybersecurity interview questions</strong> every serious learner should be ready for:</p>
+<h3 id="🔐-Cybersecurity-Interview-Questions-That-Actually-Matter"><a href="#🔐-Cybersecurity-Interview-Questions-That-Actually-Matter" class="headerlink" title="🔐 Cybersecurity Interview Questions That Actually Matter"></a>🔐 Cybersecurity Interview Questions That Actually Matter</h3><ol>
+<li><strong>Explain a security incident you personally handled. What went wrong?</strong></li>
+<li><strong>How would you secure a small company network with limited budget?</strong></li>
+<li><strong>Difference between IDS and IPS — and where would you deploy them?</strong></li>
+<li><strong>What happens after you type a URL and press Enter (security perspective)?</strong></li>
+<li><strong>How do you monitor logs and what alerts matter the most?</strong></li>
+<li><strong>Explain a real vulnerability you exploited or fixed.</strong></li>
+<li><strong>How do firewalls actually work at packet level?</strong></li>
+<li><strong>What security mistakes do fresh engineers usually make?</strong></li>
+<li><strong>How would you detect a fake mobile app or phishing website?</strong></li>
+<li><strong>If production goes down at 2 AM, what’s your first move?</strong></li>
+</ol>
+<p>Notice something?</p>
+<p>No theory overload.</p>
+<p>No memorized definitions.</p>
+<p>Just experience, thinking, and responsibility.</p>
+<hr>
+<h2 id="Infrastructure-Networks-and-How-Education-IT-Really-Works"><a href="#Infrastructure-Networks-and-How-Education-IT-Really-Works" class="headerlink" title="Infrastructure, Networks, and How Education IT Really Works"></a>Infrastructure, Networks, and How Education IT Really Works</h2><p>He started talking about his older projects.</p>
+<p>How he managed <strong>real infrastructure</strong>.</p>
+<p>How internal networks in educational institutions actually function.</p>
+<p>How access control, segmentation, and monitoring are often held together by hope and one senior admin.</p>
+<p>This part hit hard.</p>
+<p>Because most students think IT networks are magical clouds.</p>
+<p>In reality, they’re fragile systems managed by humans who also get tired.</p>
+<p>Understanding this makes you a better defender.</p>
+<hr>
+<h2 id="Hackathons-Fake-Apps-and-the-“Why-This-Problem-Again-”-Question"><a href="#Hackathons-Fake-Apps-and-the-“Why-This-Problem-Again-”-Question" class="headerlink" title="Hackathons, Fake Apps, and the “Why This Problem Again?” Question"></a>Hackathons, Fake Apps, and the “Why This Problem Again?” Question</h2><p>We discussed recent hackathons.</p>
+<p>Cybersecurity theme.</p>
+<p>Fake apps.</p>
+<p>Fake websites.</p>
+<p>The classic question popped up:</p>
+<p>“Why do hackathons keep asking existing problem statements?”</p>
+<p>The answer is uncomfortable.</p>
+<p>Because <strong>most people still don’t solve them properly</strong>.</p>
+<p>Detecting fake apps isn’t just scanning APKs.</p>
+<p>It’s metadata, behavior, permissions, reputation, infrastructure, patterns.</p>
+<p>Same problem. Deeper execution.</p>
+<p>That’s where real innovation lives.</p>
+<hr>
+<h2 id="The-Project-We-Can’t-Talk-About-Yet"><a href="#The-Project-We-Can’t-Talk-About-Yet" class="headerlink" title="The Project We Can’t Talk About (Yet)"></a>The Project We Can’t Talk About (Yet)</h2><p>We started working on a project.</p>
+<p>Can’t talk about it. Not published.</p>
+<p>But I can say this:</p>
+<p>It involved Flutter, Dart, Python, backend logic, and real-world debugging pain.</p>
+<p>No tutorial vibes.</p>
+<p>Just:</p>
+<ul>
+<li>Environment setup hell</li>
+<li>Dependency conflicts</li>
+<li>Mobile device permission issues</li>
+<li>Local server communication failures</li>
+<li>Real hardware refusing to cooperate</li>
+</ul>
+<p>The kind of work that teaches you more than ten “Hello World” projects combined.</p>
+<p>It wasn’t about features.</p>
+<p>It was about <strong>making the workflow stable and reproducible</strong>.</p>
+<p>That’s real engineering.</p>
+<hr>
+<h2 id="What-That-Day-Actually-Taught-Me"><a href="#What-That-Day-Actually-Taught-Me" class="headerlink" title="What That Day Actually Taught Me"></a>What That Day Actually Taught Me</h2><p>That day didn’t teach me a tool.</p>
+<p>It taught me <strong>how to think</strong>.</p>
+<ul>
+<li>Automation should serve people, not ego</li>
+<li>Interviews test mindset, not memory</li>
+<li>Infrastructure knowledge beats surface-level hacking</li>
+<li>Real projects are messy — and that’s the point</li>
+<li>A good mentor doesn’t give answers, he adjusts your direction</li>
+</ul>
+<p>And sometimes, all it takes is a phone call to pull you out of sleep and into clarity.</p>
+<hr>
+<h2 id="Final-Thought"><a href="#Final-Thought" class="headerlink" title="Final Thought"></a>Final Thought</h2><p>If you’re in cybersecurity and you’re only collecting tools, stop.</p>
+<p>If you’re only chasing certificates, pause.</p>
+<p>If you’re automating just to look cool, rethink.</p>
+<p>Build. Break. Fix. Repeat.</p>
+<p>And find yourself a <strong>brother</strong> who tells you uncomfortable truths.</p>
+<p>That’s where growth actually begins.</p>
+<hr>
+
+    </div>
+    <footer class="article-footer">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/automation/" rel="tag" title="automation">automation</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/cybersecurity/" rel="tag" title="cybersecurity">cybersecurity</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/ethical-hacking/" rel="tag" title="ethical-hacking">ethical-hacking</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/hackathon/" rel="tag" title="hackathon">hackathon</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/hacker-mindset/" rel="tag" title="hacker-mindset">hacker-mindset</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/interviews/" rel="tag" title="interviews">interviews</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/mentorship/" rel="tag" title="mentorship">mentorship</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/n8n/" rel="tag" title="n8n">n8n</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/student-life/" rel="tag" title="student-life">student-life</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="/assets/img/hexo-hack.jpg" data-sizes="auto" alt="I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story" class="lazyload">
+      <a href="/posts/hexo-reimu-ssh-deployment-nightmare/" aria-label="Next: I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story"  title="Next: I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2025
+      <span class="footer-info-sep rotate"></span>
+      Anandram Mohan
+    </div>
+      <div>
+        <span class="icon-brush"></span>
+        18.7k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        02:16
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Slept-Like-a-Noob-Woke-Up-Like-a-Hacker-A-Cybersecurity-Day-That-Changed-My-Thinking"><span class="toc-number">1.</span> <span class="toc-text">Slept Like a Noob, Woke Up Like a Hacker: A Cybersecurity Day That Changed My Thinking</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Call-That-Pulled-Me-Out-of-Sleep-Mode"><span class="toc-number">1.1.</span> <span class="toc-text">The Call That Pulled Me Out of Sleep Mode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Club-Office-Conversations-Any-Classroom-Lecture"><span class="toc-number">1.2.</span> <span class="toc-text">Club Office Conversations &gt; Any Classroom Lecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#n8n-Automation-and-a-Reality-Check-I-Needed"><span class="toc-number">1.3.</span> <span class="toc-text">n8n, Automation, and a Reality Check I Needed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Worst-Interview-Stories-Are-the-Best-Lessons"><span class="toc-number">1.4.</span> <span class="toc-text">The Worst Interview Stories Are the Best Lessons</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%90-Cybersecurity-Interview-Questions-That-Actually-Matter"><span class="toc-number">1.4.1.</span> <span class="toc-text">🔐 Cybersecurity Interview Questions That Actually Matter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Infrastructure-Networks-and-How-Education-IT-Really-Works"><span class="toc-number">1.5.</span> <span class="toc-text">Infrastructure, Networks, and How Education IT Really Works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hackathons-Fake-Apps-and-the-%E2%80%9CWhy-This-Problem-Again-%E2%80%9D-Question"><span class="toc-number">1.6.</span> <span class="toc-text">Hackathons, Fake Apps, and the “Why This Problem Again?” Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Project-We-Can%E2%80%99t-Talk-About-Yet"><span class="toc-number">1.7.</span> <span class="toc-text">The Project We Can’t Talk About (Yet)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-That-Day-Actually-Taught-Me"><span class="toc-number">1.8.</span> <span class="toc-text">What That Day Actually Taught Me</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Thought"><span class="toc-number">1.9.</span> <span class="toc-text">Final Thought</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">35</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">71</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">198</div>
+  </div>
+</div>
+<div class="sidebar-social">
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/virumaandi001 itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+        <div class="sidebar-menu-icon icon rotate">
+            &#xe62b;
+        </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+  <script>
+    if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+      window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+    }
+  </script>
+
+  
+<script src="https://npm.webcache.cn/theme-shokax-pjax@0.0.3/dist/index.umd.js" integrity="sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE&#x2F;jMSCxD+jAPU55x&#x2F;jj3wlf" crossorigin="anonymous"></script>
+
+  
+<script src="/js/pjax.js"></script>
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Anandram Mohan",
+          title: "A 10 AM Wake-Up Call That Rewired My Hacker Mindset: Automation, Interviews, and Real Cybersecurity",
+          url: "https://arenredd.github.io/posts/wake-up-call-hacker-mindset-automation-cybersecurity/",
+          excerpt: "",
+          description: "",
+          stripContent: "Slept Like a Noob, Woke Up Like a Hacker: A Cybersecurity Day That Changed My ThinkingSome days in cybersecurity start with coffee and terminals. Some start with broken builds and cursed BIOS screens. And some… start with a phone call that rewires ho",
+          date: "Tue Dec 23 2025 10:00:00 GMT+0530",
+          updated: "Wed Dec 24 2025 11:40:54 GMT+0530",
+          cover: "/assets/img/hacker-wake-up-call.jpg",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+        
+<script src="/js/tabs.js" data-pjax></script>
+
+      <script type="module" data-pjax>
+        const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+        const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,
+              pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+            }).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script>
+        
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.11.1' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+
+  </body>
+  </html>

@@ -6,7 +6,7 @@
   <link href="https://arenredd.github.io/atom.xml" rel="self"/>
   
   <link href="https://arenredd.github.io/"/>
-  <updated>2025-12-20T12:46:23.349Z</updated>
+  <updated>2025-12-24T06:10:54.829Z</updated>
   <id>https://arenredd.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A 10 AM Wake-Up Call That Rewired My Hacker Mindset: Automation, Interviews, and Real Cybersecurity</title>
+    <link href="https://arenredd.github.io/posts/wake-up-call-hacker-mindset-automation-cybersecurity/"/>
+    <id>https://arenredd.github.io/posts/wake-up-call-hacker-mindset-automation-cybersecurity/</id>
+    <published>2025-12-23T04:30:00.000Z</published>
+    <updated>2025-12-24T06:10:54.829Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Slept-Like-a-Noob-Woke-Up-Like-a-Hacker-A-Cybersecurity-Day-That-Changed-My-Thinking&quot;&gt;&lt;a href=&quot;#Slept-Like-a-Noob-Woke-Up-Like-a-Hac</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Hacker Life" scheme="https://arenredd.github.io/categories/Cybersecurity/Hacker-Life/"/>
+    
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/tags/cybersecurity/"/>
+    
+    <category term="ethical-hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
+    
+    <category term="n8n" scheme="https://arenredd.github.io/tags/n8n/"/>
+    
+    <category term="automation" scheme="https://arenredd.github.io/tags/automation/"/>
+    
+    <category term="hacker-mindset" scheme="https://arenredd.github.io/tags/hacker-mindset/"/>
+    
+    <category term="mentorship" scheme="https://arenredd.github.io/tags/mentorship/"/>
+    
+    <category term="interviews" scheme="https://arenredd.github.io/tags/interviews/"/>
+    
+    <category term="hackathon" scheme="https://arenredd.github.io/tags/hackathon/"/>
+    
+    <category term="student-life" scheme="https://arenredd.github.io/tags/student-life/"/>
+    
+  </entry>
   
   <entry>
     <title>I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story</title>
@@ -461,17 +501,17 @@
     
     <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
     
-    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
+    <category term="pentesting" scheme="https://arenredd.github.io/tags/pentesting/"/>
     
     <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
     
+    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
+    
     <category term="tshark" scheme="https://arenredd.github.io/tags/tshark/"/>
     
-    <category term="reverse shell" scheme="https://arenredd.github.io/tags/reverse-shell/"/>
-    
-    <category term="pentesting" scheme="https://arenredd.github.io/tags/pentesting/"/>
-    
     <category term="bash" scheme="https://arenredd.github.io/tags/bash/"/>
+    
+    <category term="reverse shell" scheme="https://arenredd.github.io/tags/reverse-shell/"/>
     
     <category term="firewalls" scheme="https://arenredd.github.io/tags/firewalls/"/>
     
@@ -505,15 +545,15 @@
     
     <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
     
-    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
-    
-    <category term="ping" scheme="https://arenredd.github.io/tags/ping/"/>
-    
     <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
+    
+    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
     
     <category term="tshark" scheme="https://arenredd.github.io/tags/tshark/"/>
     
     <category term="reverse shell" scheme="https://arenredd.github.io/tags/reverse-shell/"/>
+    
+    <category term="ping" scheme="https://arenredd.github.io/tags/ping/"/>
     
     <category term="firewall evasion" scheme="https://arenredd.github.io/tags/firewall-evasion/"/>
     
@@ -647,8 +687,6 @@
     
     <category term="android" scheme="https://arenredd.github.io/tags/android/"/>
     
-    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
-    
     <category term="mobile hacking" scheme="https://arenredd.github.io/tags/mobile-hacking/"/>
     
     <category term="ios" scheme="https://arenredd.github.io/tags/ios/"/>
@@ -660,6 +698,8 @@
     <category term="apktool" scheme="https://arenredd.github.io/tags/apktool/"/>
     
     <category term="cybersecurity 2025" scheme="https://arenredd.github.io/tags/cybersecurity-2025/"/>
+    
+    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
     
     <category term="reverse engineering" scheme="https://arenredd.github.io/tags/reverse-engineering/"/>
     
@@ -731,6 +771,8 @@
     
     <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
     
+    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
+    
     <category term="password attacks" scheme="https://arenredd.github.io/tags/password-attacks/"/>
     
     <category term="bruteforce" scheme="https://arenredd.github.io/tags/bruteforce/"/>
@@ -744,49 +786,6 @@
     <category term="cheat sheets" scheme="https://arenredd.github.io/tags/cheat-sheets/"/>
     
     <category term="osint" scheme="https://arenredd.github.io/tags/osint/"/>
-    
-    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>From Chaos to Cloud: Spinning Up FileCloud Like a Cyber Sorcerer</title>
-    <link href="https://arenredd.github.io/posts/spinning-up-filecloud/"/>
-    <id>https://arenredd.github.io/posts/spinning-up-filecloud/</id>
-    <published>2025-06-02T18:20:00.000Z</published>
-    <updated>2025-12-19T14:19:15.541Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;“When in doubt, docker ps it out.” – Ancient Hacker Proverb&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;It was a sunny Sunday—too peaceful, really.</summary>
-      
-    
-    
-    
-    <category term="dev-journal" scheme="https://arenredd.github.io/categories/dev-journal/"/>
-    
-    <category term="self-hosting" scheme="https://arenredd.github.io/categories/dev-journal/self-hosting/"/>
-    
-    <category term="docker Projects" scheme="https://arenredd.github.io/categories/dev-journal/self-hosting/docker-Projects/"/>
-    
-    
-    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
-    
-    <category term="docker" scheme="https://arenredd.github.io/tags/docker/"/>
-    
-    <category term="filecloud" scheme="https://arenredd.github.io/tags/filecloud/"/>
-    
-    <category term="self-hosting" scheme="https://arenredd.github.io/tags/self-hosting/"/>
-    
-    <category term="storage" scheme="https://arenredd.github.io/tags/storage/"/>
-    
-    <category term="sysadmin" scheme="https://arenredd.github.io/tags/sysadmin/"/>
-    
-    <category term="devops" scheme="https://arenredd.github.io/tags/devops/"/>
     
   </entry>
   
