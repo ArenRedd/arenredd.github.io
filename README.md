@@ -54,6 +54,9 @@ The goal is to **document the process**, not just the success.
 └── package.json      # Node dependencies
 ````
 
+<img width="2752" height="1536" alt="unnamed" src="https://github.com/user-attachments/assets/99abb55c-aaca-4199-9976-fbb1b98473d0" />
+
+
 ---
 
 ## 🚀 Local Development
