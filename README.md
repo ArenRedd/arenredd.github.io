@@ -54,7 +54,7 @@ The goal is to **document the process**, not just the success.
 └── package.json      # Node dependencies
 ````
 
-<img width="2752" height="1536" alt="unnamed" src="https://github.com/user-attachments/assets/99abb55c-aaca-4199-9976-fbb1b98473d0" />
+<img width="2752" height="1536" alt="unnamed(1)" src="https://github.com/user-attachments/assets/de082f1f-1df2-4040-b6a4-9de85220edb5" />
 
 
 ---
