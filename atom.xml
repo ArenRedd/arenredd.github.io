@@ -6,7 +6,7 @@
   <link href="https://arenredd.github.io/atom.xml" rel="self"/>
   
   <link href="https://arenredd.github.io/"/>
-  <updated>2025-12-24T06:10:54.829Z</updated>
+  <updated>2025-12-30T04:42:03.181Z</updated>
   <id>https://arenredd.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>I Thought HackWithIndia Was Just Hype — Then I Looked Deeper</title>
+    <link href="https://arenredd.github.io/posts/hackwithindia-live-web-hacking-event-review/"/>
+    <id>https://arenredd.github.io/posts/hackwithindia-live-web-hacking-event-review/</id>
+    <published>2025-12-29T10:30:00.000Z</published>
+    <updated>2025-12-30T04:42:03.181Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;I-Didn’t-Expect-This-to-Be-Legit-—-But-HackWithIndia-Changed-That&quot;&gt;&lt;a href=&quot;#I-Didn’t-Expect-This-to-Be-Legit-—-But-HackWithIndia-Ch</summary>
+      
+    
+    
+    
+    <category term="Cybersecurity" scheme="https://arenredd.github.io/categories/Cybersecurity/"/>
+    
+    <category term="Ethical Hacking" scheme="https://arenredd.github.io/categories/Cybersecurity/Ethical-Hacking/"/>
+    
+    
+    <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
+    
+    <category term="web security" scheme="https://arenredd.github.io/tags/web-security/"/>
+    
+    <category term="bug bounty" scheme="https://arenredd.github.io/tags/bug-bounty/"/>
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/tags/cybersecurity/"/>
+    
+    <category term="hackathons india" scheme="https://arenredd.github.io/tags/hackathons-india/"/>
+    
+    <category term="ctf" scheme="https://arenredd.github.io/tags/ctf/"/>
+    
+    <category term="infosec" scheme="https://arenredd.github.io/tags/infosec/"/>
+    
+    <category term="hacker community" scheme="https://arenredd.github.io/tags/hacker-community/"/>
+    
+    <category term="hackwithindia" scheme="https://arenredd.github.io/tags/hackwithindia/"/>
+    
+  </entry>
   
   <entry>
     <title>A 10 AM Wake-Up Call That Rewired My Hacker Mindset: Automation, Interviews, and Real Cybersecurity</title>
@@ -501,17 +541,17 @@
     
     <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
     
-    <category term="pentesting" scheme="https://arenredd.github.io/tags/pentesting/"/>
+    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
     
     <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
     
-    <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
-    
     <category term="tshark" scheme="https://arenredd.github.io/tags/tshark/"/>
     
-    <category term="bash" scheme="https://arenredd.github.io/tags/bash/"/>
-    
     <category term="reverse shell" scheme="https://arenredd.github.io/tags/reverse-shell/"/>
+    
+    <category term="pentesting" scheme="https://arenredd.github.io/tags/pentesting/"/>
+    
+    <category term="bash" scheme="https://arenredd.github.io/tags/bash/"/>
     
     <category term="firewalls" scheme="https://arenredd.github.io/tags/firewalls/"/>
     
@@ -545,15 +585,15 @@
     
     <category term="ethical hacking" scheme="https://arenredd.github.io/tags/ethical-hacking/"/>
     
-    <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
-    
     <category term="netcat" scheme="https://arenredd.github.io/tags/netcat/"/>
+    
+    <category term="ping" scheme="https://arenredd.github.io/tags/ping/"/>
+    
+    <category term="nmap" scheme="https://arenredd.github.io/tags/nmap/"/>
     
     <category term="tshark" scheme="https://arenredd.github.io/tags/tshark/"/>
     
     <category term="reverse shell" scheme="https://arenredd.github.io/tags/reverse-shell/"/>
-    
-    <category term="ping" scheme="https://arenredd.github.io/tags/ping/"/>
     
     <category term="firewall evasion" scheme="https://arenredd.github.io/tags/firewall-evasion/"/>
     
@@ -687,6 +727,8 @@
     
     <category term="android" scheme="https://arenredd.github.io/tags/android/"/>
     
+    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
+    
     <category term="mobile hacking" scheme="https://arenredd.github.io/tags/mobile-hacking/"/>
     
     <category term="ios" scheme="https://arenredd.github.io/tags/ios/"/>
@@ -698,8 +740,6 @@
     <category term="apktool" scheme="https://arenredd.github.io/tags/apktool/"/>
     
     <category term="cybersecurity 2025" scheme="https://arenredd.github.io/tags/cybersecurity-2025/"/>
-    
-    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
     
     <category term="reverse engineering" scheme="https://arenredd.github.io/tags/reverse-engineering/"/>
     
@@ -744,48 +784,6 @@
     <category term="developer-life" scheme="https://arenredd.github.io/tags/developer-life/"/>
     
     <category term="funny" scheme="https://arenredd.github.io/tags/funny/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HackStack Deep Dive: Passwords, Networks &amp; Resources</title>
-    <link href="https://arenredd.github.io/posts/HackStack-Deep-Dive/"/>
-    <id>https://arenredd.github.io/posts/HackStack-Deep-Dive/</id>
-    <published>2025-06-05T13:30:00.000Z</published>
-    <updated>2025-12-19T14:19:15.545Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;🧠-The-Ultimate-Hacker’s-Folder-Structure-How-to-Lock-It-Down-Like-a-Pro&quot;&gt;&lt;a href=&quot;#🧠-The-Ultimate-Hacker’s-Folder-Structure-How-to</summary>
-      
-    
-    
-    
-    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/cybersecurity/"/>
-    
-    <category term="HackStack" scheme="https://arenredd.github.io/categories/cybersecurity/HackStack/"/>
-    
-    <category term="dev-journal" scheme="https://arenredd.github.io/categories/cybersecurity/HackStack/dev-journal/"/>
-    
-    
-    <category term="linux" scheme="https://arenredd.github.io/tags/linux/"/>
-    
-    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
-    
-    <category term="password attacks" scheme="https://arenredd.github.io/tags/password-attacks/"/>
-    
-    <category term="bruteforce" scheme="https://arenredd.github.io/tags/bruteforce/"/>
-    
-    <category term="hashcat" scheme="https://arenredd.github.io/tags/hashcat/"/>
-    
-    <category term="network hacking" scheme="https://arenredd.github.io/tags/network-hacking/"/>
-    
-    <category term="mitm" scheme="https://arenredd.github.io/tags/mitm/"/>
-    
-    <category term="cheat sheets" scheme="https://arenredd.github.io/tags/cheat-sheets/"/>
-    
-    <category term="osint" scheme="https://arenredd.github.io/tags/osint/"/>
     
   </entry>
   
