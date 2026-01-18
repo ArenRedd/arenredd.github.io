@@ -6,7 +6,7 @@
   <link href="https://arenredd.github.io/atom.xml" rel="self"/>
   
   <link href="https://arenredd.github.io/"/>
-  <updated>2025-12-30T04:42:03.181Z</updated>
+  <updated>2026-01-18T14:29:10.932Z</updated>
   <id>https://arenredd.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>No Passwords, No Phishing: How a Single XSS Payload Can Hijack Accounts Instantly</title>
+    <link href="https://arenredd.github.io/posts/xss-session-hijacking-without-passwords/"/>
+    <id>https://arenredd.github.io/posts/xss-session-hijacking-without-passwords/</id>
+    <published>2026-01-17T07:45:00.000Z</published>
+    <updated>2026-01-18T14:29:10.932Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Zero-Passwords-Full-Access-How-a-Simple-XSS-Turns-Curiosity-into-Compromise&quot;&gt;&lt;a href=&quot;#Zero-Passwords-Full-Access-How-a-Simple-XSS-T</summary>
+      
+    
+    
+    
+    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/cybersecurity/"/>
+    
+    <category term="ethical-hacking" scheme="https://arenredd.github.io/categories/cybersecurity/ethical-hacking/"/>
+    
+    <category term="web-security" scheme="https://arenredd.github.io/categories/cybersecurity/ethical-hacking/web-security/"/>
+    
+    
+    <category term="kali-linux" scheme="https://arenredd.github.io/tags/kali-linux/"/>
+    
+    <category term="pentesting" scheme="https://arenredd.github.io/tags/pentesting/"/>
+    
+    <category term="xss" scheme="https://arenredd.github.io/tags/xss/"/>
+    
+    <category term="session-hijacking" scheme="https://arenredd.github.io/tags/session-hijacking/"/>
+    
+    <category term="web-hacking" scheme="https://arenredd.github.io/tags/web-hacking/"/>
+    
+    <category term="bug-bounty" scheme="https://arenredd.github.io/tags/bug-bounty/"/>
+    
+    <category term="dvwa" scheme="https://arenredd.github.io/tags/dvwa/"/>
+    
+    <category term="owasp-top-10" scheme="https://arenredd.github.io/tags/owasp-top-10/"/>
+    
+  </entry>
   
   <entry>
     <title>I Thought HackWithIndia Was Just Hype — Then I Looked Deeper</title>
@@ -742,48 +782,6 @@
     <category term="cybersecurity 2025" scheme="https://arenredd.github.io/tags/cybersecurity-2025/"/>
     
     <category term="reverse engineering" scheme="https://arenredd.github.io/tags/reverse-engineering/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>🧨 The jekyll Nightmare: How I Fought Sass Errors and Won (Kinda)</title>
-    <link href="https://arenredd.github.io/posts/the-jekyll-nightmare/"/>
-    <id>https://arenredd.github.io/posts/the-jekyll-nightmare/</id>
-    <published>2025-06-06T10:30:00.000Z</published>
-    <updated>2025-12-19T14:19:15.545Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;“I just wanted a blog. Instead, I summoned the Sass Kraken.” – Every Dev, Eventually&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;💻-Prolo</summary>
-      
-    
-    
-    
-    <category term="debugging" scheme="https://arenredd.github.io/categories/debugging/"/>
-    
-    <category term="DevLogs" scheme="https://arenredd.github.io/categories/debugging/DevLogs/"/>
-    
-    
-    <category term="chirpy" scheme="https://arenredd.github.io/tags/chirpy/"/>
-    
-    <category term="jekyll" scheme="https://arenredd.github.io/tags/jekyll/"/>
-    
-    <category term="sass" scheme="https://arenredd.github.io/tags/sass/"/>
-    
-    <category term="terminal" scheme="https://arenredd.github.io/tags/terminal/"/>
-    
-    <category term="blog" scheme="https://arenredd.github.io/tags/blog/"/>
-    
-    <category term="bugfix" scheme="https://arenredd.github.io/tags/bugfix/"/>
-    
-    <category term="developer-life" scheme="https://arenredd.github.io/tags/developer-life/"/>
-    
-    <category term="funny" scheme="https://arenredd.github.io/tags/funny/"/>
     
   </entry>
   
