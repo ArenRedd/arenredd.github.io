@@ -6,7 +6,7 @@
   <link href="https://arenredd.github.io/atom.xml" rel="self"/>
   
   <link href="https://arenredd.github.io/"/>
-  <updated>2026-01-18T14:29:10.932Z</updated>
+  <updated>2026-02-07T17:00:15.647Z</updated>
   <id>https://arenredd.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://arenredd.github.io/2026/02/07/2026-02-07-the-day-my-college-broke-me/"/>
+    <id>https://arenredd.github.io/2026/02/07/2026-02-07-the-day-my-college-broke-me/</id>
+    <published>2026-02-07T17:00:15.647Z</published>
+    <updated>2026-02-07T17:00:15.647Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>No Passwords, No Phishing: How a Single XSS Payload Can Hijack Accounts Instantly</title>
@@ -739,49 +752,6 @@
     <category term="hacker-tools" scheme="https://arenredd.github.io/tags/hacker-tools/"/>
     
     <category term="USB OS" scheme="https://arenredd.github.io/tags/USB-OS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>📱 13 Mobile Hacking Tools Every Ethical Hacker Should Master in 2025</title>
-    <link href="https://arenredd.github.io/posts/mobile-hacking-tools-2025/"/>
-    <id>https://arenredd.github.io/posts/mobile-hacking-tools-2025/</id>
-    <published>2025-06-07T14:30:00.000Z</published>
-    <updated>2025-12-19T14:19:15.545Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;“Ever wondered how hackers get under the hood of your favorite apps? You’re about to find out. Let’s pop the hood on mobile </summary>
-      
-    
-    
-    
-    <category term="cybersecurity" scheme="https://arenredd.github.io/categories/cybersecurity/"/>
-    
-    <category term="hacking-guides" scheme="https://arenredd.github.io/categories/cybersecurity/hacking-guides/"/>
-    
-    
-    <category term="hacker-tools" scheme="https://arenredd.github.io/tags/hacker-tools/"/>
-    
-    <category term="android" scheme="https://arenredd.github.io/tags/android/"/>
-    
-    <category term="tools" scheme="https://arenredd.github.io/tags/tools/"/>
-    
-    <category term="mobile hacking" scheme="https://arenredd.github.io/tags/mobile-hacking/"/>
-    
-    <category term="ios" scheme="https://arenredd.github.io/tags/ios/"/>
-    
-    <category term="burp suite" scheme="https://arenredd.github.io/tags/burp-suite/"/>
-    
-    <category term="frida" scheme="https://arenredd.github.io/tags/frida/"/>
-    
-    <category term="apktool" scheme="https://arenredd.github.io/tags/apktool/"/>
-    
-    <category term="cybersecurity 2025" scheme="https://arenredd.github.io/tags/cybersecurity-2025/"/>
-    
-    <category term="reverse engineering" scheme="https://arenredd.github.io/tags/reverse-engineering/"/>
     
   </entry>
   
