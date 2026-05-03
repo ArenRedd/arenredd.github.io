@@ -1,0 +1,620 @@
+  <!DOCTYPE html>
+  <html lang="en"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://arenredd.github.io';window.REIMU_CONFIG.relative = '/';</script>
+  <title>
+    Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs | Anand&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Permission Denied at 2AM: My Wild Ride Through IAM, Service Accounts, and VPC Flow LogsSomewhere between my third coffee and the fourth “why is this not working?” moment, I realized cloud security isn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs">
+<meta property="og:url" content="https://arenredd.github.io/posts/permission-denied-cloud-iam/index.html">
+<meta property="og:site_name" content="Anand&#39;s Blog">
+<meta property="og:description" content="Permission Denied at 2AM: My Wild Ride Through IAM, Service Accounts, and VPC Flow LogsSomewhere between my third coffee and the fourth “why is this not working?” moment, I realized cloud security isn">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-05-01T18:30:00.000Z">
+<meta property="article:modified_time" content="2026-05-03T06:25:41.491Z">
+<meta property="article:author" content="Anandram Mohan">
+<meta property="article:tag" content="BigQuery">
+<meta property="article:tag" content="DevOps">
+<meta property="article:tag" content="Google Cloud">
+<meta property="article:tag" content="IAM">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Networking">
+<meta property="article:tag" content="Service Accounts">
+<meta property="article:tag" content="VPC Flow Logs">
+<meta name="twitter:card" content="summary">
+    <link rel="alternate" href="/atom.xml" title="Anand's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+        <a class="main-nav-link-wrap" target="_blank" rel="noopener" href="https://anandfolio.github.io/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Portfolio</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="/assets/img/permission-denied-cloud-lab.png" alt="Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Permission-Denied-at-2AM-My-Wild-Ride-Through-IAM-Service-Accounts-and-VPC-Flow-Logs"><span class="toc-number">1.</span> <span class="toc-text">Permission Denied at 2AM: My Wild Ride Through IAM, Service Accounts, and VPC Flow Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Cursor-That-Wouldn%E2%80%99t-Blink-Fast-Enough"><span class="toc-number">1.1.</span> <span class="toc-text">The Cursor That Wouldn’t Blink Fast Enough</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ah-Yes-The-Famous-Permission-Denied"><span class="toc-number">1.2.</span> <span class="toc-text">Ah Yes. The Famous Permission Denied</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Writing-My-Own-Role-Felt-Weirdly-Powerful"><span class="toc-number">1.3.</span> <span class="toc-text">Writing My Own Role Felt Weirdly Powerful</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identity-Switching-Like-a-Spy-With-a-Budget-Laptop"><span class="toc-number">1.4.</span> <span class="toc-text">Identity Switching Like a Spy With a Budget Laptop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enter-VPC-Flow-Logs-%E2%80%94-Watching-Traffic-Like-It%E2%80%99s-Alive"><span class="toc-number">1.5.</span> <span class="toc-text">Enter VPC Flow Logs — Watching Traffic Like It’s Alive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Moment-Logs-Started-Talking"><span class="toc-number">1.6.</span> <span class="toc-text">The Moment Logs Started Talking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BigQuery-%E2%80%94-Where-Logs-Become-Stories"><span class="toc-number">1.7.</span> <span class="toc-text">BigQuery — Where Logs Become Stories</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Tiny-Fix-That-Made-Everything-Move-Again"><span class="toc-number">1.8.</span> <span class="toc-text">The Tiny Fix That Made Everything Move Again</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Things-I-Learned-the-Hard-Way-Naturally"><span class="toc-number">1.9.</span> <span class="toc-text">Things I Learned the Hard Way (Naturally)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Somewhere-Between-Errors-and-Fixes-It-Started-Making-Sense"><span class="toc-number">1.10.</span> <span class="toc-text">Somewhere Between Errors and Fixes, It Started Making Sense</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">39</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">80</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">225</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-permission-denied-cloud-iam" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-05-01T18:30:00.000Z" itemprop="datePublished">2026-05-02</time>
+    <time style="display: none;" id="post-update-time">2026-05-03</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="Permission-Denied-at-2AM-My-Wild-Ride-Through-IAM-Service-Accounts-and-VPC-Flow-Logs"><a href="#Permission-Denied-at-2AM-My-Wild-Ride-Through-IAM-Service-Accounts-and-VPC-Flow-Logs" class="headerlink" title="Permission Denied at 2AM: My Wild Ride Through IAM, Service Accounts, and VPC Flow Logs"></a>Permission Denied at 2AM: My Wild Ride Through IAM, Service Accounts, and VPC Flow Logs</h1><p>Somewhere between my third coffee and the fourth “why is this not working?” moment, I realized cloud security isn’t just about knowing commands — it’s about surviving the tiny, sneaky mistakes that hide like cockroaches in dark corners.</p>
+<p>Seriously. One missing permission. Just one. Whole system stuck like a bike chain jammed in the gears.</p>
+<p>Anyway… let me rewind a bit.</p>
+<hr>
+<h2 id="The-Cursor-That-Wouldn’t-Blink-Fast-Enough"><a href="#The-Cursor-That-Wouldn’t-Blink-Fast-Enough" class="headerlink" title="The Cursor That Wouldn’t Blink Fast Enough"></a>The Cursor That Wouldn’t Blink Fast Enough</h2><p>You know that moment when the terminal just sits there, blinking, quiet… like it knows something you don’t?</p>
+<p>That was the vibe.</p>
+<p>Started off with IAM roles. Pretty straightforward on paper — assign roles, switch users, check permissions, repeat. Classic cloud stuff. The kind that looks neat in tutorials but turns into spaghetti when you’re doing it for real.</p>
+<p>First user: full admin power.</p>
+<p>Second user: viewer-only — the so-called “devops user.”</p>
+<p>Switching between those two felt like changing masks in some low-budget hacker movie. One second you’re the boss. Next second you’re locked out of your own house, metaphorically speaking.</p>
+<p>And yeah — things worked… until they didn’t.</p>
+<hr>
+<h2 id="Ah-Yes-The-Famous-Permission-Denied"><a href="#Ah-Yes-The-Famous-Permission-Denied" class="headerlink" title="Ah Yes. The Famous Permission Denied"></a>Ah Yes. The Famous Permission Denied</h2><p>Typed the command.</p>
+<p>Pressed Enter.</p>
+<p>Boom.</p>
+<p><strong>Permission denied.</strong></p>
+<p>Not dramatic. Not fancy. Just blunt. Like a slap from reality.</p>
+<p>Tried again — maybe typo?</p>
+<p>Checked syntax — nope, clean.</p>
+<p>Switched zones — still nope.</p>
+<p>At some point I started blaming the cloud itself, which is ridiculous, but also kind of comforting. Like yelling at traffic lights.</p>
+<p>Turns out — and this still makes me chuckle — the whole thing boiled down to a missing service account permission. One line. One single permission buried in the weeds like a landmine.</p>
+<p>Added it. Ran the command again.</p>
+<p>And just like that… the instance spun up.</p>
+<p>No fireworks. No applause. Just quiet success.</p>
+<p>But wow — that feeling. Felt like cracking a safe.</p>
+<hr>
+<h2 id="Writing-My-Own-Role-Felt-Weirdly-Powerful"><a href="#Writing-My-Own-Role-Felt-Weirdly-Powerful" class="headerlink" title="Writing My Own Role Felt Weirdly Powerful"></a>Writing My Own Role Felt Weirdly Powerful</h2><p>There’s something about custom roles that hits different.</p>
+<p>Predefined roles are fine, sure. But writing your own permissions? That’s like cooking instead of ordering takeout.</p>
+<p>Pulled up the role definition file. Started listing permissions — compute.instances.create, disks, metadata — the usual suspects.</p>
+<p>Saved it. Applied it.</p>
+<p>Watched the policy bind successfully.</p>
+<p>Not gonna lie, I leaned back in the chair a bit like I had just hacked into NASA. Obviously didn’t. But the brain likes to pretend sometimes.</p>
+<hr>
+<h2 id="Identity-Switching-Like-a-Spy-With-a-Budget-Laptop"><a href="#Identity-Switching-Like-a-Spy-With-a-Budget-Laptop" class="headerlink" title="Identity Switching Like a Spy With a Budget Laptop"></a>Identity Switching Like a Spy With a Budget Laptop</h2><p>Back and forth. Default user. User2. Default again.</p>
+<p>Felt like running undercover operations, except instead of secret messages it was terminal commands and IAM bindings.</p>
+<p>At one point, the viewer account tried to create an instance — and failed exactly the way it was supposed to.</p>
+<p>Which sounds like failure, but actually? That’s success.</p>
+<p>Security working properly looks like frustration. Funny how that works.</p>
+<hr>
+<h2 id="Enter-VPC-Flow-Logs-—-Watching-Traffic-Like-It’s-Alive"><a href="#Enter-VPC-Flow-Logs-—-Watching-Traffic-Like-It’s-Alive" class="headerlink" title="Enter VPC Flow Logs — Watching Traffic Like It’s Alive"></a>Enter VPC Flow Logs — Watching Traffic Like It’s Alive</h2><p>After all the IAM gymnastics, things shifted into networking territory.</p>
+<p>Custom VPC created.</p>
+<p>Subnet configured.</p>
+<p>Firewall rules added.</p>
+<p>Launched an Apache server — nothing fancy, just a simple “Hello World” page.</p>
+<p>But behind that tiny web page… packets moving. Requests bouncing around. Logs quietly stacking up like receipts in your wallet.</p>
+<p>Clicked the external IP.</p>
+<p>And there it was.</p>
+<p><strong>Hello World</strong></p>
+<p>Plain text. No glamour. Still satisfying.</p>
+<p>Like the first time you fix something mechanical and it doesn’t fall apart.</p>
+<hr>
+<h2 id="The-Moment-Logs-Started-Talking"><a href="#The-Moment-Logs-Started-Talking" class="headerlink" title="The Moment Logs Started Talking"></a>The Moment Logs Started Talking</h2><p>Opened Logs Explorer.</p>
+<p>Filtered by subnetwork.</p>
+<p>Typed in my own IP address.</p>
+<p>And there it was — lines of traffic data. Source IP, destination ports, protocol numbers. All laid out like forensic evidence at a crime scene.</p>
+<p>Honestly, that part felt wild.</p>
+<p>Every click. Every request. Logged somewhere. Stored. Waiting to be read.</p>
+<p>Makes you think twice about how noisy the internet really is.</p>
+<hr>
+<h2 id="BigQuery-—-Where-Logs-Become-Stories"><a href="#BigQuery-—-Where-Logs-Become-Stories" class="headerlink" title="BigQuery — Where Logs Become Stories"></a>BigQuery — Where Logs Become Stories</h2><p>Logs are messy. Chaotic. Like scribbles on a napkin.</p>
+<p>So exporting them into BigQuery felt like organizing chaos into something readable.</p>
+<p>Ran SQL queries — grouped connections, summed bytes, sorted traffic.</p>
+<p>Suddenly, instead of noise, there were patterns.</p>
+<p>Top IP addresses. Traffic flows. Numbers telling stories.</p>
+<p>That’s when it clicked.</p>
+<p>Security isn’t just about blocking attacks — it’s about understanding behavior.</p>
+<p>Watching movement. Reading patterns. Connecting dots.</p>
+<p>Kind of like detective work… but with more coffee.</p>
+<hr>
+<h2 id="The-Tiny-Fix-That-Made-Everything-Move-Again"><a href="#The-Tiny-Fix-That-Made-Everything-Move-Again" class="headerlink" title="The Tiny Fix That Made Everything Move Again"></a>The Tiny Fix That Made Everything Move Again</h2><p>There was this one moment — small, quiet — where everything suddenly worked.</p>
+<p>Permissions fixed. Instances running. Logs flowing. Queries returning results.</p>
+<p>No celebration. Just relief.</p>
+<p>You sit there, stare at the screen, and think:</p>
+<p>“Okay… that actually worked.”</p>
+<p>And weirdly, those moments feel bigger than flashy wins.</p>
+<p>Because you earned them.</p>
+<hr>
+<h2 id="Things-I-Learned-the-Hard-Way-Naturally"><a href="#Things-I-Learned-the-Hard-Way-Naturally" class="headerlink" title="Things I Learned the Hard Way (Naturally)"></a>Things I Learned the Hard Way (Naturally)</h2><p>Not from slides. Not from videos.</p>
+<p>From messing up.</p>
+<p>From retrying commands. From chasing permission errors through layers of IAM like trying to find your keys when you’re already late.</p>
+<p>Here’s what stuck with me:</p>
+<p>Permissions are everything.</p>
+<p>Logs are gold.</p>
+<p>Service accounts matter more than you think.</p>
+<p>And sometimes — honestly — the biggest obstacle isn’t the system… it’s the one missing checkbox you didn’t notice.</p>
+<p>Yeah. That happens more than people admit.</p>
+<hr>
+<h2 id="Somewhere-Between-Errors-and-Fixes-It-Started-Making-Sense"><a href="#Somewhere-Between-Errors-and-Fixes-It-Started-Making-Sense" class="headerlink" title="Somewhere Between Errors and Fixes, It Started Making Sense"></a>Somewhere Between Errors and Fixes, It Started Making Sense</h2><p>Cloud security used to feel abstract. Like diagrams on whiteboards and buzzwords tossed around in conference talks.</p>
+<p>Now? It feels tangible.</p>
+<p>You build networks.</p>
+<p>You break permissions.</p>
+<p>You fix them.</p>
+<p>You watch traffic flow.</p>
+<p>You learn.</p>
+<p>Slowly. Messily. Occasionally with a headache.</p>
+<p>But steadily.</p>
+<p>And that blinking cursor — the one that used to feel intimidating — starts to feel like an invitation.</p>
+<p>Not a threat.</p>
+<p>Just a starting point.</p>
+
+    </div>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/Cloud-Security/" title="Cloud Security" data-aos="zoom-in">Cloud Security</a><a class="article-category-link" href="/categories/Cloud-Security/Cybersecurity/" title="Cybersecurity" data-aos="zoom-in">Cybersecurity</a><a class="article-category-link" href="/categories/Cloud-Security/Cybersecurity/Google-Cloud/" title="Google Cloud" data-aos="zoom-in">Google Cloud</a>
+
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/BigQuery/" rel="tag" title="BigQuery">BigQuery</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/DevOps/" rel="tag" title="DevOps">DevOps</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Google-Cloud/" rel="tag" title="Google Cloud">Google Cloud</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/IAM/" rel="tag" title="IAM">IAM</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag" title="Linux">Linux</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Networking/" rel="tag" title="Networking">Networking</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Service-Accounts/" rel="tag" title="Service Accounts">Service Accounts</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/VPC-Flow-Logs/" rel="tag" title="VPC Flow Logs">VPC Flow Logs</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="/assets/img/hackathon-real-impact.png" data-sizes="auto" alt="From Hackathon Prize to Real-World Impact: What Happens After You Actually Win" class="lazyload">
+      <a href="/posts/hackathon-prize-to-real-world-impact-innovation-journey/" aria-label="Next: From Hackathon Prize to Real-World Impact: What Happens After You Actually Win"  title="Next: From Hackathon Prize to Real-World Impact: What Happens After You Actually Win"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          From Hackathon Prize to Real-World Impact: What Happens After You Actually Win
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2020-2026
+        <span class="footer-info-sep rotate"></span>
+      Anandram Mohan
+    </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Permission-Denied-at-2AM-My-Wild-Ride-Through-IAM-Service-Accounts-and-VPC-Flow-Logs"><span class="toc-number">1.</span> <span class="toc-text">Permission Denied at 2AM: My Wild Ride Through IAM, Service Accounts, and VPC Flow Logs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Cursor-That-Wouldn%E2%80%99t-Blink-Fast-Enough"><span class="toc-number">1.1.</span> <span class="toc-text">The Cursor That Wouldn’t Blink Fast Enough</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ah-Yes-The-Famous-Permission-Denied"><span class="toc-number">1.2.</span> <span class="toc-text">Ah Yes. The Famous Permission Denied</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Writing-My-Own-Role-Felt-Weirdly-Powerful"><span class="toc-number">1.3.</span> <span class="toc-text">Writing My Own Role Felt Weirdly Powerful</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identity-Switching-Like-a-Spy-With-a-Budget-Laptop"><span class="toc-number">1.4.</span> <span class="toc-text">Identity Switching Like a Spy With a Budget Laptop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Enter-VPC-Flow-Logs-%E2%80%94-Watching-Traffic-Like-It%E2%80%99s-Alive"><span class="toc-number">1.5.</span> <span class="toc-text">Enter VPC Flow Logs — Watching Traffic Like It’s Alive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Moment-Logs-Started-Talking"><span class="toc-number">1.6.</span> <span class="toc-text">The Moment Logs Started Talking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BigQuery-%E2%80%94-Where-Logs-Become-Stories"><span class="toc-number">1.7.</span> <span class="toc-text">BigQuery — Where Logs Become Stories</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Tiny-Fix-That-Made-Everything-Move-Again"><span class="toc-number">1.8.</span> <span class="toc-text">The Tiny Fix That Made Everything Move Again</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Things-I-Learned-the-Hard-Way-Naturally"><span class="toc-number">1.9.</span> <span class="toc-text">Things I Learned the Hard Way (Naturally)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Somewhere-Between-Errors-and-Fixes-It-Started-Making-Sense"><span class="toc-number">1.10.</span> <span class="toc-text">Somewhere Between Errors and Fixes, It Started Making Sense</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">39</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">80</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">225</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Anandram Mohan",
+          title: "Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs",
+          url: "https://arenredd.github.io/posts/permission-denied-cloud-iam/",
+          excerpt: "",
+          description: "",
+          stripContent: "Permission Denied at 2AM: My Wild Ride Through IAM, Service Accounts, and VPC Flow LogsSomewhere between my third coffee and the fourth “why is this not working?” moment, I realized cloud security isn’t just about knowing commands — it’s about surviv",
+          date: "Sat May 02 2026 00:00:00 GMT+0530",
+          updated: "Sun May 03 2026 11:55:41 GMT+0530",
+          cover: "/assets/img/permission-denied-cloud-lab.png",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.3' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
