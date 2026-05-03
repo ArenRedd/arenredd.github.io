@@ -1,0 +1,703 @@
+  <!DOCTYPE html>
+  <html lang="en"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://arenredd.github.io';window.REIMU_CONFIG.relative = '/';</script>
+  <title>
+    How I Accidentally Built a Master-Level Enterprise Network in Packet Tracer (This Went WAY Beyond CCNA!) | Anand&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="— The story of one student, one Cisco Packet Tracer file, two firewalls, and a dream.🧙‍♂️ INTRO: From “Bro How to Configure Router?” to “Architect of a Secure Company Network”Every hacker starts some">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I Accidentally Built a Master-Level Enterprise Network in Packet Tracer (This Went WAY Beyond CCNA!)">
+<meta property="og:url" content="https://arenredd.github.io/posts/master-level-enterprise-network-design-packet-tracer-hacker-story/index.html">
+<meta property="og:site_name" content="Anand&#39;s Blog">
+<meta property="og:description" content="— The story of one student, one Cisco Packet Tracer file, two firewalls, and a dream.🧙‍♂️ INTRO: From “Bro How to Configure Router?” to “Architect of a Secure Company Network”Every hacker starts some">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-12-11T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-05-03T04:00:11.795Z">
+<meta property="article:author" content="Anandram Mohan">
+<meta property="article:tag" content="CCNA">
+<meta property="article:tag" content="Cisco">
+<meta property="article:tag" content="Enterprise Network">
+<meta property="article:tag" content="Ethical Hacking">
+<meta property="article:tag" content="Firewalls">
+<meta property="article:tag" content="HSRP">
+<meta property="article:tag" content="OSPF">
+<meta property="article:tag" content="Packet Tracer">
+<meta property="article:tag" content="VLAN">
+<meta name="twitter:card" content="summary">
+    <link rel="alternate" href="/atom.xml" title="Anand's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+        <a class="main-nav-link-wrap" target="_blank" rel="noopener" href="https://anandfolio.github.io/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Portfolio</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="/assets/img/packet-tracer-enterprise-network.png" alt="How I Accidentally Built a Master-Level Enterprise Network in Packet Tracer (This Went WAY Beyond CCNA!)">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">How I Accidentally Built a Master-Level Enterprise Network in Packet Tracer (This Went WAY Beyond CCNA!)</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%94-The-story-of-one-student-one-Cisco-Packet-Tracer-file-two-firewalls-and-a-dream"><span class="toc-number">1.</span> <span class="toc-text">— The story of one student, one Cisco Packet Tracer file, two firewalls, and a dream.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%99%E2%80%8D%E2%99%82%EF%B8%8F-INTRO-From-%E2%80%9CBro-How-to-Configure-Router-%E2%80%9D-to-%E2%80%9CArchitect-of-a-Secure-Company-Network%E2%80%9DEvery-hacker-starts-somewhere"><span class="toc-number">2.</span> <span class="toc-text">🧙‍♂️ INTRO: From “Bro How to Configure Router?” to “Architect of a Secure Company Network”Every hacker starts somewhere.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%A2-THE-LORE-BEHIND-THE-NETWORK-Yes-this-project-came-with-lore-like-it%E2%80%99s-a-Marvel-movie"><span class="toc-number">3.</span> <span class="toc-text">🏢 THE LORE BEHIND THE NETWORK(Yes, this project came with lore like it’s a Marvel movie.)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-THE-DESIGN-What-I-Built-Like-a-Mad-EngineerHere-are-the-highlights-of-my-absolutely-overkill-Packet-Tracer-creation"><span class="toc-number">4.</span> <span class="toc-text">🛠️ THE DESIGN: What I Built Like a Mad EngineerHere are the highlights of my absolutely overkill Packet Tracer creation:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%B1-1-Dual-ISP-BackboneTwo-ISPs-YES-TWO"><span class="toc-number">4.1.</span> <span class="toc-text">🧱 1. Dual ISP BackboneTwo ISPs (YES, TWO):</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A5-2-Cisco-ASA-Firewalls-Outside-Inside-DMZ-Zones-These-firewalls-control"><span class="toc-number">4.2.</span> <span class="toc-text">🔥 2. Cisco ASA Firewalls (Outside &#x2F; Inside &#x2F; DMZ Zones)These firewalls control:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8F%A2-3-3-Floors-6-Departments-6-SwitchesEvery-floor-had-departments-like"><span class="toc-number">4.3.</span> <span class="toc-text">🏢 3. 3 Floors, 6 Departments, 6 SwitchesEvery floor had departments like:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%A1-4-Wireless-Infrastructure"><span class="toc-number">4.4.</span> <span class="toc-text">📡 4. Wireless Infrastructure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%8E%EF%B8%8F-5-Complete-VoIP-SetupUsing-a-Cisco-2811-Voice-Gateway-with"><span class="toc-number">4.5.</span> <span class="toc-text">☎️ 5. Complete VoIP SetupUsing a Cisco 2811 Voice Gateway with:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%84%EF%B8%8F-6-Server-Room-Inside-Zone"><span class="toc-number">4.6.</span> <span class="toc-text">🗄️ 6. Server Room (Inside Zone)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9B%A1%EF%B8%8F-7-DMZ-Server-Farm"><span class="toc-number">4.7.</span> <span class="toc-text">🛡️ 7. DMZ Server Farm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%91%91-8-HSRP-High-AvailabilityBoth-core-switches-act-as"><span class="toc-number">4.8.</span> <span class="toc-text">👑 8. HSRP High AvailabilityBoth core switches act as:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%95%B8%EF%B8%8F-9-OSPF-Dynamic-RoutingBecause-static-routes-are-for-noobs"><span class="toc-number">4.9.</span> <span class="toc-text">🕸️ 9. OSPF Dynamic RoutingBecause static routes are for noobs.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%AC-10-Cloud-Simulation-with-Remote-UsersI-added-a-%E2%80%9Ccloud-cluster%E2%80%9D-with-users-from"><span class="toc-number">4.10.</span> <span class="toc-text">🧬 10. Cloud Simulation with Remote UsersI added a “cloud cluster” with users from:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%82-WHAT-I-LEARNED-IN-THIS-JOURNEY%E2%9C%94-VLANs-are-not-optional-%E2%80%94-they-are-religion"><span class="toc-number">5.</span> <span class="toc-text">😂 WHAT I LEARNED IN THIS JOURNEY✔ VLANs are not optional — they are religion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9A%A1-THE-HACKER-VIBES-TAKEAWAYThis-wasn%E2%80%99t-just-a-Packet-Tracer-lab"><span class="toc-number">6.</span> <span class="toc-text">⚡ THE HACKER VIBES TAKEAWAYThis wasn’t just a Packet Tracer lab.</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">37</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">75</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">210</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2025-12-11-master-level-enterprise-network-design-packet-tracer-hacker-story" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-12-11T02:30:00.000Z" itemprop="datePublished">2025-12-11</time>
+    <time style="display: none;" id="post-update-time">2026-05-03</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h3 id="—-The-story-of-one-student-one-Cisco-Packet-Tracer-file-two-firewalls-and-a-dream"><a href="#—-The-story-of-one-student-one-Cisco-Packet-Tracer-file-two-firewalls-and-a-dream" class="headerlink" title="— The story of one student, one Cisco Packet Tracer file, two firewalls, and a dream."></a>— The story of one student, one Cisco Packet Tracer file, two firewalls, and a dream.</h3><h2 id="🧙‍♂️-INTRO-From-“Bro-How-to-Configure-Router-”-to-“Architect-of-a-Secure-Company-Network”Every-hacker-starts-somewhere"><a href="#🧙‍♂️-INTRO-From-“Bro-How-to-Configure-Router-”-to-“Architect-of-a-Secure-Company-Network”Every-hacker-starts-somewhere" class="headerlink" title="🧙‍♂️ INTRO: From “Bro How to Configure Router?” to “Architect of a Secure Company Network”Every hacker starts somewhere."></a>🧙‍♂️ INTRO: From “Bro How to Configure Router?” to “Architect of a Secure Company Network”Every hacker starts somewhere.</h2><p>Some start with Kali Linux.</p>
+<p>Some start with Nmap.</p>
+<p>I started with… <em>a 3-hour Cisco Packet Tracer video that demanded my soul.</em></p>
+<p>What began as a small “college project” turned into me architecting something that looks like it belongs inside <strong>Google’s data center</strong>. I’m talking:</p>
+<ul>
+<li><p>Dual ISPs</p>
+</li>
+<li><p>Dual Cisco Firewalls</p>
+</li>
+<li><p>Multi-Floor Enterprise Switching</p>
+</li>
+<li><p>Wireless LAN Controllers</p>
+</li>
+<li><p>Lightweight Access Points</p>
+</li>
+<li><p>Voice Gateways</p>
+</li>
+<li><p>Active Directory</p>
+</li>
+<li><p>DMZ with Web&#x2F;FTP&#x2F;Email servers</p>
+</li>
+<li><p>HSRP high availability</p>
+</li>
+<li><p>OSPF dynamic routing</p>
+</li>
+<li><p>DHCP pools</p>
+</li>
+<li><p>VLAN segmentation</p>
+</li>
+<li><p>EtherChannel</p>
+</li>
+<li><p>Blackhole VLAN</p>
+</li>
+<li><p>Cloud Simulation</p>
+</li>
+<li><p>Remote Clients in USA + China</p>
+</li>
+</ul>
+<p>You know… just normal student-level things. 😭</p>
+<p>By the time I finished building this network, even <em>NSA analysts would be like:</em></p>
+<p>“Ight bro chill.”</p>
+<h2 id="🏢-THE-LORE-BEHIND-THE-NETWORK-Yes-this-project-came-with-lore-like-it’s-a-Marvel-movie"><a href="#🏢-THE-LORE-BEHIND-THE-NETWORK-Yes-this-project-came-with-lore-like-it’s-a-Marvel-movie" class="headerlink" title="🏢 THE LORE BEHIND THE NETWORK(Yes, this project came with lore like it’s a Marvel movie.)"></a>🏢 THE LORE BEHIND THE NETWORK(Yes, this project came with lore like it’s a Marvel movie.)</h2><p>A fictional cloud company called <strong>Saton Innovation Limited</strong> is moving to a new 3-floor building. They have 600 employees and want:</p>
+<ul>
+<li><p>MONSTER-LEVEL SECURITY</p>
+</li>
+<li><p>Cloud connectivity</p>
+</li>
+<li><p>Scalable infrastructure</p>
+</li>
+<li><p>High availability</p>
+</li>
+<li><p>DMZ isolation</p>
+</li>
+<li><p>Proper VLAN segmentation</p>
+</li>
+<li><p>WiFi + VoIP integration</p>
+</li>
+</ul>
+<p>Basically — “Build us a fortress, young padawan.”</p>
+<p>My brain:</p>
+<p>“Say no more.”</p>
+<h2 id="🛠️-THE-DESIGN-What-I-Built-Like-a-Mad-EngineerHere-are-the-highlights-of-my-absolutely-overkill-Packet-Tracer-creation"><a href="#🛠️-THE-DESIGN-What-I-Built-Like-a-Mad-EngineerHere-are-the-highlights-of-my-absolutely-overkill-Packet-Tracer-creation" class="headerlink" title="🛠️ THE DESIGN: What I Built Like a Mad EngineerHere are the highlights of my absolutely overkill Packet Tracer creation:"></a>🛠️ THE DESIGN: What I Built Like a Mad EngineerHere are the highlights of my <em>absolutely overkill</em> Packet Tracer creation:</h2><h3 id="🧱-1-Dual-ISP-BackboneTwo-ISPs-YES-TWO"><a href="#🧱-1-Dual-ISP-BackboneTwo-ISPs-YES-TWO" class="headerlink" title="🧱 1. Dual ISP BackboneTwo ISPs (YES, TWO):"></a>🧱 1. Dual ISP BackboneTwo ISPs (YES, TWO):</h3><ul>
+<li><p><strong>Seacom</strong></p>
+</li>
+<li><p><strong>Safaricom</strong></p>
+</li>
+</ul>
+<p>Because if one goes down…</p>
+<p>the CEO must <em>still</em> watch LinkedIn.</p>
+<h3 id="🔥-2-Cisco-ASA-Firewalls-Outside-Inside-DMZ-Zones-These-firewalls-control"><a href="#🔥-2-Cisco-ASA-Firewalls-Outside-Inside-DMZ-Zones-These-firewalls-control" class="headerlink" title="🔥 2. Cisco ASA Firewalls (Outside &#x2F; Inside &#x2F; DMZ Zones)These firewalls control:"></a>🔥 2. Cisco ASA Firewalls (Outside &#x2F; Inside &#x2F; DMZ Zones)These firewalls control:</h3><ul>
+<li><p><strong>Outside Zone</strong> → The Internet</p>
+</li>
+<li><p><strong>Inside Zone</strong> → Staff + IT</p>
+</li>
+<li><p><strong>DMZ</strong> → Web, Email, App, FTP servers</p>
+</li>
+</ul>
+<p>DMZ &#x3D; “If it gets hacked, at least the building doesn’t burn.”</p>
+<h3 id="🏢-3-3-Floors-6-Departments-6-SwitchesEvery-floor-had-departments-like"><a href="#🏢-3-3-Floors-6-Departments-6-SwitchesEvery-floor-had-departments-like" class="headerlink" title="🏢 3. 3 Floors, 6 Departments, 6 SwitchesEvery floor had departments like:"></a>🏢 3. 3 Floors, 6 Departments, 6 SwitchesEvery floor had departments like:</h3><ul>
+<li><p>Sales &amp; Marketing</p>
+</li>
+<li><p>HR &amp; Logistics</p>
+</li>
+<li><p>Finance &amp; Accounts</p>
+</li>
+<li><p>Admin &amp; PR</p>
+</li>
+<li><p>IT Department</p>
+</li>
+<li><p>Server Room</p>
+</li>
+</ul>
+<p>Each with dedicated VLANs, printers, APs, IP phones, PCs — the works.</p>
+<h3 id="📡-4-Wireless-Infrastructure"><a href="#📡-4-Wireless-Infrastructure" class="headerlink" title="📡 4. Wireless Infrastructure"></a>📡 4. Wireless Infrastructure</h3><ul>
+<li><p>Cisco <strong>Wireless LAN Controller (WLC)</strong></p>
+</li>
+<li><p>Lightweight APs everywhere</p>
+</li>
+<li><p>WiFi VLAN</p>
+</li>
+<li><p>Smartphone, laptop, tablet testing</p>
+</li>
+</ul>
+<p>Basically: even the office toaster might get an IP.</p>
+<h3 id="☎️-5-Complete-VoIP-SetupUsing-a-Cisco-2811-Voice-Gateway-with"><a href="#☎️-5-Complete-VoIP-SetupUsing-a-Cisco-2811-Voice-Gateway-with" class="headerlink" title="☎️ 5. Complete VoIP SetupUsing a Cisco 2811 Voice Gateway with:"></a>☎️ 5. Complete VoIP SetupUsing a Cisco 2811 Voice Gateway with:</h3><ul>
+<li><p>VLAN 70</p>
+</li>
+<li><p>Dial numbers</p>
+</li>
+<li><p>IP phone provisioning</p>
+</li>
+</ul>
+<p>Yes… I even got the phones to ring.</p>
+<p>My Packet Tracer felt alive.</p>
+<h3 id="🗄️-6-Server-Room-Inside-Zone"><a href="#🗄️-6-Server-Room-Inside-Zone" class="headerlink" title="🗄️ 6. Server Room (Inside Zone)"></a>🗄️ 6. Server Room (Inside Zone)</h3><ul>
+<li><p>Active Directory</p>
+</li>
+<li><p>DNS</p>
+</li>
+<li><p>DHCP</p>
+</li>
+<li><p>RADIUS</p>
+</li>
+</ul>
+<p>These weren’t just “servers.”</p>
+<p>They were the <strong>brain</strong> of the organization.</p>
+<h3 id="🛡️-7-DMZ-Server-Farm"><a href="#🛡️-7-DMZ-Server-Farm" class="headerlink" title="🛡️ 7. DMZ Server Farm"></a>🛡️ 7. DMZ Server Farm</h3><ul>
+<li><p>Web Server</p>
+</li>
+<li><p>Email Server</p>
+</li>
+<li><p>FTP Server</p>
+</li>
+<li><p>App Server</p>
+</li>
+<li><p>File Storage Server</p>
+</li>
+</ul>
+<p>Think of this as the “sacrificial goats” of cybersecurity.</p>
+<h3 id="👑-8-HSRP-High-AvailabilityBoth-core-switches-act-as"><a href="#👑-8-HSRP-High-AvailabilityBoth-core-switches-act-as" class="headerlink" title="👑 8. HSRP High AvailabilityBoth core switches act as:"></a>👑 8. HSRP High AvailabilityBoth core switches act as:</h3><ul>
+<li><p>Active</p>
+</li>
+<li><p>Standby</p>
+</li>
+<li><p>IP Forwarders</p>
+</li>
+</ul>
+<p>If one switch dies, the other says:</p>
+<p>“I got you, fam.”</p>
+<h3 id="🕸️-9-OSPF-Dynamic-RoutingBecause-static-routes-are-for-noobs"><a href="#🕸️-9-OSPF-Dynamic-RoutingBecause-static-routes-are-for-noobs" class="headerlink" title="🕸️ 9. OSPF Dynamic RoutingBecause static routes are for noobs."></a>🕸️ 9. OSPF Dynamic RoutingBecause static routes are for noobs.</h3><h3 id="🧬-10-Cloud-Simulation-with-Remote-UsersI-added-a-“cloud-cluster”-with-users-from"><a href="#🧬-10-Cloud-Simulation-with-Remote-UsersI-added-a-“cloud-cluster”-with-users-from" class="headerlink" title="🧬 10. Cloud Simulation with Remote UsersI added a “cloud cluster” with users from:"></a>🧬 10. Cloud Simulation with Remote UsersI added a “cloud cluster” with users from:</h3><ul>
+<li><p>USA</p>
+</li>
+<li><p>China</p>
+</li>
+</ul>
+<p>Because of course the fictional company is <em>global.</em></p>
+<h2 id="😂-WHAT-I-LEARNED-IN-THIS-JOURNEY✔-VLANs-are-not-optional-—-they-are-religion"><a href="#😂-WHAT-I-LEARNED-IN-THIS-JOURNEY✔-VLANs-are-not-optional-—-they-are-religion" class="headerlink" title="😂 WHAT I LEARNED IN THIS JOURNEY✔ VLANs are not optional — they are religion"></a>😂 WHAT I LEARNED IN THIS JOURNEY✔ VLANs are not optional — they are religion</h2><p>✔ EtherChannel is the key to peace</p>
+<p>✔ Firewalls will humble you</p>
+<p>✔ WLC configuration will show you pain</p>
+<p>✔ HSRP is magic</p>
+<p>✔ Seeing all green links is the happiest moment in life</p>
+<p>✔ This project is NOT “degree level”…</p>
+<p>It’s <strong>FULL MASTERS LEVEL</strong> 💀</p>
+<p>Even my laptop fan sounded like a helicopter taking off.</p>
+<h2 id="⚡-THE-HACKER-VIBES-TAKEAWAYThis-wasn’t-just-a-Packet-Tracer-lab"><a href="#⚡-THE-HACKER-VIBES-TAKEAWAYThis-wasn’t-just-a-Packet-Tracer-lab" class="headerlink" title="⚡ THE HACKER VIBES TAKEAWAYThis wasn’t just a Packet Tracer lab."></a>⚡ THE HACKER VIBES TAKEAWAYThis wasn’t just a Packet Tracer lab.</h2><p>This was:</p>
+<p>🧠 A network architect simulator</p>
+<p>🔥 A cybersecurity fortress</p>
+<p>📡 A WiFi battlefield</p>
+<p>📞 A VoIP playground</p>
+<p>🎮 A hacker’s theme park</p>
+<p>If you build this setup once…</p>
+<p>Congratulations.</p>
+<p>You’re no longer a student.</p>
+<p>You’re a <strong>Network Wizard of the highest order</strong></p>
+
+    </div>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/Networking/" title="Networking" data-aos="zoom-in">Networking</a><a class="article-category-link" href="/categories/Networking/Cybersecurity/" title="Cybersecurity" data-aos="zoom-in">Cybersecurity</a><a class="article-category-link" href="/categories/Networking/Cybersecurity/Cisco/" title="Cisco" data-aos="zoom-in">Cisco</a><a class="article-category-link" href="/categories/Networking/Cybersecurity/Cisco/Projects/" title="Projects" data-aos="zoom-in">Projects</a>
+
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/CCNA/" rel="tag" title="CCNA">CCNA</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Cisco/" rel="tag" title="Cisco">Cisco</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Enterprise-Network/" rel="tag" title="Enterprise Network">Enterprise Network</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Ethical-Hacking/" rel="tag" title="Ethical Hacking">Ethical Hacking</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Firewalls/" rel="tag" title="Firewalls">Firewalls</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/HSRP/" rel="tag" title="HSRP">HSRP</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/OSPF/" rel="tag" title="OSPF">OSPF</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Packet-Tracer/" rel="tag" title="Packet Tracer">Packet Tracer</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/VLAN/" rel="tag" title="VLAN">VLAN</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+          <img data-src="/assets/img/hexo-hack.jpg" data-sizes="auto" alt="I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story" class="lazyload">
+        <a href="/posts/hexo-reimu-ssh-deployment-nightmare/" aria-label="Prev: I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story" title="Prev: I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">
+            I Didn’t Break GitHub. GitHub Broke Me: A Hexo × Reimu × SSH Deployment War Story
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+        <img data-src="/assets/img/oops-prep.jpg" data-sizes="auto" alt="Ultimate OOPS Cheat Sheet for Last-Minute Exam Prep 🚀" class="lazyload">
+      <a href="/oops-exam-cheat-sheet-java/" aria-label="Next: Ultimate OOPS Cheat Sheet for Last-Minute Exam Prep 🚀"  title="Next: Ultimate OOPS Cheat Sheet for Last-Minute Exam Prep 🚀"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          Ultimate OOPS Cheat Sheet for Last-Minute Exam Prep 🚀
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2020-2026
+        <span class="footer-info-sep rotate"></span>
+      Anandram Mohan
+    </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%94-The-story-of-one-student-one-Cisco-Packet-Tracer-file-two-firewalls-and-a-dream"><span class="toc-number">1.</span> <span class="toc-text">— The story of one student, one Cisco Packet Tracer file, two firewalls, and a dream.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%99%E2%80%8D%E2%99%82%EF%B8%8F-INTRO-From-%E2%80%9CBro-How-to-Configure-Router-%E2%80%9D-to-%E2%80%9CArchitect-of-a-Secure-Company-Network%E2%80%9DEvery-hacker-starts-somewhere"><span class="toc-number">2.</span> <span class="toc-text">🧙‍♂️ INTRO: From “Bro How to Configure Router?” to “Architect of a Secure Company Network”Every hacker starts somewhere.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%A2-THE-LORE-BEHIND-THE-NETWORK-Yes-this-project-came-with-lore-like-it%E2%80%99s-a-Marvel-movie"><span class="toc-number">3.</span> <span class="toc-text">🏢 THE LORE BEHIND THE NETWORK(Yes, this project came with lore like it’s a Marvel movie.)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9B%A0%EF%B8%8F-THE-DESIGN-What-I-Built-Like-a-Mad-EngineerHere-are-the-highlights-of-my-absolutely-overkill-Packet-Tracer-creation"><span class="toc-number">4.</span> <span class="toc-text">🛠️ THE DESIGN: What I Built Like a Mad EngineerHere are the highlights of my absolutely overkill Packet Tracer creation:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%B1-1-Dual-ISP-BackboneTwo-ISPs-YES-TWO"><span class="toc-number">4.1.</span> <span class="toc-text">🧱 1. Dual ISP BackboneTwo ISPs (YES, TWO):</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A5-2-Cisco-ASA-Firewalls-Outside-Inside-DMZ-Zones-These-firewalls-control"><span class="toc-number">4.2.</span> <span class="toc-text">🔥 2. Cisco ASA Firewalls (Outside &#x2F; Inside &#x2F; DMZ Zones)These firewalls control:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8F%A2-3-3-Floors-6-Departments-6-SwitchesEvery-floor-had-departments-like"><span class="toc-number">4.3.</span> <span class="toc-text">🏢 3. 3 Floors, 6 Departments, 6 SwitchesEvery floor had departments like:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%A1-4-Wireless-Infrastructure"><span class="toc-number">4.4.</span> <span class="toc-text">📡 4. Wireless Infrastructure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%98%8E%EF%B8%8F-5-Complete-VoIP-SetupUsing-a-Cisco-2811-Voice-Gateway-with"><span class="toc-number">4.5.</span> <span class="toc-text">☎️ 5. Complete VoIP SetupUsing a Cisco 2811 Voice Gateway with:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%97%84%EF%B8%8F-6-Server-Room-Inside-Zone"><span class="toc-number">4.6.</span> <span class="toc-text">🗄️ 6. Server Room (Inside Zone)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9B%A1%EF%B8%8F-7-DMZ-Server-Farm"><span class="toc-number">4.7.</span> <span class="toc-text">🛡️ 7. DMZ Server Farm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%91%91-8-HSRP-High-AvailabilityBoth-core-switches-act-as"><span class="toc-number">4.8.</span> <span class="toc-text">👑 8. HSRP High AvailabilityBoth core switches act as:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%95%B8%EF%B8%8F-9-OSPF-Dynamic-RoutingBecause-static-routes-are-for-noobs"><span class="toc-number">4.9.</span> <span class="toc-text">🕸️ 9. OSPF Dynamic RoutingBecause static routes are for noobs.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%AC-10-Cloud-Simulation-with-Remote-UsersI-added-a-%E2%80%9Ccloud-cluster%E2%80%9D-with-users-from"><span class="toc-number">4.10.</span> <span class="toc-text">🧬 10. Cloud Simulation with Remote UsersI added a “cloud cluster” with users from:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%98%82-WHAT-I-LEARNED-IN-THIS-JOURNEY%E2%9C%94-VLANs-are-not-optional-%E2%80%94-they-are-religion"><span class="toc-number">5.</span> <span class="toc-text">😂 WHAT I LEARNED IN THIS JOURNEY✔ VLANs are not optional — they are religion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9A%A1-THE-HACKER-VIBES-TAKEAWAYThis-wasn%E2%80%99t-just-a-Packet-Tracer-lab"><span class="toc-number">6.</span> <span class="toc-text">⚡ THE HACKER VIBES TAKEAWAYThis wasn’t just a Packet Tracer lab.</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">37</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">75</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">210</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Anandram Mohan",
+          title: "How I Accidentally Built a Master-Level Enterprise Network in Packet Tracer (This Went WAY Beyond CCNA!)",
+          url: "https://arenredd.github.io/posts/master-level-enterprise-network-design-packet-tracer-hacker-story/",
+          excerpt: "",
+          description: "",
+          stripContent: "— The story of one student, one Cisco Packet Tracer file, two firewalls, and a dream.🧙‍♂️ INTRO: From “Bro How to Configure Router?” to “Architect of a Secure Company Network”Every hacker starts somewhere.Some start with Kali Linux. Some start with ",
+          date: "Thu Dec 11 2025 08:00:00 GMT+0530",
+          updated: "Sun May 03 2026 09:30:11 GMT+0530",
+          cover: "/assets/img/packet-tracer-enterprise-network.png",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.3' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
