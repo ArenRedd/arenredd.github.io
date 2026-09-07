@@ -1,0 +1,539 @@
+  <!DOCTYPE html>
+  <html lang="en"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://arenredd.github.io';window.REIMU_CONFIG.relative = '/';</script>
+  <title>
+    The Zero-Day in My Own Personality: How 3 Months of Hackathons Taught Me to Social-Engineer Myself | Anand&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Confessions of a cybersecurity student who finally stopped lurking in the corner of the room. So it’s been about three months since I last wrote anything here. No excuse, really. I just went dark. Ful">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Zero-Day in My Own Personality: How 3 Months of Hackathons Taught Me to Social-Engineer Myself">
+<meta property="og:url" content="https://arenredd.github.io/posts/zero-day-personality-hackathon-social-engineering/index.html">
+<meta property="og:site_name" content="Anand&#39;s Blog">
+<meta property="og:description" content="Confessions of a cybersecurity student who finally stopped lurking in the corner of the room. So it’s been about three months since I last wrote anything here. No excuse, really. I just went dark. Ful">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-07T06:30:00.000Z">
+<meta property="article:modified_time" content="2026-09-07T13:46:12.889Z">
+<meta property="article:author" content="Anandram Mohan">
+<meta property="article:tag" content="VigilantX">
+<meta property="article:tag" content="cybersecurity">
+<meta property="article:tag" content="hackathons">
+<meta property="article:tag" content="hacker mindset">
+<meta property="article:tag" content="networking">
+<meta property="article:tag" content="personal growth">
+<meta property="article:tag" content="social engineering">
+<meta property="article:tag" content="startup life">
+<meta property="article:tag" content="student developer">
+<meta property="article:tag" content="tech community">
+<meta name="twitter:card" content="summary">
+    <link rel="alternate" href="/atom.xml" title="Anand's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+        <a class="main-nav-link-wrap" target="_blank" rel="noopener" href="https://anandfolio.github.io/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Portfolio</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="/assets/img/hackathon-networking.png" alt="The Zero-Day in My Own Personality: How 3 Months of Hackathons Taught Me to Social-Engineer Myself">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">The Zero-Day in My Own Personality: How 3 Months of Hackathons Taught Me to Social-Engineer Myself</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Bug-in-My-Own-Code"><span class="toc-number">1.</span> <span class="toc-text">The Bug in My Own Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Networking-Is-Just-Distributed-Debugging"><span class="toc-number">2.</span> <span class="toc-text">Networking Is Just Distributed Debugging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Brute-Forcing-Confidence-One-Conversation-at-a-Time"><span class="toc-number">3.</span> <span class="toc-text">Brute-Forcing Confidence, One Conversation at a Time</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Actual-Takeaway"><span class="toc-number">4.</span> <span class="toc-text">The Actual Takeaway</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">40</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">82</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">234</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-09-07-zero-day-personality-hackathon-social-engineering" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-09-07T06:30:00.000Z" itemprop="datePublished">2026-09-07</time>
+    <time style="display: none;" id="post-update-time">2026-09-07</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <p><em>Confessions of a cybersecurity student who finally stopped lurking in the corner of the room.</em></p>
+<p>So it’s been about three months since I last wrote anything here. No excuse, really. I just went dark. Full radio silence. If this blog had uptime monitoring, it would have paged someone.</p>
+<p>Here’s what actually happened during the outage: I was heads-down on VigilantX, still grinding on a cybersecurity project I’ve been building for about a year now, and somewhere in the middle of all that I also picked up a hardware project on the side. Classic move for someone who already had zero free time. But that’s not the part I actually want to talk about.</p>
+<p>The real story from these three months isn’t a project. It’s a personality patch I didn’t know I needed.</p>
+<h2 id="The-Bug-in-My-Own-Code"><a href="#The-Bug-in-My-Own-Code" class="headerlink" title="The Bug in My Own Code"></a>The Bug in My Own Code</h2><p>For most of my life, talking to a stranger felt like running unsigned code from an unknown source. High risk, unclear payload, why would I even execute that. If I didn’t already know you, I had zero interest in finding out who you were.</p>
+<p>Somewhere in the middle of this networking arc I’ve been on, hopping between hackathons, AI summits, startup meetups, and cybersecurity meetups, something flipped. I’d see someone I’d never met, some random guy or girl standing near the snack table looking equally lost, and instead of my usual avoidance script, I’d just walk up and start talking. I still don’t fully know what triggers it. Curiosity, maybe. I’m not a neuroscientist, so don’t quote me on the brain chemistry. All I know is the exploit worked, and it worked on me.</p>
+<p>I started treating every event like scope for recon. Not in a sleazy “collect business cards” way. More like: this room is full of people who each know one specific thing better than I do, and I have no idea which one of them holds the answer I’ll need six months from now.</p>
+<h2 id="Networking-Is-Just-Distributed-Debugging"><a href="#Networking-Is-Just-Distributed-Debugging" class="headerlink" title="Networking Is Just Distributed Debugging"></a>Networking Is Just Distributed Debugging</h2><p>Here’s the actual insight, and it’s a boring one if I’m honest, but boring insights are usually the ones that hold up.</p>
+<p>When you hit a wall on a specific problem, in a specific domain, and you’re basically a blank hello on that topic, having one person in your circle who actually knows it is worth more than a hundred Google searches. I’ve felt this directly. I go in cold on a subject, ask a dumb opening question to someone I met at a hackathon a month back, and suddenly I have an actual answer instead of a Stack Overflow thread from 2014 with no accepted solution.</p>
+<p>That’s the whole trick. You don’t need to know everything. You need to know one person for every gap in your knowledge, and the only way to build that roster is to talk to people before you need them.</p>
+<p>This showed up everywhere over the past few months. At VIT Recursion Edition 2.0, our team ended up pulling in someone we’d only just met for a track we hadn’t originally planned to enter. At the AWS Student Builder Group I lead, half the people on the core team came from conversations that started as small talk at some unrelated event. Even the Dream2Reality submission for VigilantX had a team lineup that only made sense because I’d been networking hard enough to have options when a seat needed filling.</p>
+<p>None of that happens if you’re still running the old “don’t talk to strangers” firmware.</p>
+<h2 id="Brute-Forcing-Confidence-One-Conversation-at-a-Time"><a href="#Brute-Forcing-Confidence-One-Conversation-at-a-Time" class="headerlink" title="Brute-Forcing Confidence, One Conversation at a Time"></a>Brute-Forcing Confidence, One Conversation at a Time</h2><p>I’m not going to pretend this turned me into some smooth extrovert who works a room like a conference keynote speaker. It didn’t. I still get that pre-conversation flinch every single time. The difference is I don’t let the flinch win anymore. I just start talking, badly if needed, and let the conversation sort itself out.</p>
+<p>Think of it like brute-forcing a login. You don’t need the perfect opener. You just need enough attempts that eventually something lands, and you walk away from an AI summit or a startup meetup with one more name in your contacts who actually remembers you.</p>
+<h2 id="The-Actual-Takeaway"><a href="#The-Actual-Takeaway" class="headerlink" title="The Actual Takeaway"></a>The Actual Takeaway</h2><p>If there’s one thing worth taking from three months of hackathons, meetups, and way too much free conference coffee, it’s this: your network is your real attack surface for opportunity. Not your resume. Not your GitHub. The people who’ll answer your 11pm message when you’re stuck on something is what actually moves things forward.</p>
+<p>So go talk to that fellow standing alone by the registration desk. Worst case, nothing happens. Best case, they’re the person who saves your project six months from now.</p>
+<p>That’s it for this post. Back to building. VigilantX, the hardware project, and whatever the next hackathon throws at me are all still very much in progress. More on those soon, hopefully in less than three months this time.</p>
+
+    </div>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/Personal-Growth/" title="Personal Growth" data-aos="zoom-in">Personal Growth</a><a class="article-category-link" href="/categories/Personal-Growth/Cyber-Journal/" title="Cyber-Journal" data-aos="zoom-in">Cyber-Journal</a>
+
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/VigilantX/" rel="tag" title="VigilantX">VigilantX</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/cybersecurity/" rel="tag" title="cybersecurity">cybersecurity</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/hackathons/" rel="tag" title="hackathons">hackathons</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/hacker-mindset/" rel="tag" title="hacker mindset">hacker mindset</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/networking/" rel="tag" title="networking">networking</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/personal-growth/" rel="tag" title="personal growth">personal growth</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/social-engineering/" rel="tag" title="social engineering">social engineering</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/startup-life/" rel="tag" title="startup life">startup life</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/student-developer/" rel="tag" title="student developer">student developer</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/tech-community/" rel="tag" title="tech community">tech community</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="/assets/img/permission-denied-cloud-lab.png" data-sizes="auto" alt="Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs" class="lazyload">
+      <a href="/posts/permission-denied-cloud-iam/" aria-label="Next: Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs"  title="Next: Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          Permission Denied to Cloud Mastery: My Hands-On Battle with IAM, Service Accounts, and VPC Flow Logs
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2020-2026
+        <span class="footer-info-sep rotate"></span>
+      Anandram Mohan
+    </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Bug-in-My-Own-Code"><span class="toc-number">1.</span> <span class="toc-text">The Bug in My Own Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Networking-Is-Just-Distributed-Debugging"><span class="toc-number">2.</span> <span class="toc-text">Networking Is Just Distributed Debugging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Brute-Forcing-Confidence-One-Conversation-at-a-Time"><span class="toc-number">3.</span> <span class="toc-text">Brute-Forcing Confidence, One Conversation at a Time</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Actual-Takeaway"><span class="toc-number">4.</span> <span class="toc-text">The Actual Takeaway</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">40</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">82</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">234</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Anandram Mohan",
+          title: "The Zero-Day in My Own Personality: How 3 Months of Hackathons Taught Me to Social-Engineer Myself",
+          url: "https://arenredd.github.io/posts/zero-day-personality-hackathon-social-engineering/",
+          excerpt: "",
+          description: "",
+          stripContent: "Confessions of a cybersecurity student who finally stopped lurking in the corner of the room. So it’s been about three months since I last wrote anything here. No excuse, really. I just went dark. Full radio silence. If this blog had uptime monitorin",
+          date: "Mon Sep 07 2026 12:00:00 GMT+0530",
+          updated: "Mon Sep 07 2026 19:16:12 GMT+0530",
+          cover: "/assets/img/hackathon-networking.png",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.3' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
