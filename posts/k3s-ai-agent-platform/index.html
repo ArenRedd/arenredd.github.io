@@ -1,0 +1,604 @@
+  <!DOCTYPE html>
+  <html lang="en"  
+      data-theme-mode="auto"
+  >
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = 'All articles on this blog are licensed under the BY-NC-SA license agreement unless otherwise stated. Please indicate the source when reprinting!';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://arenredd.github.io';window.REIMU_CONFIG.relative = '/';</script>
+  <title>
+    K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale | Anand&#39;s Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="K3s AI-Agent Platform: A 10-Node Homelab Cluster Over TailscaleBuilding a Kubernetes cluster in your own homelab is one thing — but doing it over a private WireGuard mesh, with role-based node pools,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale">
+<meta property="og:url" content="https://arenredd.github.io/posts/k3s-ai-agent-platform/index.html">
+<meta property="og:site_name" content="Anand&#39;s Blog">
+<meta property="og:description" content="K3s AI-Agent Platform: A 10-Node Homelab Cluster Over TailscaleBuilding a Kubernetes cluster in your own homelab is one thing — but doing it over a private WireGuard mesh, with role-based node pools,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-11-09T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-09T12:16:57.496Z">
+<meta property="article:author" content="Anandram Mohan">
+<meta property="article:tag" content="ai-agents">
+<meta property="article:tag" content="devops">
+<meta property="article:tag" content="homelab">
+<meta property="article:tag" content="k3s">
+<meta property="article:tag" content="kubernetes">
+<meta property="article:tag" content="observability">
+<meta property="article:tag" content="tailscale">
+<meta name="twitter:card" content="summary">
+    <link rel="alternate" href="/atom.xml" title="Anand's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+        <a class="main-nav-link-wrap" target="_blank" rel="noopener" href="https://anandfolio.github.io/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Portfolio</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+    <picture></picture>
+    <img  fetchpriority="high" src="/assets/img/k3s-ai-agent-platform.png" alt="K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#K3s-AI-Agent-Platform-A-10-Node-Homelab-Cluster-Over-Tailscale"><span class="toc-number">1.</span> <span class="toc-text">K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Design-Goal"><span class="toc-number">1.1.</span> <span class="toc-text">The Design Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-Roles-and-Layout"><span class="toc-number">1.2.</span> <span class="toc-text">Node Roles and Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Design-Decisions"><span class="toc-number">1.3.</span> <span class="toc-text">Key Design Decisions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-Control-Plane"><span class="toc-number">1.3.1.</span> <span class="toc-text">Single Control Plane</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tailscale-Networking"><span class="toc-number">1.3.2.</span> <span class="toc-text">Tailscale Networking</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-Constraint"><span class="toc-number">1.3.3.</span> <span class="toc-text">Service Constraint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-and-Internet-Access"><span class="toc-number">1.3.4.</span> <span class="toc-text">DNS and Internet Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Storage-Constraint"><span class="toc-number">1.3.5.</span> <span class="toc-text">Storage Constraint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observability-Stack"><span class="toc-number">1.3.6.</span> <span class="toc-text">Observability Stack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Model"><span class="toc-number">1.4.</span> <span class="toc-text">Security Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tailscale-Only-Access"><span class="toc-number">1.4.1.</span> <span class="toc-text">Tailscale-Only Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deny-All-Sandbox-Namespace"><span class="toc-number">1.4.2.</span> <span class="toc-text">Deny-All Sandbox Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Secrets-Handling"><span class="toc-number">1.4.3.</span> <span class="toc-text">Secrets Handling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-Next"><span class="toc-number">1.5.</span> <span class="toc-text">What’s Next</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">1.6.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">52</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">90</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-11-09-k3s-ai-agent-platform" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-11-09T13:00:00.000Z" itemprop="datePublished">2026-11-09</time>
+    <time style="display: none;" id="post-update-time">2026-11-09</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="K3s-AI-Agent-Platform-A-10-Node-Homelab-Cluster-Over-Tailscale"><a href="#K3s-AI-Agent-Platform-A-10-Node-Homelab-Cluster-Over-Tailscale" class="headerlink" title="K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale"></a>K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale</h1><p>Building a Kubernetes cluster in your own homelab is one thing — but doing it over a private WireGuard mesh, with role-based node pools, sandboxed execution, and observability baked in from the start? That’s a different animal entirely. Here’s what I learned running a 10-node k3s cluster across two physical regions for AI agent execution.</p>
+<h2 id="The-Design-Goal"><a href="#The-Design-Goal" class="headerlink" title="The Design Goal"></a>The Design Goal</h2><p>The objective was straightforward: provision a cluster capable of running AI agents safely and observably, without exposing anything to the public internet. The constraint was equally firm: all connectivity had to go through Tailscale (a private WireGuard mesh), and the entire stack needed to fit on bare-metal boxes with 4 CPU, ~8 GB RAM, and 16 GB disk each.</p>
+<p>The result is a 10-node cluster (1 control plane + 9 workers), with node1 in Dallas permanently excluded and boxes 2–10 in the Seattle area forming the actual k3s cluster.</p>
+<h2 id="Node-Roles-and-Layout"><a href="#Node-Roles-and-Layout" class="headerlink" title="Node Roles and Layout"></a>Node Roles and Layout</h2><table>
+<thead>
+<tr>
+<th>Node</th>
+<th>Role</th>
+<th>Primary Workloads</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>box2</td>
+<td>control-plane</td>
+<td>kube-apiserver, kube-scheduler, kube-controller-manager, etcd</td>
+</tr>
+<tr>
+<td>box3</td>
+<td>worker (general)</td>
+<td>General AI agent workloads</td>
+</tr>
+<tr>
+<td>box4</td>
+<td>worker (general)</td>
+<td>General AI agent workloads</td>
+</tr>
+<tr>
+<td>box5</td>
+<td>memory (Qdrant planned)</td>
+<td>Qdrant vector store</td>
+</tr>
+<tr>
+<td>box6</td>
+<td>observability</td>
+<td>Prometheus, Grafana, kube-state-metrics, operator</td>
+</tr>
+<tr>
+<td>box7</td>
+<td>browser (planned)</td>
+<td>Browser-rendered agents with headless Chromium</td>
+</tr>
+<tr>
+<td>box8</td>
+<td>sandbox (deny-all)</td>
+<td>NetworkPolicy deny-all namespace</td>
+</tr>
+<tr>
+<td>box9</td>
+<td>sandbox (planned)</td>
+<td>Sandboxed workloads</td>
+</tr>
+<tr>
+<td>box10</td>
+<td>worker (general)</td>
+<td>General AI agent workloads</td>
+</tr>
+</tbody></table>
+<p><strong>box1 (Dallas)</strong> is excluded from the cluster entirely — different physical region, kept as an edge node reachable via Tailscale but not part of the k3s control plane.</p>
+<h2 id="Key-Design-Decisions"><a href="#Key-Design-Decisions" class="headerlink" title="Key Design Decisions"></a>Key Design Decisions</h2><h3 id="Single-Control-Plane"><a href="#Single-Control-Plane" class="headerlink" title="Single Control Plane"></a>Single Control Plane</h3><p>The cluster was intentionally reduced from 3 servers to 1 (box2) because the provider kernel lacks random load balancing, which breaks multi-endpoint ClusterIP Services. HA was given up so that Services work correctly. This is a deliberate trade-off: simpler networking at the cost of control-plane redundancy.</p>
+<h3 id="Tailscale-Networking"><a href="#Tailscale-Networking" class="headerlink" title="Tailscale Networking"></a>Tailscale Networking</h3><p>All boxes and the laptop are on Tailscale (private WireGuard mesh). The pod network is flannel CNI over Tailscale. This means every node, every pod, and the operator laptop are on the same secure mesh — no public IPs, no firewall holes, just a virtual network overlay.</p>
+<h3 id="Service-Constraint"><a href="#Service-Constraint" class="headerlink" title="Service Constraint"></a>Service Constraint</h3><p>No ClusterIP Service may have 2+ endpoints. Use <code>replicas: 1</code> or headless Services (<code>ClusterIP: None</code>). This is the primary networking constraint that shaped every other decision in the cluster.</p>
+<h3 id="DNS-and-Internet-Access"><a href="#DNS-and-Internet-Access" class="headerlink" title="DNS and Internet Access"></a>DNS and Internet Access</h3><p>Pods requiring internet access must set <code>dnsPolicy: None</code> with custom DNS servers <code>8.8.8.8</code> and <code>1.1.1.1</code>. Without this, DNS resolution doesn’t propagate through the Tailscale overlay correctly.</p>
+<h3 id="Storage-Constraint"><a href="#Storage-Constraint" class="headerlink" title="Storage Constraint"></a>Storage Constraint</h3><p>All nodes have 16 GB disks. Weekly <code>crictl rmi --prune</code> is recommended to avoid filling the disk with pruned container images. No S3 backend — backups live on the laptop.</p>
+<h3 id="Observability-Stack"><a href="#Observability-Stack" class="headerlink" title="Observability Stack"></a>Observability Stack</h3><ul>
+<li>Node-exporter on every node</li>
+<li>Prometheus + Grafana on box6 (<code>role=observability</code>)</li>
+<li>3-day retention, 5 GB cap</li>
+<li>Grafana accessed via port-forward from the laptop (Tailscale required)</li>
+<li>Headlamp also available via Walker launcher (SUPER + SPACE)</li>
+</ul>
+<h2 id="Security-Model"><a href="#Security-Model" class="headerlink" title="Security Model"></a>Security Model</h2><h3 id="Tailscale-Only-Access"><a href="#Tailscale-Only-Access" class="headerlink" title="Tailscale-Only Access"></a>Tailscale-Only Access</h3><p>All cluster access must go through Tailscale. The Kubernetes API server is not exposed publicly. Use <code>kubectl --kubeconfig ~/.kube/k3s-boxes.yaml</code> from a Tailscale-connected device. Grafana is accessible via port-forward (<code>http://localhost:3000</code>) only when the port-forward service is running and Tailscale is up.</p>
+<h3 id="Deny-All-Sandbox-Namespace"><a href="#Deny-All-Sandbox-Namespace" class="headerlink" title="Deny-All Sandbox Namespace"></a>Deny-All Sandbox Namespace</h3><p>The <code>agents-sandbox</code> namespace has a <code>NetworkPolicy</code> that denies all traffic by default. Only explicitly allowed pods may communicate in this namespace. This is the default for any sandboxed workload, providing a strong baseline isolation.</p>
+<h3 id="Secrets-Handling"><a href="#Secrets-Handling" class="headerlink" title="Secrets Handling"></a>Secrets Handling</h3><ul>
+<li>Grafana admin password: stored in <code>~/.k3s-cluster/grafana-pass</code>, never committed to the repo</li>
+<li>kubeconfig: never committed to the repo. Use placeholders: <code>&lt;CONTROL_PLANE_IP&gt;</code>, <code>&lt;NODE_IP&gt;</code></li>
+<li>Tailscale auth key: stored separately, never in the repo</li>
+<li>All YAML manifests use placeholders for IPs and tokens</li>
+</ul>
+<h2 id="What’s-Next"><a href="#What’s-Next" class="headerlink" title="What’s Next"></a>What’s Next</h2><p>The roadmap includes deploying Qdrant on box5, browser-rendered agents on box7, and sandbox namespaces on box8&#x2F;box9. Medium-term goals involve migrating Hermes from the AWS server to box10 for local control, and implementing 3-server HA (requires a kernel-level load-balancing fix). Long-term: multi-region extension with box1 in Dallas as an edge node, and automated image pruning scripts.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Running a 10-node k3s cluster over Tailscale was as much about the constraints as the capabilities. The single control plane, the service constraints, the DNS policy — each was a conscious choice shaped by the hardware and the threat model. The result is a secure, observable platform ready for AI agent execution, with room to grow into HA, multi-region, and persistent vector storage.</p>
+<p>If you’re building your own homelab cluster, the biggest lesson is this: pick your constraints early, design around them, and don’t be afraid to give something up (like HA) if it means everything else works reliably over your mesh.</p>
+<p><em>This project was built with Hermes Agent, applying Muggle IT principles to the kind of infrastructure Arthur Weasley would’ve been fascinated by — if he had 10 bare-metal boxes and a free weekend.</em></p>
+<hr>
+<small>
+Post published 2026-11-09. Live at: https://arenredd.github.io/posts/k3s-ai-agent-platform/
+</small>
+    </div>
+    <footer class="article-footer">
+        <a class="article-category-link" href="/categories/Cyber-Journal/" title="Cyber-Journal" data-aos="zoom-in">Cyber-Journal</a><a class="article-category-link" href="/categories/Cyber-Journal/DevOps/" title="DevOps" data-aos="zoom-in">DevOps</a>
+
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/ai-agents/" rel="tag" title="ai-agents">ai-agents</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/devops/" rel="tag" title="devops">devops</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/homelab/" rel="tag" title="homelab">homelab</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/k3s/" rel="tag" title="k3s">k3s</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/kubernetes/" rel="tag" title="kubernetes">kubernetes</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/observability/" rel="tag" title="observability">observability</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/tailscale/" rel="tag" title="tailscale">tailscale</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+        <img data-src="/assets/img/tam-sam-som-niche-example.png" data-sizes="auto" alt="TAM, SAM and SOM for a Niche Product: A Worked Example" class="lazyload">
+      <a href="/posts/tam-sam-som-niche-example/" aria-label="Next: TAM, SAM and SOM for a Niche Product: A Worked Example"  title="Next: TAM, SAM and SOM for a Niche Product: A Worked Example"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          TAM, SAM and SOM for a Niche Product: A Worked Example
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2020-2026
+        <span class="footer-info-sep rotate"></span>
+      Anandram Mohan
+    </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#K3s-AI-Agent-Platform-A-10-Node-Homelab-Cluster-Over-Tailscale"><span class="toc-number">1.</span> <span class="toc-text">K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Design-Goal"><span class="toc-number">1.1.</span> <span class="toc-text">The Design Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-Roles-and-Layout"><span class="toc-number">1.2.</span> <span class="toc-text">Node Roles and Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Design-Decisions"><span class="toc-number">1.3.</span> <span class="toc-text">Key Design Decisions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-Control-Plane"><span class="toc-number">1.3.1.</span> <span class="toc-text">Single Control Plane</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tailscale-Networking"><span class="toc-number">1.3.2.</span> <span class="toc-text">Tailscale Networking</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-Constraint"><span class="toc-number">1.3.3.</span> <span class="toc-text">Service Constraint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-and-Internet-Access"><span class="toc-number">1.3.4.</span> <span class="toc-text">DNS and Internet Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Storage-Constraint"><span class="toc-number">1.3.5.</span> <span class="toc-text">Storage Constraint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Observability-Stack"><span class="toc-number">1.3.6.</span> <span class="toc-text">Observability Stack</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Model"><span class="toc-number">1.4.</span> <span class="toc-text">Security Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tailscale-Only-Access"><span class="toc-number">1.4.1.</span> <span class="toc-text">Tailscale-Only Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deny-All-Sandbox-Namespace"><span class="toc-number">1.4.2.</span> <span class="toc-text">Deny-All Sandbox Namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Secrets-Handling"><span class="toc-number">1.4.3.</span> <span class="toc-text">Secrets Handling</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-Next"><span class="toc-number">1.5.</span> <span class="toc-text">What’s Next</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">1.6.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Anandram Mohan" class="lazyload">
+  <div class="sidebar-author-name">Anandram Mohan</div>
+  <div class="sidebar-description">Personal cybersecurity blog covering ethical hacking, tools, research notes, CTFs, and real-world experiments.</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">52</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">90</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/ArenRedd itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/aren_redd/ itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-linkedin sidebar-social-icon">
+      <a href=https://www.linkedin.com/in/Anandram-Mohan/ itemprop="url" target="_blank" aria-label="linkedin" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-reddit sidebar-social-icon">
+      <a href=https://www.reddit.com/user/Honest-Huckleberry28/ itemprop="url" target="_blank" aria-label="reddit" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-telegram sidebar-social-icon">
+      <a href=https://t.me/PeterDinklag itemprop="url" target="_blank" aria-label="telegram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-discord sidebar-social-icon">
+      <a href=https://discordapp.com/users/Arenredd itemprop="url" target="_blank" aria-label="discord" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:anandrammohan9952@gmail.com itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" target="_blank" rel="noopener" href="https://anandfolio.github.io/" aria-label="Portfolio"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Portfolio</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Anandram Mohan",
+          title: "K3s AI-Agent Platform: A 10-Node Homelab Cluster Over Tailscale",
+          url: "https://arenredd.github.io/posts/k3s-ai-agent-platform/",
+          excerpt: "",
+          description: "",
+          stripContent: "K3s AI-Agent Platform: A 10-Node Homelab Cluster Over TailscaleBuilding a Kubernetes cluster in your own homelab is one thing — but doing it over a private WireGuard mesh, with role-based node pools, sandboxed execution, and observability baked in fr",
+          date: "Mon Nov 09 2026 18:30:00 GMT+0530",
+          updated: "Mon Nov 09 2026 17:46:57 GMT+0530",
+          cover: "/assets/img/k3s-ai-agent-platform.png",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.3' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
